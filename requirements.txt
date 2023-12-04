@@ -1,0 +1,16 @@
+coverage
+flake8
+python-dotenv>=0.5.1
+torch
+tqdm~=4.64.0
+tensorboard
+numpy~=1.23.2
+PyYAML
+omegaconf
+setuptools~=60.2.0
+torchvision
+matplotlib~=3.5.3
+thop
+pynvml
+tensorboardX
+scipy
