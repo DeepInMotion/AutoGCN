@@ -1,0 +1,1543 @@
+[ 2023-10-30 15:04:04,500 ] Saving folder path: /lhome/fetempel/code/GNN_NAS/logs/random_search_xsub60/2023-10-30 15-04-04
+[ 2023-10-30 15:04:04,500 ] 
+[ 2023-10-30 15:04:04,500 ] Starting preparing train_has
+[ 2023-10-30 15:04:04,500 ] Seed set to: 4567
+[ 2023-10-30 15:04:04,502 ] Saving model name: random_search_has_ntu_xsub60
+[ 2023-10-30 15:04:04,577 ] GPU-0 used: 271.125MB
+[ 2023-10-30 15:04:04,620 ] Number of Threads: 16
+[ 2023-10-30 15:04:04,937 ] Generate Graph data in the [ntu] layout
+[ 2023-10-30 15:04:04,938 ] Loading processed data.
+[ 2023-10-30 15:04:04,939 ] Trying to load NTU data.
+[ 2023-10-30 15:04:04,945 ] Done with loading data.
+[ 2023-10-30 15:04:04,947 ] Generate Graph data in the [ntu] layout
+[ 2023-10-30 15:04:04,948 ] Loading processed data.
+[ 2023-10-30 15:04:04,948 ] Trying to load NTU data.
+[ 2023-10-30 15:04:04,950 ] Done with loading data.
+[ 2023-10-30 15:04:04,952 ] Dataset: xsub60
+[ 2023-10-30 15:04:04,952 ] Batch size: train-16, eval-16
+[ 2023-10-30 15:04:04,952 ] Data shape (branch, channel, frame, joint, person): [3, 6, 300, 25, 2]
+[ 2023-10-30 15:04:04,952 ] Number of action classes: 60
+[ 2023-10-30 15:04:04,952 ] Optimizers: [<class 'torch.optim.sgd.SGD'>, <class 'torch.optim.adam.Adam'>, <class 'torch.optim.rmsprop.RMSprop'>]
+[ 2023-10-30 15:04:04,952 ] Load Search Space...
+[ 2023-10-30 15:04:04,952 ] Loading whole and NEW Search Space
+[ 2023-10-30 15:04:04,953 ] Architecture Search Space is: OrderedDict([('init_lay', [64, 96, 128, 156]), ('act', ['relu', 'relu6', 'hardswish', 'swish']), ('att_lay', ['stja', 'ca', 'fa', 'ja', 'pa']), ('conv_lay', ['Basic', 'Bottleneck', 'Sep', 'SG', 'V3', 'Shuffle']), ('drop_prob', [0.15, 0.2, 0.25, 0.3]), ('blocks_in', [1, 2]), ('depth_in', [1, 2]), ('stride_in', [1, 2, 3]), ('scale_in', [0.4, 0.6, 0.8]), ('temp_win_in', [3, 5, 7]), ('graph_dist_in', [2, 3, 4]), ('reduct_ratio_in', [1.225, 1.25, 1.275, 1.3, 1.325, 1.35]), ('blocks_main', [2, 3, 4, 5]), ('depth_main', [1, 2, 3, 4]), ('graph_dist_main', [7, 9, 11]), ('shrinkage_main', [1, 2, 4, 6]), ('residual_main', [True, False]), ('adaptive_main', [True, False])])
+[ 2023-10-30 15:04:04,953 ] Hyperparameter Search Space is: OrderedDict([('lr', [0.1, 0.05, 0.01]), ('optimizers', ['SGD', 'Adam', 'RMSprop']), ('weight_decay', [0.0, 0.01, 0.001, 0.0001]), ('momentum', [0.5, 0.9, 0.99]), ('batch_size', [8, 16, 24])])
+[ 2023-10-30 15:04:04,953 ] Search Space size: 80
+[ 2023-10-30 15:04:06,502 ] Controller optimizer is Adam with lr 0.001
+[ 2023-10-30 15:04:06,502 ] Loss function: CrossEntropyLoss
+[ 2023-10-30 15:04:06,502 ] Successful!
+[ 2023-10-30 15:04:06,502 ] 
+[ 2023-10-30 15:04:06,502 ] Starting Random Search for 50 iterations...
+[ 2023-10-30 15:04:06,502 ] Iteration random 0/50
+[ 2023-10-30 15:04:06,502 ] Rollout random 0/20
+[ 2023-10-30 15:04:06,609 ] Student AP: {'init_lay': 156, 'act': 'hardswish', 'att_lay': 'pa', 'conv_lay': 'SG', 'drop_prob': 0.3, 'blocks_in': 2, 'depth_in': 2, 'stride_in': 1, 'scale_in': 0.8, 'temp_win_in': 7, 'graph_dist_in': 3, 'reduct_ratio_in': 1.25, 'blocks_main': 4, 'depth_main': 1, 'graph_dist_main': 9, 'shrinkage_main': 6, 'residual_main': True, 'adaptive_main': False}
+[ 2023-10-30 15:04:06,609 ] Student HP: {'lr': 0.01, 'optimizers': 'Adam', 'weight_decay': 0.0001, 'momentum': 0.5, 'batch_size': 8}
+[ 2023-10-30 15:04:07,141 ] Model profile: 46.97G FLOPs and 3.70M Parameters
+[ 2023-10-30 15:04:07,143 ] Updated Batch size from: old-16 -> new-8
+[ 2023-10-30 15:04:07,145 ] LR_Scheduler: MultiStepLR
+[ 2023-10-30 15:04:07,145 ] Training random student 0 for 25 epochs
+[ 2023-10-30 15:46:48,162 ] Epoch: 1/25, Train accuracy: 13575/40088(33.90%), Train time: 2560.99s, Mean loss:2.2631, lr:0.0025
+[ 2023-10-30 15:46:48,163 ] 
+[ 2023-10-30 16:29:33,451 ] Epoch: 2/25, Train accuracy: 22703/40088(56.60%), Train time: 2564.96s, Mean loss:1.3943, lr:0.0033
+[ 2023-10-30 16:29:33,451 ] 
+[ 2023-10-30 17:12:15,025 ] Epoch: 3/25, Train accuracy: 26327/40088(65.70%), Train time: 2561.25s, Mean loss:1.0960, lr:0.0040
+[ 2023-10-30 17:12:15,026 ] 
+[ 2023-10-30 17:55:06,176 ] Epoch: 4/25, Train accuracy: 27996/40088(69.80%), Train time: 2570.82s, Mean loss:0.9533, lr:0.0048
+[ 2023-10-30 17:55:06,177 ] 
+[ 2023-10-30 18:37:43,462 ] Epoch: 5/25, Train accuracy: 28965/40088(72.30%), Train time: 2556.91s, Mean loss:0.8746, lr:0.0055
+[ 2023-10-30 18:37:43,462 ] 
+[ 2023-10-30 18:37:43,564 ] Evaluating for epoch 5/25 ...
+[ 2023-10-30 18:42:37,980 ] Top-1 accuracy: 12469/16480(75.70%), Top-5 accuracy: 15777/16480(95.70%), Mean loss:0.7838
+[ 2023-10-30 18:42:37,980 ] Evaluating time: 294.41s, Speed: 55.98 sequnces/(second*GPU)
+[ 2023-10-30 18:42:37,980 ] 
+[ 2023-10-30 19:25:20,638 ] Epoch: 6/25, Train accuracy: 29521/40088(73.60%), Train time: 2562.37s, Mean loss:0.8294, lr:0.0063
+[ 2023-10-30 19:25:20,638 ] 
+[ 2023-10-30 20:08:13,553 ] Epoch: 7/25, Train accuracy: 29868/40088(74.50%), Train time: 2572.59s, Mean loss:0.8066, lr:0.0070
+[ 2023-10-30 20:08:13,554 ] 
+[ 2023-10-30 20:51:04,339 ] Epoch: 8/25, Train accuracy: 29974/40088(74.80%), Train time: 2570.44s, Mean loss:0.7946, lr:0.0078
+[ 2023-10-30 20:51:04,339 ] 
+[ 2023-10-30 21:33:48,661 ] Epoch: 9/25, Train accuracy: 30287/40088(75.60%), Train time: 2564.00s, Mean loss:0.7759, lr:0.0085
+[ 2023-10-30 21:33:48,662 ] 
+[ 2023-10-30 22:16:31,770 ] Epoch: 10/25, Train accuracy: 30189/40088(75.30%), Train time: 2562.78s, Mean loss:0.7767, lr:0.0093
+[ 2023-10-30 22:16:31,771 ] 
+[ 2023-10-30 22:16:31,904 ] Evaluating for epoch 10/25 ...
+[ 2023-10-30 22:21:26,960 ] Top-1 accuracy: 11984/16480(72.70%), Top-5 accuracy: 15762/16480(95.60%), Mean loss:0.8915
+[ 2023-10-30 22:21:26,961 ] Evaluating time: 295.05s, Speed: 55.85 sequnces/(second*GPU)
+[ 2023-10-30 22:21:26,961 ] 
+[ 2023-10-30 23:04:02,394 ] Epoch: 11/25, Train accuracy: 30315/40088(75.60%), Train time: 2555.20s, Mean loss:0.7743, lr:0.0100
+[ 2023-10-30 23:04:02,395 ] 
+[ 2023-10-30 23:46:45,378 ] Epoch: 12/25, Train accuracy: 30466/40088(76.00%), Train time: 2562.65s, Mean loss:0.7553, lr:0.0100
+[ 2023-10-30 23:46:45,379 ] 
+[ 2023-10-31 00:29:29,077 ] Epoch: 13/25, Train accuracy: 30774/40088(76.80%), Train time: 2563.37s, Mean loss:0.7362, lr:0.0100
+[ 2023-10-31 00:29:29,078 ] 
+[ 2023-10-31 01:12:11,665 ] Epoch: 14/25, Train accuracy: 30773/40088(76.80%), Train time: 2562.26s, Mean loss:0.7294, lr:0.0100
+[ 2023-10-31 01:12:11,666 ] 
+[ 2023-10-31 01:54:56,090 ] Epoch: 15/25, Train accuracy: 31016/40088(77.40%), Train time: 2564.10s, Mean loss:0.7102, lr:0.0100
+[ 2023-10-31 01:54:56,090 ] 
+[ 2023-10-31 01:54:56,213 ] Evaluating for epoch 15/25 ...
+[ 2023-10-31 01:59:51,293 ] Top-1 accuracy: 12690/16480(77.00%), Top-5 accuracy: 15922/16480(96.60%), Mean loss:0.7265
+[ 2023-10-31 01:59:51,293 ] Evaluating time: 295.08s, Speed: 55.85 sequnces/(second*GPU)
+[ 2023-10-31 01:59:51,293 ] 
+[ 2023-10-31 02:42:33,723 ] Epoch: 16/25, Train accuracy: 31221/40088(77.90%), Train time: 2562.12s, Mean loss:0.7036, lr:0.0100
+[ 2023-10-31 02:42:33,723 ] 
+[ 2023-10-31 03:25:16,147 ] Epoch: 17/25, Train accuracy: 31224/40088(77.90%), Train time: 2562.09s, Mean loss:0.6945, lr:0.0100
+[ 2023-10-31 03:25:16,147 ] 
+[ 2023-10-31 04:07:58,054 ] Epoch: 18/25, Train accuracy: 31288/40088(78.00%), Train time: 2561.57s, Mean loss:0.6847, lr:0.0100
+[ 2023-10-31 04:07:58,054 ] 
+[ 2023-10-31 04:50:41,309 ] Epoch: 19/25, Train accuracy: 31448/40088(78.40%), Train time: 2562.93s, Mean loss:0.6804, lr:0.0100
+[ 2023-10-31 04:50:41,310 ] 
+[ 2023-10-31 05:33:24,366 ] Epoch: 20/25, Train accuracy: 31573/40088(78.80%), Train time: 2562.71s, Mean loss:0.6735, lr:0.0100
+[ 2023-10-31 05:33:24,366 ] 
+[ 2023-10-31 05:33:24,463 ] Evaluating for epoch 20/25 ...
+[ 2023-10-31 05:38:19,474 ] Top-1 accuracy: 12913/16480(78.40%), Top-5 accuracy: 15880/16480(96.40%), Mean loss:0.7042
+[ 2023-10-31 05:38:19,474 ] Evaluating time: 295.01s, Speed: 55.86 sequnces/(second*GPU)
+[ 2023-10-31 05:38:19,474 ] 
+[ 2023-10-31 06:20:56,256 ] Epoch: 21/25, Train accuracy: 31520/40088(78.60%), Train time: 2556.47s, Mean loss:0.6737, lr:0.0100
+[ 2023-10-31 06:20:56,257 ] 
+[ 2023-10-31 07:03:38,148 ] Epoch: 22/25, Train accuracy: 31600/40088(78.80%), Train time: 2561.57s, Mean loss:0.6576, lr:0.0100
+[ 2023-10-31 07:03:38,148 ] 
+[ 2023-10-31 07:46:21,127 ] Epoch: 23/25, Train accuracy: 31688/40088(79.00%), Train time: 2562.62s, Mean loss:0.6539, lr:0.0100
+[ 2023-10-31 07:46:21,127 ] 
+[ 2023-10-31 08:29:04,091 ] Epoch: 24/25, Train accuracy: 31893/40088(79.60%), Train time: 2562.65s, Mean loss:0.6452, lr:0.0100
+[ 2023-10-31 08:29:04,091 ] 
+[ 2023-10-31 09:11:52,056 ] Epoch: 25/25, Train accuracy: 31875/40088(79.50%), Train time: 2567.65s, Mean loss:0.6463, lr:0.0100
+[ 2023-10-31 09:11:52,056 ] 
+[ 2023-10-31 09:11:52,161 ] Evaluating for epoch 25/25 ...
+[ 2023-10-31 09:16:47,582 ] Top-1 accuracy: 13015/16480(79.00%), Top-5 accuracy: 16004/16480(97.10%), Mean loss:0.6900
+[ 2023-10-31 09:16:47,582 ] Evaluating time: 295.42s, Speed: 55.79 sequnces/(second*GPU)
+[ 2023-10-31 09:16:47,583 ] 
+[ 2023-10-31 09:16:47,943 ] Rollout random 1/20
+[ 2023-10-31 09:16:48,008 ] Student AP: {'init_lay': 128, 'act': 'relu6', 'att_lay': 'pa', 'conv_lay': 'Shuffle', 'drop_prob': 0.15, 'blocks_in': 1, 'depth_in': 2, 'stride_in': 2, 'scale_in': 0.8, 'temp_win_in': 5, 'graph_dist_in': 2, 'reduct_ratio_in': 1.325, 'blocks_main': 3, 'depth_main': 3, 'graph_dist_main': 7, 'shrinkage_main': 2, 'residual_main': True, 'adaptive_main': False}
+[ 2023-10-31 09:16:48,009 ] Student HP: {'lr': 0.05, 'optimizers': 'Adam', 'weight_decay': 0.001, 'momentum': 0.99, 'batch_size': 8}
+[ 2023-10-31 09:16:48,276 ] Model profile: 18.82G FLOPs and 2.33M Parameters
+[ 2023-10-31 09:16:48,277 ] Updated Batch size from: old-8 -> new-8
+[ 2023-10-31 09:16:48,282 ] LR_Scheduler: MultiStepLR
+[ 2023-10-31 09:16:48,283 ] Training random student 1 for 25 epochs
+[ 2023-10-31 09:36:58,559 ] Epoch: 1/25, Train accuracy: 3957/40088(9.90%), Train time: 1210.26s, Mean loss:3.3430, lr:0.0125
+[ 2023-10-31 09:36:58,560 ] 
+[ 2023-10-31 09:57:03,601 ] Epoch: 2/25, Train accuracy: 6823/40088(17.00%), Train time: 1204.80s, Mean loss:2.8774, lr:0.0163
+[ 2023-10-31 09:57:03,602 ] 
+[ 2023-10-31 10:17:01,086 ] Epoch: 3/25, Train accuracy: 7623/40088(19.00%), Train time: 1197.26s, Mean loss:2.7945, lr:0.0200
+[ 2023-10-31 10:17:01,087 ] 
+[ 2023-10-31 10:36:56,950 ] Epoch: 4/25, Train accuracy: 7974/40088(19.90%), Train time: 1195.64s, Mean loss:2.7527, lr:0.0238
+[ 2023-10-31 10:36:56,951 ] 
+[ 2023-10-31 10:56:55,185 ] Epoch: 5/25, Train accuracy: 8091/40088(20.20%), Train time: 1197.99s, Mean loss:2.7274, lr:0.0275
+[ 2023-10-31 10:56:55,186 ] 
+[ 2023-10-31 10:56:55,260 ] Evaluating for epoch 5/25 ...
+[ 2023-10-31 10:59:23,008 ] Top-1 accuracy: 3569/16480(21.70%), Top-5 accuracy: 10040/16480(60.90%), Mean loss:2.7010
+[ 2023-10-31 10:59:23,008 ] Evaluating time: 147.75s, Speed: 111.54 sequnces/(second*GPU)
+[ 2023-10-31 10:59:23,008 ] 
+[ 2023-10-31 11:19:19,735 ] Epoch: 6/25, Train accuracy: 8326/40088(20.80%), Train time: 1196.54s, Mean loss:2.7270, lr:0.0312
+[ 2023-10-31 11:19:19,736 ] 
+[ 2023-10-31 11:39:15,487 ] Epoch: 7/25, Train accuracy: 8126/40088(20.30%), Train time: 1195.51s, Mean loss:2.7351, lr:0.0350
+[ 2023-10-31 11:39:15,487 ] 
+[ 2023-10-31 11:59:11,873 ] Epoch: 8/25, Train accuracy: 8188/40088(20.40%), Train time: 1196.15s, Mean loss:2.7529, lr:0.0387
+[ 2023-10-31 11:59:11,874 ] 
+[ 2023-10-31 12:19:09,544 ] Epoch: 9/25, Train accuracy: 7831/40088(19.50%), Train time: 1197.43s, Mean loss:2.7916, lr:0.0425
+[ 2023-10-31 12:19:09,545 ] 
+[ 2023-10-31 12:39:05,166 ] Epoch: 10/25, Train accuracy: 7680/40088(19.20%), Train time: 1195.38s, Mean loss:2.8064, lr:0.0462
+[ 2023-10-31 12:39:05,166 ] 
+[ 2023-10-31 12:39:05,253 ] Evaluating for epoch 10/25 ...
+[ 2023-10-31 12:41:32,612 ] Top-1 accuracy: 3217/16480(19.50%), Top-5 accuracy: 9435/16480(57.30%), Mean loss:2.9058
+[ 2023-10-31 12:41:32,612 ] Evaluating time: 147.36s, Speed: 111.84 sequnces/(second*GPU)
+[ 2023-10-31 12:41:32,612 ] 
+[ 2023-10-31 12:41:32,764 ] Student 1 EARLY STOP after 9 epochs
+[ 2023-10-31 12:41:32,828 ] Rollout random 2/20
+[ 2023-10-31 12:41:32,947 ] Student AP: {'init_lay': 156, 'act': 'relu', 'att_lay': 'stja', 'conv_lay': 'Bottleneck', 'drop_prob': 0.25, 'blocks_in': 2, 'depth_in': 2, 'stride_in': 3, 'scale_in': 0.6, 'temp_win_in': 5, 'graph_dist_in': 2, 'reduct_ratio_in': 1.3, 'blocks_main': 5, 'depth_main': 3, 'graph_dist_main': 11, 'shrinkage_main': 1, 'residual_main': False, 'adaptive_main': False}
+[ 2023-10-31 12:41:32,947 ] Student HP: {'lr': 0.1, 'optimizers': 'RMSprop', 'weight_decay': 0.0, 'momentum': 0.5, 'batch_size': 24}
+[ 2023-10-31 12:41:33,249 ] Model profile: 17.58G FLOPs and 5.46M Parameters
+[ 2023-10-31 12:41:33,250 ] Updated Batch size from: old-8 -> new-24
+[ 2023-10-31 12:41:33,254 ] LR_Scheduler: MultiStepLR
+[ 2023-10-31 12:41:33,255 ] Training random student 2 for 25 epochs
+[ 2023-10-31 12:57:43,507 ] Epoch: 1/25, Train accuracy: 9318/40080(23.20%), Train time: 970.23s, Mean loss:2.9355, lr:0.0250
+[ 2023-10-31 12:57:43,507 ] 
+[ 2023-10-31 13:13:52,726 ] Epoch: 2/25, Train accuracy: 19436/40080(48.50%), Train time: 968.86s, Mean loss:1.7137, lr:0.0325
+[ 2023-10-31 13:13:52,727 ] 
+[ 2023-10-31 13:30:00,842 ] Epoch: 3/25, Train accuracy: 22640/40080(56.50%), Train time: 967.74s, Mean loss:1.4066, lr:0.0400
+[ 2023-10-31 13:30:00,843 ] 
+[ 2023-10-31 13:46:08,955 ] Epoch: 4/25, Train accuracy: 23946/40080(59.70%), Train time: 967.75s, Mean loss:1.3642, lr:0.0475
+[ 2023-10-31 13:46:08,955 ] 
+[ 2023-10-31 14:02:18,881 ] Epoch: 5/25, Train accuracy: 23373/40080(58.30%), Train time: 969.57s, Mean loss:1.3861, lr:0.0550
+[ 2023-10-31 14:02:18,882 ] 
+[ 2023-10-31 14:02:18,974 ] Evaluating for epoch 5/25 ...
+[ 2023-10-31 14:04:22,017 ] Top-1 accuracy: 10573/16464(64.20%), Top-5 accuracy: 15196/16464(92.30%), Mean loss:1.3280
+[ 2023-10-31 14:04:22,017 ] Evaluating time: 123.04s, Speed: 133.81 sequnces/(second*GPU)
+[ 2023-10-31 14:04:22,017 ] 
+[ 2023-10-31 14:20:31,925 ] Epoch: 6/25, Train accuracy: 23885/40080(59.60%), Train time: 969.56s, Mean loss:1.3332, lr:0.0625
+[ 2023-10-31 14:20:31,926 ] 
+[ 2023-10-31 14:36:43,081 ] Epoch: 7/25, Train accuracy: 23830/40080(59.50%), Train time: 970.79s, Mean loss:1.3288, lr:0.0700
+[ 2023-10-31 14:36:43,082 ] 
+[ 2023-10-31 14:52:53,511 ] Epoch: 8/25, Train accuracy: 23691/40080(59.10%), Train time: 970.00s, Mean loss:1.5338, lr:0.0775
+[ 2023-10-31 14:52:53,512 ] 
+[ 2023-10-31 15:09:03,516 ] Epoch: 9/25, Train accuracy: 25132/40080(62.70%), Train time: 969.63s, Mean loss:1.2302, lr:0.0850
+[ 2023-10-31 15:09:03,516 ] 
+[ 2023-10-31 15:25:13,695 ] Epoch: 10/25, Train accuracy: 25992/40080(64.90%), Train time: 969.83s, Mean loss:1.1703, lr:0.0925
+[ 2023-10-31 15:25:13,695 ] 
+[ 2023-10-31 15:25:13,783 ] Evaluating for epoch 10/25 ...
+[ 2023-10-31 15:27:16,998 ] Top-1 accuracy: 11075/16464(67.30%), Top-5 accuracy: 15377/16464(93.40%), Mean loss:1.0451
+[ 2023-10-31 15:27:16,998 ] Evaluating time: 123.21s, Speed: 133.62 sequnces/(second*GPU)
+[ 2023-10-31 15:27:16,998 ] 
+[ 2023-10-31 15:43:26,387 ] Epoch: 11/25, Train accuracy: 26312/40080(65.60%), Train time: 969.02s, Mean loss:1.1407, lr:0.1000
+[ 2023-10-31 15:43:26,388 ] 
+[ 2023-10-31 15:59:37,568 ] Epoch: 12/25, Train accuracy: 26666/40080(66.50%), Train time: 970.78s, Mean loss:1.1202, lr:0.1000
+[ 2023-10-31 15:59:37,568 ] 
+[ 2023-10-31 16:15:47,677 ] Epoch: 13/25, Train accuracy: 26723/40080(66.70%), Train time: 969.71s, Mean loss:1.0830, lr:0.1000
+[ 2023-10-31 16:15:47,678 ] 
+[ 2023-10-31 16:31:57,399 ] Epoch: 14/25, Train accuracy: 27557/40080(68.80%), Train time: 969.32s, Mean loss:1.0313, lr:0.1000
+[ 2023-10-31 16:31:57,399 ] 
+[ 2023-10-31 16:48:05,965 ] Epoch: 15/25, Train accuracy: 28261/40080(70.50%), Train time: 968.20s, Mean loss:0.9987, lr:0.1000
+[ 2023-10-31 16:48:05,966 ] 
+[ 2023-10-31 16:48:06,049 ] Evaluating for epoch 15/25 ...
+[ 2023-10-31 16:50:09,080 ] Top-1 accuracy: 11809/16464(71.70%), Top-5 accuracy: 15571/16464(94.60%), Mean loss:0.9855
+[ 2023-10-31 16:50:09,080 ] Evaluating time: 123.03s, Speed: 133.82 sequnces/(second*GPU)
+[ 2023-10-31 16:50:09,080 ] 
+[ 2023-10-31 17:06:17,883 ] Epoch: 16/25, Train accuracy: 28452/40080(71.00%), Train time: 968.42s, Mean loss:1.0405, lr:0.1000
+[ 2023-10-31 17:06:17,884 ] 
+[ 2023-10-31 17:22:26,627 ] Epoch: 17/25, Train accuracy: 28607/40080(71.40%), Train time: 968.38s, Mean loss:0.9414, lr:0.1000
+[ 2023-10-31 17:22:26,628 ] 
+[ 2023-10-31 17:38:35,624 ] Epoch: 18/25, Train accuracy: 29146/40080(72.70%), Train time: 968.65s, Mean loss:0.9275, lr:0.1000
+[ 2023-10-31 17:38:35,624 ] 
+[ 2023-10-31 17:54:44,749 ] Epoch: 19/25, Train accuracy: 29492/40080(73.60%), Train time: 968.75s, Mean loss:0.9123, lr:0.1000
+[ 2023-10-31 17:54:44,749 ] 
+[ 2023-10-31 18:10:55,996 ] Epoch: 20/25, Train accuracy: 29842/40080(74.50%), Train time: 970.85s, Mean loss:0.8595, lr:0.1000
+[ 2023-10-31 18:10:55,996 ] 
+[ 2023-10-31 18:10:56,092 ] Evaluating for epoch 20/25 ...
+[ 2023-10-31 18:12:59,598 ] Top-1 accuracy: 12395/16464(75.30%), Top-5 accuracy: 15617/16464(94.90%), Mean loss:0.9765
+[ 2023-10-31 18:12:59,599 ] Evaluating time: 123.50s, Speed: 133.31 sequnces/(second*GPU)
+[ 2023-10-31 18:12:59,599 ] 
+[ 2023-10-31 18:29:12,414 ] Epoch: 21/25, Train accuracy: 29995/40080(74.80%), Train time: 972.43s, Mean loss:0.8778, lr:0.1000
+[ 2023-10-31 18:29:12,414 ] 
+[ 2023-10-31 18:45:22,581 ] Epoch: 22/25, Train accuracy: 30302/40080(75.60%), Train time: 969.80s, Mean loss:0.8018, lr:0.1000
+[ 2023-10-31 18:45:22,581 ] 
+[ 2023-10-31 19:01:33,536 ] Epoch: 23/25, Train accuracy: 29737/40080(74.20%), Train time: 970.58s, Mean loss:4.1249, lr:0.1000
+[ 2023-10-31 19:01:33,536 ] 
+[ 2023-10-31 19:17:45,625 ] Epoch: 24/25, Train accuracy: 30332/40080(75.70%), Train time: 971.69s, Mean loss:0.8184, lr:0.1000
+[ 2023-10-31 19:17:45,626 ] 
+[ 2023-10-31 19:33:54,917 ] Epoch: 25/25, Train accuracy: 30702/40080(76.60%), Train time: 968.93s, Mean loss:0.7997, lr:0.1000
+[ 2023-10-31 19:33:54,917 ] 
+[ 2023-10-31 19:33:55,008 ] Evaluating for epoch 25/25 ...
+[ 2023-10-31 19:35:58,203 ] Top-1 accuracy: 12607/16464(76.60%), Top-5 accuracy: 15712/16464(95.40%), Mean loss:0.9246
+[ 2023-10-31 19:35:58,203 ] Evaluating time: 123.19s, Speed: 133.64 sequnces/(second*GPU)
+[ 2023-10-31 19:35:58,203 ] 
+[ 2023-10-31 19:35:58,643 ] Rollout random 3/20
+[ 2023-10-31 19:35:58,708 ] Student AP: {'init_lay': 96, 'act': 'relu', 'att_lay': 'fa', 'conv_lay': 'Basic', 'drop_prob': 0.15, 'blocks_in': 2, 'depth_in': 1, 'stride_in': 2, 'scale_in': 0.8, 'temp_win_in': 7, 'graph_dist_in': 2, 'reduct_ratio_in': 1.3, 'blocks_main': 3, 'depth_main': 4, 'graph_dist_main': 11, 'shrinkage_main': 2, 'residual_main': False, 'adaptive_main': True}
+[ 2023-10-31 19:35:58,708 ] Student HP: {'lr': 0.1, 'optimizers': 'Adam', 'weight_decay': 0.0001, 'momentum': 0.9, 'batch_size': 8}
+[ 2023-10-31 19:35:58,916 ] Model profile: 12.48G FLOPs and 2.35M Parameters
+[ 2023-10-31 19:35:58,917 ] Updated Batch size from: old-24 -> new-8
+[ 2023-10-31 19:35:58,922 ] LR_Scheduler: MultiStepLR
+[ 2023-10-31 19:35:58,922 ] Training random student 3 for 25 epochs
+[ 2023-10-31 19:50:56,240 ] Epoch: 1/25, Train accuracy: 5917/40088(14.80%), Train time: 897.30s, Mean loss:3.1194, lr:0.0250
+[ 2023-10-31 19:50:56,241 ] 
+[ 2023-10-31 20:05:53,503 ] Epoch: 2/25, Train accuracy: 14468/40088(36.10%), Train time: 897.04s, Mean loss:2.1376, lr:0.0325
+[ 2023-10-31 20:05:53,503 ] 
+[ 2023-10-31 20:20:48,784 ] Epoch: 3/25, Train accuracy: 16701/40088(41.70%), Train time: 895.05s, Mean loss:1.9360, lr:0.0400
+[ 2023-10-31 20:20:48,784 ] 
+[ 2023-10-31 20:35:49,582 ] Epoch: 4/25, Train accuracy: 17713/40088(44.20%), Train time: 900.54s, Mean loss:1.8566, lr:0.0475
+[ 2023-10-31 20:35:49,582 ] 
+[ 2023-10-31 20:50:49,940 ] Epoch: 5/25, Train accuracy: 17712/40088(44.20%), Train time: 900.12s, Mean loss:1.8544, lr:0.0550
+[ 2023-10-31 20:50:49,940 ] 
+[ 2023-10-31 20:50:50,071 ] Evaluating for epoch 5/25 ...
+[ 2023-10-31 20:52:43,690 ] Top-1 accuracy: 780/16480(4.70%), Top-5 accuracy: 2503/16480(15.20%), Mean loss:32.6743
+[ 2023-10-31 20:52:43,691 ] Evaluating time: 113.62s, Speed: 145.05 sequnces/(second*GPU)
+[ 2023-10-31 20:52:43,691 ] 
+[ 2023-10-31 21:07:42,099 ] Epoch: 6/25, Train accuracy: 17591/40088(43.90%), Train time: 898.18s, Mean loss:1.8612, lr:0.0625
+[ 2023-10-31 21:07:42,100 ] 
+[ 2023-10-31 21:22:42,343 ] Epoch: 7/25, Train accuracy: 17314/40088(43.20%), Train time: 900.01s, Mean loss:1.8975, lr:0.0700
+[ 2023-10-31 21:22:42,343 ] 
+[ 2023-10-31 21:37:38,617 ] Epoch: 8/25, Train accuracy: 17148/40088(42.80%), Train time: 896.05s, Mean loss:1.9057, lr:0.0775
+[ 2023-10-31 21:37:38,617 ] 
+[ 2023-10-31 21:52:35,018 ] Epoch: 9/25, Train accuracy: 16939/40088(42.30%), Train time: 896.18s, Mean loss:1.9290, lr:0.0850
+[ 2023-10-31 21:52:35,019 ] 
+[ 2023-10-31 22:07:31,004 ] Epoch: 10/25, Train accuracy: 16780/40088(41.90%), Train time: 895.71s, Mean loss:1.9572, lr:0.0925
+[ 2023-10-31 22:07:31,005 ] 
+[ 2023-10-31 22:07:31,088 ] Evaluating for epoch 10/25 ...
+[ 2023-10-31 22:09:24,731 ] Top-1 accuracy: 678/16480(4.10%), Top-5 accuracy: 2950/16480(17.90%), Mean loss:20.2267
+[ 2023-10-31 22:09:24,731 ] Evaluating time: 113.64s, Speed: 145.02 sequnces/(second*GPU)
+[ 2023-10-31 22:09:24,731 ] 
+[ 2023-10-31 22:09:24,943 ] Student 3 EARLY STOP after 9 epochs
+[ 2023-10-31 22:09:25,039 ] Rollout random 4/20
+[ 2023-10-31 22:09:25,079 ] Student AP: {'init_lay': 96, 'act': 'relu', 'att_lay': 'stja', 'conv_lay': 'Sep', 'drop_prob': 0.2, 'blocks_in': 1, 'depth_in': 1, 'stride_in': 2, 'scale_in': 0.6, 'temp_win_in': 3, 'graph_dist_in': 3, 'reduct_ratio_in': 1.225, 'blocks_main': 2, 'depth_main': 4, 'graph_dist_main': 11, 'shrinkage_main': 4, 'residual_main': False, 'adaptive_main': True}
+[ 2023-10-31 22:09:25,079 ] Student HP: {'lr': 0.01, 'optimizers': 'RMSprop', 'weight_decay': 0.01, 'momentum': 0.99, 'batch_size': 24}
+[ 2023-10-31 22:09:25,344 ] Model profile: 7.50G FLOPs and 0.89M Parameters
+[ 2023-10-31 22:09:25,345 ] Updated Batch size from: old-8 -> new-24
+[ 2023-10-31 22:09:25,349 ] LR_Scheduler: MultiStepLR
+[ 2023-10-31 22:09:25,349 ] Training random student 4 for 25 epochs
+[ 2023-10-31 22:18:54,509 ] Epoch: 1/25, Train accuracy: 910/40080(2.30%), Train time: 569.15s, Mean loss:4.2835, lr:0.0025
+[ 2023-10-31 22:18:54,510 ] 
+[ 2023-10-31 22:28:18,583 ] Epoch: 2/25, Train accuracy: 855/40080(2.10%), Train time: 563.88s, Mean loss:4.3630, lr:0.0033
+[ 2023-10-31 22:28:18,584 ] 
+[ 2023-10-31 22:37:42,847 ] Epoch: 3/25, Train accuracy: 904/40080(2.30%), Train time: 564.11s, Mean loss:4.4149, lr:0.0040
+[ 2023-10-31 22:37:42,847 ] 
+[ 2023-10-31 22:47:07,209 ] Epoch: 4/25, Train accuracy: 851/40080(2.10%), Train time: 564.22s, Mean loss:4.4401, lr:0.0048
+[ 2023-10-31 22:47:07,209 ] 
+[ 2023-10-31 22:56:31,944 ] Epoch: 5/25, Train accuracy: 882/40080(2.20%), Train time: 564.46s, Mean loss:4.5412, lr:0.0055
+[ 2023-10-31 22:56:31,944 ] 
+[ 2023-10-31 22:56:32,035 ] Evaluating for epoch 5/25 ...
+[ 2023-10-31 22:58:08,802 ] Top-1 accuracy: 280/16464(1.70%), Top-5 accuracy: 1317/16464(8.00%), Mean loss:5.3170
+[ 2023-10-31 22:58:08,802 ] Evaluating time: 96.77s, Speed: 170.14 sequnces/(second*GPU)
+[ 2023-10-31 22:58:08,802 ] 
+[ 2023-10-31 23:07:32,728 ] Epoch: 6/25, Train accuracy: 840/40080(2.10%), Train time: 563.83s, Mean loss:4.5591, lr:0.0063
+[ 2023-10-31 23:07:32,728 ] 
+[ 2023-10-31 23:16:56,637 ] Epoch: 7/25, Train accuracy: 844/40080(2.10%), Train time: 563.74s, Mean loss:4.5861, lr:0.0070
+[ 2023-10-31 23:16:56,637 ] 
+[ 2023-10-31 23:26:20,501 ] Epoch: 8/25, Train accuracy: 846/40080(2.10%), Train time: 563.72s, Mean loss:4.7429, lr:0.0078
+[ 2023-10-31 23:26:20,502 ] 
+[ 2023-10-31 23:35:44,232 ] Epoch: 9/25, Train accuracy: 900/40080(2.20%), Train time: 563.57s, Mean loss:4.8404, lr:0.0085
+[ 2023-10-31 23:35:44,232 ] 
+[ 2023-10-31 23:45:07,919 ] Epoch: 10/25, Train accuracy: 889/40080(2.20%), Train time: 563.50s, Mean loss:4.7131, lr:0.0093
+[ 2023-10-31 23:45:07,919 ] 
+[ 2023-10-31 23:45:08,020 ] Evaluating for epoch 10/25 ...
+[ 2023-10-31 23:46:45,502 ] Top-1 accuracy: 273/16464(1.70%), Top-5 accuracy: 1325/16464(8.00%), Mean loss:27.0567
+[ 2023-10-31 23:46:45,503 ] Evaluating time: 97.48s, Speed: 168.89 sequnces/(second*GPU)
+[ 2023-10-31 23:46:45,503 ] 
+[ 2023-10-31 23:46:45,657 ] Student 4 EARLY STOP after 9 epochs
+[ 2023-10-31 23:46:45,724 ] Rollout random 5/20
+[ 2023-10-31 23:46:45,777 ] Student AP: {'init_lay': 64, 'act': 'relu', 'att_lay': 'ca', 'conv_lay': 'Sep', 'drop_prob': 0.3, 'blocks_in': 2, 'depth_in': 1, 'stride_in': 1, 'scale_in': 0.6, 'temp_win_in': 7, 'graph_dist_in': 3, 'reduct_ratio_in': 1.25, 'blocks_main': 3, 'depth_main': 3, 'graph_dist_main': 11, 'shrinkage_main': 2, 'residual_main': True, 'adaptive_main': False}
+[ 2023-10-31 23:46:45,777 ] Student HP: {'lr': 0.05, 'optimizers': 'RMSprop', 'weight_decay': 0.0, 'momentum': 0.5, 'batch_size': 8}
+[ 2023-10-31 23:46:46,038 ] Model profile: 22.49G FLOPs and 1.63M Parameters
+[ 2023-10-31 23:46:46,038 ] Updated Batch size from: old-24 -> new-8
+[ 2023-10-31 23:46:46,042 ] LR_Scheduler: MultiStepLR
+[ 2023-10-31 23:46:46,042 ] Training random student 5 for 25 epochs
+[ 2023-11-01 00:08:37,631 ] Epoch: 1/25, Train accuracy: 10320/40088(25.70%), Train time: 1311.57s, Mean loss:2.6177, lr:0.0125
+[ 2023-11-01 00:08:37,631 ] 
+[ 2023-11-01 00:30:29,215 ] Epoch: 2/25, Train accuracy: 20578/40088(51.30%), Train time: 1311.33s, Mean loss:1.5791, lr:0.0163
+[ 2023-11-01 00:30:29,216 ] 
+[ 2023-11-01 00:52:20,505 ] Epoch: 3/25, Train accuracy: 24331/40088(60.70%), Train time: 1311.01s, Mean loss:1.2741, lr:0.0200
+[ 2023-11-01 00:52:20,505 ] 
+[ 2023-11-01 01:14:11,188 ] Epoch: 4/25, Train accuracy: 25756/40088(64.20%), Train time: 1310.48s, Mean loss:1.1667, lr:0.0238
+[ 2023-11-01 01:14:11,189 ] 
+[ 2023-11-01 01:36:02,835 ] Epoch: 5/25, Train accuracy: 26352/40088(65.70%), Train time: 1311.35s, Mean loss:1.1188, lr:0.0275
+[ 2023-11-01 01:36:02,835 ] 
+[ 2023-11-01 01:36:03,003 ] Evaluating for epoch 5/25 ...
+[ 2023-11-01 01:38:56,575 ] Top-1 accuracy: 11656/16480(70.70%), Top-5 accuracy: 15629/16480(94.80%), Mean loss:1.0100
+[ 2023-11-01 01:38:56,576 ] Evaluating time: 173.57s, Speed: 94.95 sequnces/(second*GPU)
+[ 2023-11-01 01:38:56,576 ] 
+[ 2023-11-01 02:00:48,094 ] Epoch: 6/25, Train accuracy: 26913/40088(67.10%), Train time: 1311.37s, Mean loss:1.0736, lr:0.0312
+[ 2023-11-01 02:00:48,094 ] 
+[ 2023-11-01 02:22:39,502 ] Epoch: 7/25, Train accuracy: 27454/40088(68.50%), Train time: 1311.20s, Mean loss:1.0447, lr:0.0350
+[ 2023-11-01 02:22:39,503 ] 
+[ 2023-11-01 02:44:29,877 ] Epoch: 8/25, Train accuracy: 27848/40088(69.50%), Train time: 1310.16s, Mean loss:1.1061, lr:0.0387
+[ 2023-11-01 02:44:29,878 ] 
+[ 2023-11-01 03:06:20,486 ] Epoch: 9/25, Train accuracy: 28108/40088(70.10%), Train time: 1310.29s, Mean loss:1.0185, lr:0.0425
+[ 2023-11-01 03:06:20,487 ] 
+[ 2023-11-01 03:28:10,920 ] Epoch: 10/25, Train accuracy: 28119/40088(70.10%), Train time: 1310.25s, Mean loss:1.1515, lr:0.0462
+[ 2023-11-01 03:28:10,921 ] 
+[ 2023-11-01 03:28:10,994 ] Evaluating for epoch 10/25 ...
+[ 2023-11-01 03:31:04,510 ] Top-1 accuracy: 12153/16480(73.70%), Top-5 accuracy: 15584/16480(94.60%), Mean loss:1.0436
+[ 2023-11-01 03:31:04,510 ] Evaluating time: 173.52s, Speed: 94.98 sequnces/(second*GPU)
+[ 2023-11-01 03:31:04,510 ] 
+[ 2023-11-01 03:52:56,712 ] Epoch: 11/25, Train accuracy: 28119/40088(70.10%), Train time: 1312.04s, Mean loss:1.7382, lr:0.0500
+[ 2023-11-01 03:52:56,713 ] 
+[ 2023-11-01 04:14:48,649 ] Epoch: 12/25, Train accuracy: 28152/40088(70.20%), Train time: 1311.73s, Mean loss:2.1121, lr:0.0500
+[ 2023-11-01 04:14:48,649 ] 
+[ 2023-11-01 04:36:39,950 ] Epoch: 13/25, Train accuracy: 28928/40088(72.20%), Train time: 1311.10s, Mean loss:0.9896, lr:0.0500
+[ 2023-11-01 04:36:39,950 ] 
+[ 2023-11-01 04:58:31,501 ] Epoch: 14/25, Train accuracy: 28775/40088(71.80%), Train time: 1311.30s, Mean loss:2.8369, lr:0.0500
+[ 2023-11-01 04:58:31,501 ] 
+[ 2023-11-01 05:20:22,116 ] Epoch: 15/25, Train accuracy: 29485/40088(73.60%), Train time: 1310.42s, Mean loss:2.0900, lr:0.0500
+[ 2023-11-01 05:20:22,117 ] 
+[ 2023-11-01 05:20:22,298 ] Evaluating for epoch 15/25 ...
+[ 2023-11-01 05:23:15,633 ] Top-1 accuracy: 12043/16480(73.10%), Top-5 accuracy: 15432/16480(93.60%), Mean loss:806.1733
+[ 2023-11-01 05:23:15,633 ] Evaluating time: 173.33s, Speed: 95.08 sequnces/(second*GPU)
+[ 2023-11-01 05:23:15,633 ] 
+[ 2023-11-01 05:45:07,105 ] Epoch: 16/25, Train accuracy: 29819/40088(74.40%), Train time: 1311.34s, Mean loss:0.9493, lr:0.0500
+[ 2023-11-01 05:45:07,105 ] 
+[ 2023-11-01 06:06:58,821 ] Epoch: 17/25, Train accuracy: 29772/40088(74.30%), Train time: 1311.50s, Mean loss:0.9732, lr:0.0500
+[ 2023-11-01 06:06:58,822 ] 
+[ 2023-11-01 06:28:49,135 ] Epoch: 18/25, Train accuracy: 30274/40088(75.50%), Train time: 1310.11s, Mean loss:1.1415, lr:0.0500
+[ 2023-11-01 06:28:49,135 ] 
+[ 2023-11-01 06:50:39,448 ] Epoch: 19/25, Train accuracy: 30476/40088(76.00%), Train time: 1310.06s, Mean loss:0.9322, lr:0.0500
+[ 2023-11-01 06:50:39,448 ] 
+[ 2023-11-01 07:12:29,695 ] Epoch: 20/25, Train accuracy: 30559/40088(76.20%), Train time: 1310.05s, Mean loss:0.8863, lr:0.0500
+[ 2023-11-01 07:12:29,696 ] 
+[ 2023-11-01 07:12:29,770 ] Evaluating for epoch 20/25 ...
+[ 2023-11-01 07:15:23,183 ] Top-1 accuracy: 12601/16480(76.50%), Top-5 accuracy: 15614/16480(94.70%), Mean loss:1731.4771
+[ 2023-11-01 07:15:23,183 ] Evaluating time: 173.41s, Speed: 95.03 sequnces/(second*GPU)
+[ 2023-11-01 07:15:23,183 ] 
+[ 2023-11-01 07:37:13,987 ] Epoch: 21/25, Train accuracy: 30658/40088(76.50%), Train time: 1310.61s, Mean loss:1.6925, lr:0.0500
+[ 2023-11-01 07:37:13,988 ] 
+[ 2023-11-01 07:59:05,729 ] Epoch: 22/25, Train accuracy: 28598/40088(71.30%), Train time: 1311.44s, Mean loss:2.2518, lr:0.0500
+[ 2023-11-01 07:59:05,730 ] 
+[ 2023-11-01 08:20:56,202 ] Epoch: 23/25, Train accuracy: 30111/40088(75.10%), Train time: 1310.28s, Mean loss:1.0331, lr:0.0500
+[ 2023-11-01 08:20:56,203 ] 
+[ 2023-11-01 08:42:46,638 ] Epoch: 24/25, Train accuracy: 30346/40088(75.70%), Train time: 1310.21s, Mean loss:1.0194, lr:0.0500
+[ 2023-11-01 08:42:46,638 ] 
+[ 2023-11-01 09:04:36,884 ] Epoch: 25/25, Train accuracy: 30634/40088(76.40%), Train time: 1310.05s, Mean loss:1.0949, lr:0.0500
+[ 2023-11-01 09:04:36,884 ] 
+[ 2023-11-01 09:04:36,976 ] Evaluating for epoch 25/25 ...
+[ 2023-11-01 09:07:30,340 ] Top-1 accuracy: 261/16480(1.60%), Top-5 accuracy: 1425/16480(8.60%), Mean loss:13903.2249
+[ 2023-11-01 09:07:30,341 ] Evaluating time: 173.36s, Speed: 95.06 sequnces/(second*GPU)
+[ 2023-11-01 09:07:30,341 ] 
+[ 2023-11-01 09:07:30,646 ] Rollout random 6/20
+[ 2023-11-01 09:07:30,731 ] Student AP: {'init_lay': 128, 'act': 'hardswish', 'att_lay': 'ca', 'conv_lay': 'Sep', 'drop_prob': 0.15, 'blocks_in': 2, 'depth_in': 2, 'stride_in': 1, 'scale_in': 0.6, 'temp_win_in': 5, 'graph_dist_in': 4, 'reduct_ratio_in': 1.225, 'blocks_main': 5, 'depth_main': 1, 'graph_dist_main': 7, 'shrinkage_main': 2, 'residual_main': True, 'adaptive_main': False}
+[ 2023-11-01 09:07:30,732 ] Student HP: {'lr': 0.1, 'optimizers': 'Adam', 'weight_decay': 0.0001, 'momentum': 0.9, 'batch_size': 16}
+[ 2023-11-01 09:07:31,108 ] Model profile: 47.41G FLOPs and 3.45M Parameters
+[ 2023-11-01 09:07:31,108 ] Updated Batch size from: old-8 -> new-16
+[ 2023-11-01 09:07:31,118 ] LR_Scheduler: MultiStepLR
+[ 2023-11-01 09:07:31,119 ] Training random student 6 for 25 epochs
+[ 2023-11-01 09:41:11,404 ] Epoch: 1/25, Train accuracy: 5990/40080(14.90%), Train time: 2020.27s, Mean loss:2.9540, lr:0.0250
+[ 2023-11-01 09:41:11,404 ] 
+[ 2023-11-01 10:15:06,313 ] Epoch: 2/25, Train accuracy: 13531/40080(33.80%), Train time: 2034.45s, Mean loss:2.1830, lr:0.0325
+[ 2023-11-01 10:15:06,313 ] 
+[ 2023-11-01 10:48:56,070 ] Epoch: 3/25, Train accuracy: 18812/40080(46.90%), Train time: 2029.43s, Mean loss:1.7424, lr:0.0400
+[ 2023-11-01 10:48:56,070 ] 
+[ 2023-11-01 11:22:38,390 ] Epoch: 4/25, Train accuracy: 20381/40080(50.90%), Train time: 2022.01s, Mean loss:1.5906, lr:0.0475
+[ 2023-11-01 11:22:38,391 ] 
+[ 2023-11-01 11:56:20,411 ] Epoch: 5/25, Train accuracy: 20783/40080(51.90%), Train time: 2021.70s, Mean loss:1.5555, lr:0.0550
+[ 2023-11-01 11:56:20,412 ] 
+[ 2023-11-01 11:56:20,520 ] Evaluating for epoch 5/25 ...
+[ 2023-11-01 12:00:24,372 ] Top-1 accuracy: 8402/16480(51.00%), Top-5 accuracy: 13951/16480(84.70%), Mean loss:1.6538
+[ 2023-11-01 12:00:24,372 ] Evaluating time: 243.85s, Speed: 67.58 sequnces/(second*GPU)
+[ 2023-11-01 12:00:24,372 ] 
+[ 2023-11-01 12:34:04,526 ] Epoch: 6/25, Train accuracy: 20678/40080(51.60%), Train time: 2019.90s, Mean loss:1.5776, lr:0.0625
+[ 2023-11-01 12:34:04,526 ] 
+[ 2023-11-01 13:07:48,149 ] Epoch: 7/25, Train accuracy: 20897/40080(52.10%), Train time: 2023.24s, Mean loss:1.5699, lr:0.0700
+[ 2023-11-01 13:07:48,150 ] 
+[ 2023-11-01 13:41:29,947 ] Epoch: 8/25, Train accuracy: 20943/40080(52.30%), Train time: 2021.46s, Mean loss:1.5642, lr:0.0775
+[ 2023-11-01 13:41:29,948 ] 
+[ 2023-11-01 14:15:15,160 ] Epoch: 9/25, Train accuracy: 20968/40080(52.30%), Train time: 2024.86s, Mean loss:1.5697, lr:0.0850
+[ 2023-11-01 14:15:15,160 ] 
+[ 2023-11-01 14:48:58,450 ] Epoch: 10/25, Train accuracy: 20710/40080(51.70%), Train time: 2022.97s, Mean loss:1.5994, lr:0.0925
+[ 2023-11-01 14:48:58,451 ] 
+[ 2023-11-01 14:48:58,575 ] Evaluating for epoch 10/25 ...
+[ 2023-11-01 14:53:02,540 ] Top-1 accuracy: 8254/16480(50.10%), Top-5 accuracy: 14286/16480(86.70%), Mean loss:1.7643
+[ 2023-11-01 14:53:02,540 ] Evaluating time: 243.96s, Speed: 67.55 sequnces/(second*GPU)
+[ 2023-11-01 14:53:02,540 ] 
+[ 2023-11-01 15:26:43,587 ] Epoch: 11/25, Train accuracy: 20299/40080(50.60%), Train time: 2020.83s, Mean loss:1.6407, lr:0.1000
+[ 2023-11-01 15:26:43,587 ] 
+[ 2023-11-01 16:00:47,079 ] Epoch: 12/25, Train accuracy: 20606/40080(51.40%), Train time: 2043.17s, Mean loss:1.6045, lr:0.1000
+[ 2023-11-01 16:00:47,079 ] 
+[ 2023-11-01 16:34:30,140 ] Epoch: 13/25, Train accuracy: 20804/40080(51.90%), Train time: 2022.75s, Mean loss:1.5862, lr:0.1000
+[ 2023-11-01 16:34:30,140 ] 
+[ 2023-11-01 17:08:33,965 ] Epoch: 14/25, Train accuracy: 21112/40080(52.70%), Train time: 2043.52s, Mean loss:1.5646, lr:0.1000
+[ 2023-11-01 17:08:33,965 ] 
+[ 2023-11-01 17:43:01,785 ] Epoch: 15/25, Train accuracy: 21459/40080(53.50%), Train time: 2067.48s, Mean loss:1.5258, lr:0.1000
+[ 2023-11-01 17:43:01,785 ] 
+[ 2023-11-01 17:43:01,882 ] Evaluating for epoch 15/25 ...
+[ 2023-11-01 17:47:05,523 ] Top-1 accuracy: 6210/16480(37.70%), Top-5 accuracy: 12304/16480(74.70%), Mean loss:2.6952
+[ 2023-11-01 17:47:05,523 ] Evaluating time: 243.64s, Speed: 67.64 sequnces/(second*GPU)
+[ 2023-11-01 17:47:05,523 ] 
+[ 2023-11-01 18:20:48,551 ] Epoch: 16/25, Train accuracy: 21643/40080(54.00%), Train time: 2022.82s, Mean loss:1.5186, lr:0.1000
+[ 2023-11-01 18:20:48,551 ] 
+[ 2023-11-01 18:54:32,784 ] Epoch: 17/25, Train accuracy: 21591/40080(53.90%), Train time: 2023.80s, Mean loss:1.5194, lr:0.1000
+[ 2023-11-01 18:54:32,784 ] 
+[ 2023-11-01 19:28:16,121 ] Epoch: 18/25, Train accuracy: 21634/40080(54.00%), Train time: 2022.96s, Mean loss:1.5133, lr:0.1000
+[ 2023-11-01 19:28:16,121 ] 
+[ 2023-11-01 20:01:59,829 ] Epoch: 19/25, Train accuracy: 21834/40080(54.50%), Train time: 2023.35s, Mean loss:1.4970, lr:0.1000
+[ 2023-11-01 20:01:59,830 ] 
+[ 2023-11-01 20:35:42,541 ] Epoch: 20/25, Train accuracy: 21817/40080(54.40%), Train time: 2022.32s, Mean loss:1.5005, lr:0.1000
+[ 2023-11-01 20:35:42,542 ] 
+[ 2023-11-01 20:35:42,645 ] Evaluating for epoch 20/25 ...
+[ 2023-11-01 20:39:46,630 ] Top-1 accuracy: 7721/16480(46.90%), Top-5 accuracy: 13679/16480(83.00%), Mean loss:1.8549
+[ 2023-11-01 20:39:46,630 ] Evaluating time: 243.98s, Speed: 67.55 sequnces/(second*GPU)
+[ 2023-11-01 20:39:46,630 ] 
+[ 2023-11-01 21:13:29,149 ] Epoch: 21/25, Train accuracy: 21872/40080(54.60%), Train time: 2022.21s, Mean loss:1.4893, lr:0.1000
+[ 2023-11-01 21:13:29,149 ] 
+[ 2023-11-01 21:47:13,800 ] Epoch: 22/25, Train accuracy: 22040/40080(55.00%), Train time: 2024.29s, Mean loss:1.4778, lr:0.1000
+[ 2023-11-01 21:47:13,800 ] 
+[ 2023-11-01 22:20:55,843 ] Epoch: 23/25, Train accuracy: 22172/40080(55.30%), Train time: 2021.72s, Mean loss:1.4682, lr:0.1000
+[ 2023-11-01 22:20:55,843 ] 
+[ 2023-11-01 22:54:38,550 ] Epoch: 24/25, Train accuracy: 22078/40080(55.10%), Train time: 2022.38s, Mean loss:1.4848, lr:0.1000
+[ 2023-11-01 22:54:38,550 ] 
+[ 2023-11-01 23:28:21,042 ] Epoch: 25/25, Train accuracy: 22186/40080(55.40%), Train time: 2022.09s, Mean loss:1.4784, lr:0.1000
+[ 2023-11-01 23:28:21,043 ] 
+[ 2023-11-01 23:28:21,144 ] Evaluating for epoch 25/25 ...
+[ 2023-11-01 23:32:24,735 ] Top-1 accuracy: 9935/16480(60.30%), Top-5 accuracy: 14898/16480(90.40%), Mean loss:1.3649
+[ 2023-11-01 23:32:24,735 ] Evaluating time: 243.59s, Speed: 67.66 sequnces/(second*GPU)
+[ 2023-11-01 23:32:24,735 ] 
+[ 2023-11-01 23:32:25,140 ] Rollout random 7/20
+[ 2023-11-01 23:32:25,183 ] Student AP: {'init_lay': 96, 'act': 'relu', 'att_lay': 'fa', 'conv_lay': 'Shuffle', 'drop_prob': 0.2, 'blocks_in': 1, 'depth_in': 1, 'stride_in': 2, 'scale_in': 0.8, 'temp_win_in': 3, 'graph_dist_in': 2, 'reduct_ratio_in': 1.225, 'blocks_main': 2, 'depth_main': 4, 'graph_dist_main': 11, 'shrinkage_main': 1, 'residual_main': False, 'adaptive_main': False}
+[ 2023-11-01 23:32:25,183 ] Student HP: {'lr': 0.1, 'optimizers': 'Adam', 'weight_decay': 0.001, 'momentum': 0.99, 'batch_size': 24}
+[ 2023-11-01 23:32:25,345 ] Model profile: 10.29G FLOPs and 1.22M Parameters
+[ 2023-11-01 23:32:25,345 ] Updated Batch size from: old-16 -> new-24
+[ 2023-11-01 23:32:25,350 ] LR_Scheduler: MultiStepLR
+[ 2023-11-01 23:32:25,350 ] Training random student 7 for 25 epochs
+[ 2023-11-01 23:43:43,099 ] Epoch: 1/25, Train accuracy: 6218/40080(15.50%), Train time: 677.74s, Mean loss:3.1467, lr:0.0250
+[ 2023-11-01 23:43:43,099 ] 
+[ 2023-11-01 23:55:00,274 ] Epoch: 2/25, Train accuracy: 10717/40080(26.70%), Train time: 677.00s, Mean loss:2.5430, lr:0.0325
+[ 2023-11-01 23:55:00,275 ] 
+[ 2023-11-02 00:06:17,516 ] Epoch: 3/25, Train accuracy: 11743/40080(29.30%), Train time: 677.08s, Mean loss:2.4281, lr:0.0400
+[ 2023-11-02 00:06:17,516 ] 
+[ 2023-11-02 00:17:34,529 ] Epoch: 4/25, Train accuracy: 11610/40080(29.00%), Train time: 676.83s, Mean loss:2.4442, lr:0.0475
+[ 2023-11-02 00:17:34,530 ] 
+[ 2023-11-02 00:28:51,532 ] Epoch: 5/25, Train accuracy: 11059/40080(27.60%), Train time: 676.83s, Mean loss:2.4944, lr:0.0550
+[ 2023-11-02 00:28:51,532 ] 
+[ 2023-11-02 00:28:51,617 ] Evaluating for epoch 5/25 ...
+[ 2023-11-02 00:30:28,982 ] Top-1 accuracy: 4758/16464(28.90%), Top-5 accuracy: 11335/16464(68.80%), Mean loss:2.4796
+[ 2023-11-02 00:30:28,982 ] Evaluating time: 97.36s, Speed: 169.10 sequnces/(second*GPU)
+[ 2023-11-02 00:30:28,982 ] 
+[ 2023-11-02 00:41:46,203 ] Epoch: 6/25, Train accuracy: 11000/40080(27.40%), Train time: 677.10s, Mean loss:2.5179, lr:0.0625
+[ 2023-11-02 00:41:46,204 ] 
+[ 2023-11-02 00:53:03,309 ] Epoch: 7/25, Train accuracy: 10989/40080(27.40%), Train time: 676.93s, Mean loss:2.5261, lr:0.0700
+[ 2023-11-02 00:53:03,309 ] 
+[ 2023-11-02 01:04:20,420 ] Epoch: 8/25, Train accuracy: 10363/40080(25.90%), Train time: 676.94s, Mean loss:2.5963, lr:0.0775
+[ 2023-11-02 01:04:20,420 ] 
+[ 2023-11-02 01:15:37,526 ] Epoch: 9/25, Train accuracy: 10148/40080(25.30%), Train time: 676.90s, Mean loss:2.6234, lr:0.0850
+[ 2023-11-02 01:15:37,526 ] 
+[ 2023-11-02 01:26:54,644 ] Epoch: 10/25, Train accuracy: 9562/40080(23.90%), Train time: 676.85s, Mean loss:2.6902, lr:0.0925
+[ 2023-11-02 01:26:54,644 ] 
+[ 2023-11-02 01:26:54,713 ] Evaluating for epoch 10/25 ...
+[ 2023-11-02 01:28:31,783 ] Top-1 accuracy: 2684/16464(16.30%), Top-5 accuracy: 7340/16464(44.60%), Mean loss:3.2976
+[ 2023-11-02 01:28:31,783 ] Evaluating time: 97.07s, Speed: 169.61 sequnces/(second*GPU)
+[ 2023-11-02 01:28:31,784 ] 
+[ 2023-11-02 01:28:31,919 ] Student 7 EARLY STOP after 9 epochs
+[ 2023-11-02 01:28:32,424 ] Rollout random 8/20
+[ 2023-11-02 01:28:32,479 ] Student AP: {'init_lay': 64, 'act': 'swish', 'att_lay': 'stja', 'conv_lay': 'V3', 'drop_prob': 0.25, 'blocks_in': 2, 'depth_in': 1, 'stride_in': 2, 'scale_in': 0.4, 'temp_win_in': 7, 'graph_dist_in': 4, 'reduct_ratio_in': 1.35, 'blocks_main': 3, 'depth_main': 1, 'graph_dist_main': 9, 'shrinkage_main': 1, 'residual_main': False, 'adaptive_main': True}
+[ 2023-11-02 01:28:32,479 ] Student HP: {'lr': 0.05, 'optimizers': 'RMSprop', 'weight_decay': 0.0, 'momentum': 0.99, 'batch_size': 8}
+[ 2023-11-02 01:28:32,655 ] Model profile: 6.55G FLOPs and 1.48M Parameters
+[ 2023-11-02 01:28:32,656 ] Updated Batch size from: old-24 -> new-8
+[ 2023-11-02 01:28:32,660 ] LR_Scheduler: MultiStepLR
+[ 2023-11-02 01:28:32,660 ] Training random student 8 for 25 epochs
+[ 2023-11-02 01:38:40,739 ] Epoch: 1/25, Train accuracy: 634/40088(1.60%), Train time: 608.06s, Mean loss:5.7681, lr:0.0125
+[ 2023-11-02 01:38:40,740 ] 
+[ 2023-11-02 01:48:49,359 ] Epoch: 2/25, Train accuracy: 664/40088(1.70%), Train time: 608.41s, Mean loss:5.5017, lr:0.0163
+[ 2023-11-02 01:48:49,359 ] 
+[ 2023-11-02 01:58:57,493 ] Epoch: 3/25, Train accuracy: 663/40088(1.70%), Train time: 607.92s, Mean loss:5.6832, lr:0.0200
+[ 2023-11-02 01:58:57,493 ] 
+[ 2023-11-02 02:09:05,530 ] Epoch: 4/25, Train accuracy: 704/40088(1.80%), Train time: 607.83s, Mean loss:5.9344, lr:0.0238
+[ 2023-11-02 02:09:05,531 ] 
+[ 2023-11-02 02:19:15,195 ] Epoch: 5/25, Train accuracy: 663/40088(1.70%), Train time: 609.47s, Mean loss:6.2136, lr:0.0275
+[ 2023-11-02 02:19:15,195 ] 
+[ 2023-11-02 02:19:15,275 ] Evaluating for epoch 5/25 ...
+[ 2023-11-02 02:20:53,538 ] Top-1 accuracy: 280/16480(1.70%), Top-5 accuracy: 1470/16480(8.90%), Mean loss:201012146.3073
+[ 2023-11-02 02:20:53,539 ] Evaluating time: 98.26s, Speed: 167.72 sequnces/(second*GPU)
+[ 2023-11-02 02:20:53,539 ] 
+[ 2023-11-02 02:31:00,878 ] Epoch: 6/25, Train accuracy: 714/40088(1.80%), Train time: 607.13s, Mean loss:6.5202, lr:0.0312
+[ 2023-11-02 02:31:00,878 ] 
+[ 2023-11-02 02:41:07,191 ] Epoch: 7/25, Train accuracy: 644/40088(1.60%), Train time: 606.04s, Mean loss:6.8351, lr:0.0350
+[ 2023-11-02 02:41:07,192 ] 
+[ 2023-11-02 02:51:17,059 ] Epoch: 8/25, Train accuracy: 670/40088(1.70%), Train time: 609.54s, Mean loss:7.1155, lr:0.0387
+[ 2023-11-02 02:51:17,059 ] 
+[ 2023-11-02 03:01:22,888 ] Epoch: 9/25, Train accuracy: 682/40088(1.70%), Train time: 605.61s, Mean loss:7.3565, lr:0.0425
+[ 2023-11-02 03:01:22,889 ] 
+[ 2023-11-02 03:11:28,102 ] Epoch: 10/25, Train accuracy: 637/40088(1.60%), Train time: 605.01s, Mean loss:7.6689, lr:0.0462
+[ 2023-11-02 03:11:28,102 ] 
+[ 2023-11-02 03:11:28,177 ] Evaluating for epoch 10/25 ...
+[ 2023-11-02 03:12:59,756 ] Top-1 accuracy: 285/16480(1.70%), Top-5 accuracy: 1454/16480(8.80%), Mean loss:1298135879.3486
+[ 2023-11-02 03:12:59,756 ] Evaluating time: 91.58s, Speed: 179.96 sequnces/(second*GPU)
+[ 2023-11-02 03:12:59,756 ] 
+[ 2023-11-02 03:12:59,880 ] Student 8 EARLY STOP after 9 epochs
+[ 2023-11-02 03:13:00,016 ] Rollout random 9/20
+[ 2023-11-02 03:13:00,111 ] Student AP: {'init_lay': 96, 'act': 'swish', 'att_lay': 'stja', 'conv_lay': 'Sep', 'drop_prob': 0.3, 'blocks_in': 1, 'depth_in': 1, 'stride_in': 2, 'scale_in': 0.6, 'temp_win_in': 7, 'graph_dist_in': 2, 'reduct_ratio_in': 1.225, 'blocks_main': 5, 'depth_main': 3, 'graph_dist_main': 7, 'shrinkage_main': 1, 'residual_main': True, 'adaptive_main': False}
+[ 2023-11-02 03:13:00,112 ] Student HP: {'lr': 0.1, 'optimizers': 'SGD', 'weight_decay': 0.01, 'momentum': 0.5, 'batch_size': 8}
+[ 2023-11-02 03:13:00,373 ] Model profile: 34.67G FLOPs and 4.66M Parameters
+[ 2023-11-02 03:13:00,374 ] Updated Batch size from: old-8 -> new-8
+[ 2023-11-02 03:13:00,379 ] LR_Scheduler: MultiStepLR
+[ 2023-11-02 03:13:00,379 ] Training random student 9 for 25 epochs
+[ 2023-11-02 03:42:37,807 ] Epoch: 1/25, Train accuracy: 8536/40088(21.30%), Train time: 1777.41s, Mean loss:2.8899, lr:0.0250
+[ 2023-11-02 03:42:37,808 ] 
+[ 2023-11-02 04:12:13,940 ] Epoch: 2/25, Train accuracy: 13484/40088(33.60%), Train time: 1775.95s, Mean loss:2.2946, lr:0.0325
+[ 2023-11-02 04:12:13,940 ] 
+[ 2023-11-02 04:41:50,049 ] Epoch: 3/25, Train accuracy: 13804/40088(34.40%), Train time: 1775.89s, Mean loss:2.2661, lr:0.0400
+[ 2023-11-02 04:41:50,049 ] 
+[ 2023-11-02 05:11:26,581 ] Epoch: 4/25, Train accuracy: 13645/40088(34.00%), Train time: 1776.19s, Mean loss:2.2826, lr:0.0475
+[ 2023-11-02 05:11:26,582 ] 
+[ 2023-11-02 05:41:03,161 ] Epoch: 5/25, Train accuracy: 13296/40088(33.20%), Train time: 1776.37s, Mean loss:2.3165, lr:0.0550
+[ 2023-11-02 05:41:03,162 ] 
+[ 2023-11-02 05:41:03,234 ] Evaluating for epoch 5/25 ...
+[ 2023-11-02 05:45:17,364 ] Top-1 accuracy: 273/16480(1.70%), Top-5 accuracy: 1446/16480(8.80%), Mean loss:23.4414
+[ 2023-11-02 05:45:17,365 ] Evaluating time: 254.13s, Speed: 64.85 sequnces/(second*GPU)
+[ 2023-11-02 05:45:17,365 ] 
+[ 2023-11-02 06:14:54,117 ] Epoch: 6/25, Train accuracy: 12422/40088(31.00%), Train time: 1776.60s, Mean loss:2.3949, lr:0.0625
+[ 2023-11-02 06:14:54,117 ] 
+[ 2023-11-02 06:44:30,247 ] Epoch: 7/25, Train accuracy: 11988/40088(29.90%), Train time: 1775.93s, Mean loss:2.4478, lr:0.0700
+[ 2023-11-02 06:44:30,247 ] 
+[ 2023-11-02 07:14:06,102 ] Epoch: 8/25, Train accuracy: 11427/40088(28.50%), Train time: 1775.67s, Mean loss:2.5043, lr:0.0775
+[ 2023-11-02 07:14:06,103 ] 
+[ 2023-11-02 07:43:41,425 ] Epoch: 9/25, Train accuracy: 10601/40088(26.40%), Train time: 1775.12s, Mean loss:2.5896, lr:0.0850
+[ 2023-11-02 07:43:41,426 ] 
+[ 2023-11-02 08:13:16,630 ] Epoch: 10/25, Train accuracy: 9962/40088(24.90%), Train time: 1775.01s, Mean loss:2.6345, lr:0.0925
+[ 2023-11-02 08:13:16,630 ] 
+[ 2023-11-02 08:13:16,829 ] Evaluating for epoch 10/25 ...
+[ 2023-11-02 08:17:31,320 ] Top-1 accuracy: 795/16480(4.80%), Top-5 accuracy: 2468/16480(15.00%), Mean loss:6.7013
+[ 2023-11-02 08:17:31,320 ] Evaluating time: 254.49s, Speed: 64.76 sequnces/(second*GPU)
+[ 2023-11-02 08:17:31,320 ] 
+[ 2023-11-02 08:17:31,469 ] Student 9 EARLY STOP after 9 epochs
+[ 2023-11-02 08:17:31,529 ] Rollout random 10/20
+[ 2023-11-02 08:17:31,581 ] Student AP: {'init_lay': 96, 'act': 'relu', 'att_lay': 'pa', 'conv_lay': 'SG', 'drop_prob': 0.25, 'blocks_in': 2, 'depth_in': 1, 'stride_in': 1, 'scale_in': 0.6, 'temp_win_in': 5, 'graph_dist_in': 3, 'reduct_ratio_in': 1.25, 'blocks_main': 2, 'depth_main': 3, 'graph_dist_main': 7, 'shrinkage_main': 1, 'residual_main': False, 'adaptive_main': True}
+[ 2023-11-02 08:17:31,581 ] Student HP: {'lr': 0.01, 'optimizers': 'SGD', 'weight_decay': 0.01, 'momentum': 0.5, 'batch_size': 8}
+[ 2023-11-02 08:17:31,795 ] Model profile: 13.34G FLOPs and 1.01M Parameters
+[ 2023-11-02 08:17:31,795 ] Updated Batch size from: old-8 -> new-8
+[ 2023-11-02 08:17:31,799 ] LR_Scheduler: MultiStepLR
+[ 2023-11-02 08:17:31,799 ] Training random student 10 for 25 epochs
+[ 2023-11-02 08:35:50,846 ] Epoch: 1/25, Train accuracy: 2950/40088(7.40%), Train time: 1099.03s, Mean loss:3.6555, lr:0.0025
+[ 2023-11-02 08:35:50,846 ] 
+[ 2023-11-02 08:54:09,358 ] Epoch: 2/25, Train accuracy: 7730/40088(19.30%), Train time: 1098.38s, Mean loss:2.8554, lr:0.0033
+[ 2023-11-02 08:54:09,359 ] 
+[ 2023-11-02 09:12:29,296 ] Epoch: 3/25, Train accuracy: 12585/40088(31.40%), Train time: 1099.77s, Mean loss:2.3729, lr:0.0040
+[ 2023-11-02 09:12:29,296 ] 
+[ 2023-11-02 09:30:48,625 ] Epoch: 4/25, Train accuracy: 16130/40088(40.20%), Train time: 1099.18s, Mean loss:2.0762, lr:0.0048
+[ 2023-11-02 09:30:48,626 ] 
+[ 2023-11-02 09:49:06,733 ] Epoch: 5/25, Train accuracy: 18478/40088(46.10%), Train time: 1097.96s, Mean loss:1.8907, lr:0.0055
+[ 2023-11-02 09:49:06,734 ] 
+[ 2023-11-02 09:49:06,810 ] Evaluating for epoch 5/25 ...
+[ 2023-11-02 09:51:49,707 ] Top-1 accuracy: 7699/16480(46.70%), Top-5 accuracy: 14014/16480(85.00%), Mean loss:1.7978
+[ 2023-11-02 09:51:49,707 ] Evaluating time: 162.90s, Speed: 101.17 sequnces/(second*GPU)
+[ 2023-11-02 09:51:49,707 ] 
+[ 2023-11-02 10:10:08,475 ] Epoch: 6/25, Train accuracy: 19816/40088(49.40%), Train time: 1098.70s, Mean loss:1.7696, lr:0.0063
+[ 2023-11-02 10:10:08,475 ] 
+[ 2023-11-02 10:28:29,410 ] Epoch: 7/25, Train accuracy: 20578/40088(51.30%), Train time: 1100.77s, Mean loss:1.7007, lr:0.0070
+[ 2023-11-02 10:28:29,411 ] 
+[ 2023-11-02 10:46:46,812 ] Epoch: 8/25, Train accuracy: 21174/40088(52.80%), Train time: 1097.23s, Mean loss:1.6354, lr:0.0078
+[ 2023-11-02 10:46:46,812 ] 
+[ 2023-11-02 11:05:06,395 ] Epoch: 9/25, Train accuracy: 21835/40088(54.50%), Train time: 1099.44s, Mean loss:1.5865, lr:0.0085
+[ 2023-11-02 11:05:06,395 ] 
+[ 2023-11-02 11:23:26,377 ] Epoch: 10/25, Train accuracy: 22136/40088(55.20%), Train time: 1099.77s, Mean loss:1.5644, lr:0.0093
+[ 2023-11-02 11:23:26,378 ] 
+[ 2023-11-02 11:23:26,456 ] Evaluating for epoch 10/25 ...
+[ 2023-11-02 11:26:09,554 ] Top-1 accuracy: 6879/16480(41.70%), Top-5 accuracy: 13348/16480(81.00%), Mean loss:1.9965
+[ 2023-11-02 11:26:09,554 ] Evaluating time: 163.10s, Speed: 101.04 sequnces/(second*GPU)
+[ 2023-11-02 11:26:09,554 ] 
+[ 2023-11-02 11:26:09,614 ] Student 10 EARLY STOP after 9 epochs
+[ 2023-11-02 11:26:09,694 ] Rollout random 11/20
+[ 2023-11-02 11:26:09,752 ] Student AP: {'init_lay': 128, 'act': 'hardswish', 'att_lay': 'pa', 'conv_lay': 'V3', 'drop_prob': 0.2, 'blocks_in': 1, 'depth_in': 2, 'stride_in': 2, 'scale_in': 0.4, 'temp_win_in': 5, 'graph_dist_in': 2, 'reduct_ratio_in': 1.225, 'blocks_main': 3, 'depth_main': 2, 'graph_dist_main': 7, 'shrinkage_main': 4, 'residual_main': False, 'adaptive_main': True}
+[ 2023-11-02 11:26:09,752 ] Student HP: {'lr': 0.01, 'optimizers': 'Adam', 'weight_decay': 0.001, 'momentum': 0.99, 'batch_size': 8}
+[ 2023-11-02 11:26:09,940 ] Model profile: 14.08G FLOPs and 1.73M Parameters
+[ 2023-11-02 11:26:09,941 ] Updated Batch size from: old-8 -> new-8
+[ 2023-11-02 11:26:09,945 ] LR_Scheduler: MultiStepLR
+[ 2023-11-02 11:26:09,945 ] Training random student 11 for 25 epochs
+[ 2023-11-02 11:40:50,798 ] Epoch: 1/25, Train accuracy: 11385/40088(28.40%), Train time: 880.78s, Mean loss:2.4269, lr:0.0025
+[ 2023-11-02 11:40:50,798 ] 
+[ 2023-11-02 11:55:30,681 ] Epoch: 2/25, Train accuracy: 18020/40088(45.00%), Train time: 879.66s, Mean loss:1.8001, lr:0.0033
+[ 2023-11-02 11:55:30,681 ] 
+[ 2023-11-02 12:10:09,315 ] Epoch: 3/25, Train accuracy: 20003/40088(49.90%), Train time: 878.41s, Mean loss:1.6240, lr:0.0040
+[ 2023-11-02 12:10:09,315 ] 
+[ 2023-11-02 12:24:51,587 ] Epoch: 4/25, Train accuracy: 21033/40088(52.50%), Train time: 882.01s, Mean loss:1.5363, lr:0.0048
+[ 2023-11-02 12:24:51,587 ] 
+[ 2023-11-02 12:39:33,684 ] Epoch: 5/25, Train accuracy: 21498/40088(53.60%), Train time: 881.80s, Mean loss:1.5056, lr:0.0055
+[ 2023-11-02 12:39:33,685 ] 
+[ 2023-11-02 12:39:33,762 ] Evaluating for epoch 5/25 ...
+[ 2023-11-02 12:41:15,782 ] Top-1 accuracy: 1298/16480(7.90%), Top-5 accuracy: 2881/16480(17.50%), Mean loss:11.3811
+[ 2023-11-02 12:41:15,783 ] Evaluating time: 102.02s, Speed: 161.54 sequnces/(second*GPU)
+[ 2023-11-02 12:41:15,783 ] 
+[ 2023-11-02 12:55:59,176 ] Epoch: 6/25, Train accuracy: 21727/40088(54.20%), Train time: 883.23s, Mean loss:1.4881, lr:0.0063
+[ 2023-11-02 12:55:59,177 ] 
+[ 2023-11-02 13:10:38,686 ] Epoch: 7/25, Train accuracy: 21840/40088(54.50%), Train time: 879.30s, Mean loss:1.4772, lr:0.0070
+[ 2023-11-02 13:10:38,687 ] 
+[ 2023-11-02 13:25:20,261 ] Epoch: 8/25, Train accuracy: 21982/40088(54.80%), Train time: 881.35s, Mean loss:1.4678, lr:0.0078
+[ 2023-11-02 13:25:20,262 ] 
+[ 2023-11-02 13:40:01,465 ] Epoch: 9/25, Train accuracy: 21819/40088(54.40%), Train time: 880.92s, Mean loss:1.4774, lr:0.0085
+[ 2023-11-02 13:40:01,465 ] 
+[ 2023-11-02 13:54:46,750 ] Epoch: 10/25, Train accuracy: 21701/40088(54.10%), Train time: 885.07s, Mean loss:1.4907, lr:0.0093
+[ 2023-11-02 13:54:46,750 ] 
+[ 2023-11-02 13:54:46,850 ] Evaluating for epoch 10/25 ...
+[ 2023-11-02 13:56:28,815 ] Top-1 accuracy: 1411/16480(8.60%), Top-5 accuracy: 4149/16480(25.20%), Mean loss:6.3638
+[ 2023-11-02 13:56:28,815 ] Evaluating time: 101.96s, Speed: 161.63 sequnces/(second*GPU)
+[ 2023-11-02 13:56:28,815 ] 
+[ 2023-11-02 13:56:28,986 ] Student 11 EARLY STOP after 9 epochs
+[ 2023-11-02 13:56:29,058 ] Rollout random 12/20
+[ 2023-11-02 13:56:29,122 ] Student AP: {'init_lay': 64, 'act': 'relu', 'att_lay': 'ca', 'conv_lay': 'Sep', 'drop_prob': 0.3, 'blocks_in': 1, 'depth_in': 1, 'stride_in': 1, 'scale_in': 0.4, 'temp_win_in': 3, 'graph_dist_in': 2, 'reduct_ratio_in': 1.325, 'blocks_main': 5, 'depth_main': 1, 'graph_dist_main': 9, 'shrinkage_main': 2, 'residual_main': False, 'adaptive_main': True}
+[ 2023-11-02 13:56:29,122 ] Student HP: {'lr': 0.1, 'optimizers': 'RMSprop', 'weight_decay': 0.0001, 'momentum': 0.9, 'batch_size': 8}
+[ 2023-11-02 13:56:29,361 ] Model profile: 39.38G FLOPs and 2.90M Parameters
+[ 2023-11-02 13:56:29,362 ] Updated Batch size from: old-8 -> new-8
+[ 2023-11-02 13:56:29,366 ] LR_Scheduler: MultiStepLR
+[ 2023-11-02 13:56:29,367 ] Training random student 12 for 25 epochs
+[ 2023-11-02 14:22:04,821 ] Epoch: 1/25, Train accuracy: 688/40088(1.70%), Train time: 1535.44s, Mean loss:5.0359, lr:0.0250
+[ 2023-11-02 14:22:04,821 ] 
+[ 2023-11-02 14:47:38,474 ] Epoch: 2/25, Train accuracy: 697/40088(1.70%), Train time: 1533.36s, Mean loss:5.3298, lr:0.0325
+[ 2023-11-02 14:47:38,474 ] 
+[ 2023-11-02 15:13:12,657 ] Epoch: 3/25, Train accuracy: 728/40088(1.80%), Train time: 1533.89s, Mean loss:5.5805, lr:0.0400
+[ 2023-11-02 15:13:12,657 ] 
+[ 2023-11-02 15:38:46,309 ] Epoch: 4/25, Train accuracy: 715/40088(1.80%), Train time: 1533.40s, Mean loss:6.2889, lr:0.0475
+[ 2023-11-02 15:38:46,309 ] 
+[ 2023-11-02 16:04:20,253 ] Epoch: 5/25, Train accuracy: 714/40088(1.80%), Train time: 1533.70s, Mean loss:7.2126, lr:0.0550
+[ 2023-11-02 16:04:20,253 ] 
+[ 2023-11-02 16:04:20,326 ] Evaluating for epoch 5/25 ...
+[ 2023-11-02 16:07:24,269 ] Top-1 accuracy: 255/16480(1.50%), Top-5 accuracy: 1277/16480(7.70%), Mean loss:6.3403
+[ 2023-11-02 16:07:24,270 ] Evaluating time: 183.94s, Speed: 89.59 sequnces/(second*GPU)
+[ 2023-11-02 16:07:24,270 ] 
+[ 2023-11-02 16:33:00,085 ] Epoch: 6/25, Train accuracy: 706/40088(1.80%), Train time: 1535.60s, Mean loss:8.0106, lr:0.0625
+[ 2023-11-02 16:33:00,086 ] 
+[ 2023-11-02 16:58:33,172 ] Epoch: 7/25, Train accuracy: 673/40088(1.70%), Train time: 1532.88s, Mean loss:8.2986, lr:0.0700
+[ 2023-11-02 16:58:33,172 ] 
+[ 2023-11-02 17:24:05,820 ] Epoch: 8/25, Train accuracy: 713/40088(1.80%), Train time: 1532.44s, Mean loss:8.7968, lr:0.0775
+[ 2023-11-02 17:24:05,820 ] 
+[ 2023-11-02 17:49:38,600 ] Epoch: 9/25, Train accuracy: 752/40088(1.90%), Train time: 1532.57s, Mean loss:10.5433, lr:0.0850
+[ 2023-11-02 17:49:38,600 ] 
+[ 2023-11-02 18:15:10,885 ] Epoch: 10/25, Train accuracy: 718/40088(1.80%), Train time: 1532.07s, Mean loss:11.7627, lr:0.0925
+[ 2023-11-02 18:15:10,886 ] 
+[ 2023-11-02 18:15:10,952 ] Evaluating for epoch 10/25 ...
+[ 2023-11-02 18:18:14,588 ] Top-1 accuracy: 275/16480(1.70%), Top-5 accuracy: 1373/16480(8.30%), Mean loss:3185.0362
+[ 2023-11-02 18:18:14,588 ] Evaluating time: 183.64s, Speed: 89.74 sequnces/(second*GPU)
+[ 2023-11-02 18:18:14,588 ] 
+[ 2023-11-02 18:18:14,793 ] Student 12 EARLY STOP after 9 epochs
+[ 2023-11-02 18:18:14,855 ] Rollout random 13/20
+[ 2023-11-02 18:18:14,957 ] Student AP: {'init_lay': 128, 'act': 'swish', 'att_lay': 'pa', 'conv_lay': 'V3', 'drop_prob': 0.15, 'blocks_in': 2, 'depth_in': 2, 'stride_in': 1, 'scale_in': 0.8, 'temp_win_in': 7, 'graph_dist_in': 4, 'reduct_ratio_in': 1.3, 'blocks_main': 4, 'depth_main': 3, 'graph_dist_main': 7, 'shrinkage_main': 2, 'residual_main': True, 'adaptive_main': True}
+[ 2023-11-02 18:18:14,957 ] Student HP: {'lr': 0.01, 'optimizers': 'RMSprop', 'weight_decay': 0.01, 'momentum': 0.5, 'batch_size': 24}
+[ 2023-11-02 18:18:15,330 ] Model profile: 48.38G FLOPs and 3.79M Parameters
+[ 2023-11-02 18:18:15,330 ] Updated Batch size from: old-8 -> new-24
+[ 2023-11-02 18:18:15,335 ] LR_Scheduler: MultiStepLR
+[ 2023-11-02 18:18:15,335 ] Training random student 13 for 25 epochs
+[ 2023-11-02 18:18:19,452 ] Random ID 13 does NOT fit on GPU!
+[ 2023-11-02 18:18:19,559 ] Rollout random 14/20
+[ 2023-11-02 18:18:19,637 ] Student AP: {'init_lay': 96, 'act': 'relu', 'att_lay': 'stja', 'conv_lay': 'Basic', 'drop_prob': 0.3, 'blocks_in': 2, 'depth_in': 2, 'stride_in': 1, 'scale_in': 0.6, 'temp_win_in': 3, 'graph_dist_in': 2, 'reduct_ratio_in': 1.225, 'blocks_main': 5, 'depth_main': 1, 'graph_dist_main': 11, 'shrinkage_main': 2, 'residual_main': True, 'adaptive_main': False}
+[ 2023-11-02 18:18:19,637 ] Student HP: {'lr': 0.1, 'optimizers': 'SGD', 'weight_decay': 0.001, 'momentum': 0.5, 'batch_size': 16}
+[ 2023-11-02 18:18:19,886 ] Model profile: 42.63G FLOPs and 3.16M Parameters
+[ 2023-11-02 18:18:19,887 ] Updated Batch size from: old-24 -> new-16
+[ 2023-11-02 18:18:19,890 ] LR_Scheduler: MultiStepLR
+[ 2023-11-02 18:18:19,890 ] Training random student 14 for 25 epochs
+[ 2023-11-02 18:45:51,560 ] Epoch: 1/25, Train accuracy: 7761/40080(19.40%), Train time: 1651.63s, Mean loss:2.8251, lr:0.0250
+[ 2023-11-02 18:45:51,560 ] 
+[ 2023-11-02 19:13:21,968 ] Epoch: 2/25, Train accuracy: 16662/40080(41.60%), Train time: 1650.23s, Mean loss:1.8788, lr:0.0325
+[ 2023-11-02 19:13:21,968 ] 
+[ 2023-11-02 19:40:52,123 ] Epoch: 3/25, Train accuracy: 21774/40080(54.30%), Train time: 1649.94s, Mean loss:1.4414, lr:0.0400
+[ 2023-11-02 19:40:52,124 ] 
+[ 2023-11-02 20:08:22,331 ] Epoch: 4/25, Train accuracy: 25008/40080(62.40%), Train time: 1650.02s, Mean loss:1.1846, lr:0.0475
+[ 2023-11-02 20:08:22,332 ] 
+[ 2023-11-02 20:35:52,629 ] Epoch: 5/25, Train accuracy: 26665/40080(66.50%), Train time: 1650.11s, Mean loss:1.0614, lr:0.0550
+[ 2023-11-02 20:35:52,629 ] 
+[ 2023-11-02 20:35:52,716 ] Evaluating for epoch 5/25 ...
+[ 2023-11-02 20:39:09,887 ] Top-1 accuracy: 11575/16480(70.20%), Top-5 accuracy: 15648/16480(95.00%), Mean loss:0.9432
+[ 2023-11-02 20:39:09,887 ] Evaluating time: 197.17s, Speed: 83.58 sequnces/(second*GPU)
+[ 2023-11-02 20:39:09,887 ] 
+[ 2023-11-02 21:06:41,076 ] Epoch: 6/25, Train accuracy: 27499/40080(68.60%), Train time: 1651.07s, Mean loss:0.9937, lr:0.0625
+[ 2023-11-02 21:06:41,077 ] 
+[ 2023-11-02 21:34:12,445 ] Epoch: 7/25, Train accuracy: 28073/40080(70.00%), Train time: 1651.19s, Mean loss:0.9625, lr:0.0700
+[ 2023-11-02 21:34:12,445 ] 
+[ 2023-11-02 22:01:43,985 ] Epoch: 8/25, Train accuracy: 28367/40080(70.80%), Train time: 1651.36s, Mean loss:0.9331, lr:0.0775
+[ 2023-11-02 22:01:43,985 ] 
+[ 2023-11-02 22:29:14,690 ] Epoch: 9/25, Train accuracy: 28489/40080(71.10%), Train time: 1650.52s, Mean loss:0.9321, lr:0.0850
+[ 2023-11-02 22:29:14,690 ] 
+[ 2023-11-02 22:56:45,403 ] Epoch: 10/25, Train accuracy: 28597/40080(71.30%), Train time: 1650.53s, Mean loss:0.9142, lr:0.0925
+[ 2023-11-02 22:56:45,404 ] 
+[ 2023-11-02 22:56:45,489 ] Evaluating for epoch 10/25 ...
+[ 2023-11-02 23:00:02,703 ] Top-1 accuracy: 6023/16480(36.50%), Top-5 accuracy: 11009/16480(66.80%), Mean loss:2.3430
+[ 2023-11-02 23:00:02,703 ] Evaluating time: 197.21s, Speed: 83.56 sequnces/(second*GPU)
+[ 2023-11-02 23:00:02,703 ] 
+[ 2023-11-02 23:27:33,290 ] Epoch: 11/25, Train accuracy: 28615/40080(71.40%), Train time: 1650.46s, Mean loss:0.9171, lr:0.1000
+[ 2023-11-02 23:27:33,291 ] 
+[ 2023-11-02 23:55:03,536 ] Epoch: 12/25, Train accuracy: 29110/40080(72.60%), Train time: 1650.07s, Mean loss:0.8847, lr:0.1000
+[ 2023-11-02 23:55:03,538 ] 
+[ 2023-11-03 00:22:33,526 ] Epoch: 13/25, Train accuracy: 29366/40080(73.30%), Train time: 1649.77s, Mean loss:0.8573, lr:0.1000
+[ 2023-11-03 00:22:33,527 ] 
+[ 2023-11-03 00:50:03,646 ] Epoch: 14/25, Train accuracy: 29464/40080(73.50%), Train time: 1649.90s, Mean loss:0.8519, lr:0.1000
+[ 2023-11-03 00:50:03,647 ] 
+[ 2023-11-03 01:17:33,279 ] Epoch: 15/25, Train accuracy: 29707/40080(74.10%), Train time: 1649.44s, Mean loss:0.8315, lr:0.1000
+[ 2023-11-03 01:17:33,280 ] 
+[ 2023-11-03 01:17:33,389 ] Evaluating for epoch 15/25 ...
+[ 2023-11-03 01:20:50,523 ] Top-1 accuracy: 5682/16480(34.50%), Top-5 accuracy: 11190/16480(67.90%), Mean loss:2.4399
+[ 2023-11-03 01:20:50,524 ] Evaluating time: 197.13s, Speed: 83.60 sequnces/(second*GPU)
+[ 2023-11-03 01:20:50,524 ] 
+[ 2023-11-03 01:48:19,623 ] Epoch: 16/25, Train accuracy: 29869/40080(74.50%), Train time: 1649.00s, Mean loss:0.8277, lr:0.1000
+[ 2023-11-03 01:48:19,623 ] 
+[ 2023-11-03 02:15:49,325 ] Epoch: 17/25, Train accuracy: 29835/40080(74.40%), Train time: 1649.51s, Mean loss:0.8114, lr:0.1000
+[ 2023-11-03 02:15:49,325 ] 
+[ 2023-11-03 02:43:18,353 ] Epoch: 18/25, Train accuracy: 30134/40080(75.20%), Train time: 1648.84s, Mean loss:0.8006, lr:0.1000
+[ 2023-11-03 02:43:18,354 ] 
+[ 2023-11-03 03:10:47,290 ] Epoch: 19/25, Train accuracy: 30062/40080(75.00%), Train time: 1648.74s, Mean loss:0.8010, lr:0.1000
+[ 2023-11-03 03:10:47,292 ] 
+[ 2023-11-03 03:38:15,461 ] Epoch: 20/25, Train accuracy: 30128/40080(75.20%), Train time: 1647.98s, Mean loss:0.7950, lr:0.1000
+[ 2023-11-03 03:38:15,462 ] 
+[ 2023-11-03 03:38:15,557 ] Evaluating for epoch 20/25 ...
+[ 2023-11-03 03:41:33,091 ] Top-1 accuracy: 11685/16480(70.90%), Top-5 accuracy: 15417/16480(93.50%), Mean loss:0.9720
+[ 2023-11-03 03:41:33,091 ] Evaluating time: 197.53s, Speed: 83.43 sequnces/(second*GPU)
+[ 2023-11-03 03:41:33,091 ] 
+[ 2023-11-03 04:09:01,649 ] Epoch: 21/25, Train accuracy: 30362/40080(75.80%), Train time: 1648.43s, Mean loss:0.7862, lr:0.1000
+[ 2023-11-03 04:09:01,650 ] 
+[ 2023-11-03 04:36:29,398 ] Epoch: 22/25, Train accuracy: 30560/40080(76.20%), Train time: 1647.56s, Mean loss:0.7741, lr:0.1000
+[ 2023-11-03 04:36:29,398 ] 
+[ 2023-11-03 05:03:57,141 ] Epoch: 23/25, Train accuracy: 30337/40080(75.70%), Train time: 1647.55s, Mean loss:0.7771, lr:0.1000
+[ 2023-11-03 05:03:57,141 ] 
+[ 2023-11-03 05:31:24,880 ] Epoch: 24/25, Train accuracy: 30583/40080(76.30%), Train time: 1647.55s, Mean loss:0.7667, lr:0.1000
+[ 2023-11-03 05:31:24,881 ] 
+[ 2023-11-03 05:58:52,550 ] Epoch: 25/25, Train accuracy: 30516/40080(76.10%), Train time: 1647.48s, Mean loss:0.7597, lr:0.1000
+[ 2023-11-03 05:58:52,550 ] 
+[ 2023-11-03 05:58:52,642 ] Evaluating for epoch 25/25 ...
+[ 2023-11-03 06:02:10,198 ] Top-1 accuracy: 10615/16480(64.40%), Top-5 accuracy: 15121/16480(91.80%), Mean loss:1.2584
+[ 2023-11-03 06:02:10,198 ] Evaluating time: 197.55s, Speed: 83.42 sequnces/(second*GPU)
+[ 2023-11-03 06:02:10,198 ] 
+[ 2023-11-03 06:02:10,358 ] Rollout random 15/20
+[ 2023-11-03 06:02:10,420 ] Student AP: {'init_lay': 96, 'act': 'relu', 'att_lay': 'ca', 'conv_lay': 'SG', 'drop_prob': 0.2, 'blocks_in': 2, 'depth_in': 2, 'stride_in': 2, 'scale_in': 0.8, 'temp_win_in': 7, 'graph_dist_in': 4, 'reduct_ratio_in': 1.275, 'blocks_main': 2, 'depth_main': 4, 'graph_dist_main': 11, 'shrinkage_main': 4, 'residual_main': True, 'adaptive_main': False}
+[ 2023-11-03 06:02:10,420 ] Student HP: {'lr': 0.1, 'optimizers': 'RMSprop', 'weight_decay': 0.0, 'momentum': 0.99, 'batch_size': 8}
+[ 2023-11-03 06:02:10,675 ] Model profile: 9.43G FLOPs and 1.26M Parameters
+[ 2023-11-03 06:02:10,676 ] Updated Batch size from: old-16 -> new-8
+[ 2023-11-03 06:02:10,680 ] LR_Scheduler: MultiStepLR
+[ 2023-11-03 06:02:10,680 ] Training random student 15 for 25 epochs
+[ 2023-11-03 06:19:00,361 ] Epoch: 1/25, Train accuracy: 689/40088(1.70%), Train time: 1009.66s, Mean loss:6.2231, lr:0.0250
+[ 2023-11-03 06:19:00,361 ] 
+[ 2023-11-03 06:35:43,062 ] Epoch: 2/25, Train accuracy: 648/40088(1.60%), Train time: 1002.48s, Mean loss:6.5827, lr:0.0325
+[ 2023-11-03 06:35:43,062 ] 
+[ 2023-11-03 06:52:27,409 ] Epoch: 3/25, Train accuracy: 661/40088(1.60%), Train time: 1004.11s, Mean loss:7.1554, lr:0.0400
+[ 2023-11-03 06:52:27,409 ] 
+[ 2023-11-03 07:09:11,060 ] Epoch: 4/25, Train accuracy: 632/40088(1.60%), Train time: 1003.39s, Mean loss:7.7371, lr:0.0475
+[ 2023-11-03 07:09:11,060 ] 
+[ 2023-11-03 07:25:54,750 ] Epoch: 5/25, Train accuracy: 664/40088(1.70%), Train time: 1003.46s, Mean loss:8.2791, lr:0.0550
+[ 2023-11-03 07:25:54,750 ] 
+[ 2023-11-03 07:25:54,823 ] Evaluating for epoch 5/25 ...
+[ 2023-11-03 07:27:54,451 ] Top-1 accuracy: 272/16480(1.70%), Top-5 accuracy: 1391/16480(8.40%), Mean loss:nan
+[ 2023-11-03 07:27:54,451 ] Evaluating time: 119.63s, Speed: 137.76 sequnces/(second*GPU)
+[ 2023-11-03 07:27:54,451 ] 
+[ 2023-11-03 07:44:36,906 ] Epoch: 6/25, Train accuracy: 700/40088(1.70%), Train time: 1002.29s, Mean loss:9.1038, lr:0.0625
+[ 2023-11-03 07:44:36,906 ] 
+[ 2023-11-03 08:01:18,590 ] Epoch: 7/25, Train accuracy: 661/40088(1.60%), Train time: 1001.46s, Mean loss:9.6006, lr:0.0700
+[ 2023-11-03 08:01:18,591 ] 
+[ 2023-11-03 08:18:00,139 ] Epoch: 8/25, Train accuracy: 679/40088(1.70%), Train time: 1001.34s, Mean loss:10.2554, lr:0.0775
+[ 2023-11-03 08:18:00,140 ] 
+[ 2023-11-03 08:34:41,472 ] Epoch: 9/25, Train accuracy: 658/40088(1.60%), Train time: 1001.12s, Mean loss:10.7759, lr:0.0850
+[ 2023-11-03 08:34:41,472 ] 
+[ 2023-11-03 08:51:34,039 ] Epoch: 10/25, Train accuracy: 694/40088(1.70%), Train time: 1012.35s, Mean loss:11.3888, lr:0.0925
+[ 2023-11-03 08:51:34,040 ] 
+[ 2023-11-03 08:51:34,113 ] Evaluating for epoch 10/25 ...
+[ 2023-11-03 08:53:34,094 ] Top-1 accuracy: 272/16480(1.70%), Top-5 accuracy: 1375/16480(8.30%), Mean loss:nan
+[ 2023-11-03 08:53:34,095 ] Evaluating time: 119.98s, Speed: 137.36 sequnces/(second*GPU)
+[ 2023-11-03 08:53:34,095 ] 
+[ 2023-11-03 08:53:34,233 ] Student 15 EARLY STOP after 9 epochs
+[ 2023-11-03 08:53:34,300 ] Rollout random 16/20
+[ 2023-11-03 08:53:34,347 ] Student AP: {'init_lay': 64, 'act': 'hardswish', 'att_lay': 'pa', 'conv_lay': 'SG', 'drop_prob': 0.15, 'blocks_in': 2, 'depth_in': 1, 'stride_in': 3, 'scale_in': 0.8, 'temp_win_in': 3, 'graph_dist_in': 2, 'reduct_ratio_in': 1.3, 'blocks_main': 2, 'depth_main': 2, 'graph_dist_main': 7, 'shrinkage_main': 1, 'residual_main': False, 'adaptive_main': False}
+[ 2023-11-03 08:53:34,347 ] Student HP: {'lr': 0.1, 'optimizers': 'RMSprop', 'weight_decay': 0.0, 'momentum': 0.5, 'batch_size': 8}
+[ 2023-11-03 08:53:34,511 ] Model profile: 2.43G FLOPs and 0.72M Parameters
+[ 2023-11-03 08:53:34,511 ] Updated Batch size from: old-8 -> new-8
+[ 2023-11-03 08:53:34,516 ] LR_Scheduler: MultiStepLR
+[ 2023-11-03 08:53:34,517 ] Training random student 16 for 25 epochs
+[ 2023-11-03 09:01:18,475 ] Epoch: 1/25, Train accuracy: 13150/40088(32.80%), Train time: 463.94s, Mean loss:2.3934, lr:0.0250
+[ 2023-11-03 09:01:18,476 ] 
+[ 2023-11-03 09:09:03,582 ] Epoch: 2/25, Train accuracy: 19357/40088(48.30%), Train time: 464.92s, Mean loss:1.8309, lr:0.0325
+[ 2023-11-03 09:09:03,582 ] 
+[ 2023-11-03 09:16:46,577 ] Epoch: 3/25, Train accuracy: 18283/40088(45.60%), Train time: 462.81s, Mean loss:1.9510, lr:0.0400
+[ 2023-11-03 09:16:46,577 ] 
+[ 2023-11-03 09:24:35,605 ] Epoch: 4/25, Train accuracy: 20350/40088(50.80%), Train time: 468.82s, Mean loss:1.6930, lr:0.0475
+[ 2023-11-03 09:24:35,606 ] 
+[ 2023-11-03 09:32:13,560 ] Epoch: 5/25, Train accuracy: 22476/40088(56.10%), Train time: 457.78s, Mean loss:1.5110, lr:0.0550
+[ 2023-11-03 09:32:13,560 ] 
+[ 2023-11-03 09:32:13,632 ] Evaluating for epoch 5/25 ...
+[ 2023-11-03 09:33:39,289 ] Top-1 accuracy: 275/16480(1.70%), Top-5 accuracy: 1375/16480(8.30%), Mean loss:11599.7974
+[ 2023-11-03 09:33:39,290 ] Evaluating time: 85.66s, Speed: 192.40 sequnces/(second*GPU)
+[ 2023-11-03 09:33:39,290 ] 
+[ 2023-11-03 09:41:17,137 ] Epoch: 6/25, Train accuracy: 23220/40088(57.90%), Train time: 457.73s, Mean loss:1.4620, lr:0.0625
+[ 2023-11-03 09:41:17,137 ] 
+[ 2023-11-03 09:48:55,177 ] Epoch: 7/25, Train accuracy: 22972/40088(57.30%), Train time: 457.87s, Mean loss:1.4775, lr:0.0700
+[ 2023-11-03 09:48:55,177 ] 
+[ 2023-11-03 09:56:33,001 ] Epoch: 8/25, Train accuracy: 23477/40088(58.60%), Train time: 457.65s, Mean loss:1.4211, lr:0.0775
+[ 2023-11-03 09:56:33,001 ] 
+[ 2023-11-03 10:04:11,223 ] Epoch: 9/25, Train accuracy: 23961/40088(59.80%), Train time: 458.05s, Mean loss:1.3843, lr:0.0850
+[ 2023-11-03 10:04:11,224 ] 
+[ 2023-11-03 10:11:48,836 ] Epoch: 10/25, Train accuracy: 24452/40088(61.00%), Train time: 457.44s, Mean loss:1.3566, lr:0.0925
+[ 2023-11-03 10:11:48,837 ] 
+[ 2023-11-03 10:11:48,938 ] Evaluating for epoch 10/25 ...
+[ 2023-11-03 10:13:15,376 ] Top-1 accuracy: 423/16480(2.60%), Top-5 accuracy: 1752/16480(10.60%), Mean loss:183111.9357
+[ 2023-11-03 10:13:15,377 ] Evaluating time: 86.44s, Speed: 190.66 sequnces/(second*GPU)
+[ 2023-11-03 10:13:15,377 ] 
+[ 2023-11-03 10:13:15,487 ] Student 16 EARLY STOP after 9 epochs
+[ 2023-11-03 10:13:15,552 ] Rollout random 17/20
+[ 2023-11-03 10:13:15,618 ] Student AP: {'init_lay': 64, 'act': 'hardswish', 'att_lay': 'stja', 'conv_lay': 'Basic', 'drop_prob': 0.25, 'blocks_in': 2, 'depth_in': 1, 'stride_in': 3, 'scale_in': 0.6, 'temp_win_in': 3, 'graph_dist_in': 2, 'reduct_ratio_in': 1.35, 'blocks_main': 4, 'depth_main': 3, 'graph_dist_main': 7, 'shrinkage_main': 4, 'residual_main': True, 'adaptive_main': False}
+[ 2023-11-03 10:13:15,618 ] Student HP: {'lr': 0.05, 'optimizers': 'Adam', 'weight_decay': 0.001, 'momentum': 0.5, 'batch_size': 8}
+[ 2023-11-03 10:13:15,771 ] Model profile: 4.83G FLOPs and 2.47M Parameters
+[ 2023-11-03 10:13:15,772 ] Updated Batch size from: old-8 -> new-8
+[ 2023-11-03 10:13:15,776 ] LR_Scheduler: MultiStepLR
+[ 2023-11-03 10:13:15,777 ] Training random student 17 for 25 epochs
+[ 2023-11-03 10:22:04,224 ] Epoch: 1/25, Train accuracy: 8374/40088(20.90%), Train time: 528.43s, Mean loss:2.7762, lr:0.0125
+[ 2023-11-03 10:22:04,224 ] 
+[ 2023-11-03 10:30:54,991 ] Epoch: 2/25, Train accuracy: 14785/40088(36.90%), Train time: 530.54s, Mean loss:2.1281, lr:0.0163
+[ 2023-11-03 10:30:54,992 ] 
+[ 2023-11-03 10:39:41,497 ] Epoch: 3/25, Train accuracy: 15442/40088(38.50%), Train time: 526.28s, Mean loss:2.0532, lr:0.0200
+[ 2023-11-03 10:39:41,497 ] 
+[ 2023-11-03 10:48:30,994 ] Epoch: 4/25, Train accuracy: 15289/40088(38.10%), Train time: 529.27s, Mean loss:2.0803, lr:0.0238
+[ 2023-11-03 10:48:30,995 ] 
+[ 2023-11-03 10:57:28,038 ] Epoch: 5/25, Train accuracy: 14836/40088(37.00%), Train time: 536.82s, Mean loss:2.1168, lr:0.0275
+[ 2023-11-03 10:57:28,039 ] 
+[ 2023-11-03 10:57:28,102 ] Evaluating for epoch 5/25 ...
+[ 2023-11-03 10:59:02,595 ] Top-1 accuracy: 6219/16480(37.70%), Top-5 accuracy: 12920/16480(78.40%), Mean loss:2.1102
+[ 2023-11-03 10:59:02,595 ] Evaluating time: 94.49s, Speed: 174.41 sequnces/(second*GPU)
+[ 2023-11-03 10:59:02,595 ] 
+[ 2023-11-03 11:07:57,425 ] Epoch: 6/25, Train accuracy: 14552/40088(36.30%), Train time: 534.62s, Mean loss:2.1495, lr:0.0312
+[ 2023-11-03 11:07:57,425 ] 
+[ 2023-11-03 11:16:53,693 ] Epoch: 7/25, Train accuracy: 14145/40088(35.30%), Train time: 536.04s, Mean loss:2.1887, lr:0.0350
+[ 2023-11-03 11:16:53,694 ] 
+[ 2023-11-03 11:25:43,642 ] Epoch: 8/25, Train accuracy: 13392/40088(33.40%), Train time: 529.69s, Mean loss:2.2506, lr:0.0387
+[ 2023-11-03 11:25:43,642 ] 
+[ 2023-11-03 11:34:40,958 ] Epoch: 9/25, Train accuracy: 13746/40088(34.30%), Train time: 537.09s, Mean loss:2.2254, lr:0.0425
+[ 2023-11-03 11:34:40,958 ] 
+[ 2023-11-03 11:43:24,063 ] Epoch: 10/25, Train accuracy: 13113/40088(32.70%), Train time: 522.86s, Mean loss:2.2848, lr:0.0462
+[ 2023-11-03 11:43:24,063 ] 
+[ 2023-11-03 11:43:24,127 ] Evaluating for epoch 10/25 ...
+[ 2023-11-03 11:44:50,570 ] Top-1 accuracy: 5077/16480(30.80%), Top-5 accuracy: 11552/16480(70.10%), Mean loss:2.4049
+[ 2023-11-03 11:44:50,570 ] Evaluating time: 86.44s, Speed: 190.65 sequnces/(second*GPU)
+[ 2023-11-03 11:44:50,570 ] 
+[ 2023-11-03 11:44:50,729 ] Student 17 EARLY STOP after 9 epochs
+[ 2023-11-03 11:44:50,791 ] Rollout random 18/20
+[ 2023-11-03 11:44:50,845 ] Student AP: {'init_lay': 96, 'act': 'hardswish', 'att_lay': 'fa', 'conv_lay': 'Bottleneck', 'drop_prob': 0.3, 'blocks_in': 2, 'depth_in': 2, 'stride_in': 2, 'scale_in': 0.6, 'temp_win_in': 7, 'graph_dist_in': 4, 'reduct_ratio_in': 1.225, 'blocks_main': 2, 'depth_main': 3, 'graph_dist_main': 11, 'shrinkage_main': 1, 'residual_main': False, 'adaptive_main': True}
+[ 2023-11-03 11:44:50,845 ] Student HP: {'lr': 0.1, 'optimizers': 'Adam', 'weight_decay': 0.001, 'momentum': 0.5, 'batch_size': 24}
+[ 2023-11-03 11:44:51,070 ] Model profile: 8.80G FLOPs and 1.20M Parameters
+[ 2023-11-03 11:44:51,071 ] Updated Batch size from: old-8 -> new-24
+[ 2023-11-03 11:44:51,075 ] LR_Scheduler: MultiStepLR
+[ 2023-11-03 11:44:51,076 ] Training random student 18 for 25 epochs
+[ 2023-11-03 11:56:00,939 ] Epoch: 1/25, Train accuracy: 10095/40080(25.20%), Train time: 669.85s, Mean loss:2.6238, lr:0.0250
+[ 2023-11-03 11:56:00,939 ] 
+[ 2023-11-03 12:07:08,916 ] Epoch: 2/25, Train accuracy: 13393/40080(33.40%), Train time: 667.77s, Mean loss:2.2530, lr:0.0325
+[ 2023-11-03 12:07:08,916 ] 
+[ 2023-11-03 12:18:16,722 ] Epoch: 3/25, Train accuracy: 13084/40080(32.60%), Train time: 667.58s, Mean loss:2.2799, lr:0.0400
+[ 2023-11-03 12:18:16,723 ] 
+[ 2023-11-03 12:29:24,703 ] Epoch: 4/25, Train accuracy: 12539/40080(31.30%), Train time: 667.74s, Mean loss:2.3351, lr:0.0475
+[ 2023-11-03 12:29:24,703 ] 
+[ 2023-11-03 12:40:32,730 ] Epoch: 5/25, Train accuracy: 12329/40080(30.80%), Train time: 667.81s, Mean loss:2.3549, lr:0.0550
+[ 2023-11-03 12:40:32,730 ] 
+[ 2023-11-03 12:40:32,814 ] Evaluating for epoch 5/25 ...
+[ 2023-11-03 12:42:10,270 ] Top-1 accuracy: 2509/16464(15.20%), Top-5 accuracy: 7421/16464(45.10%), Mean loss:3.5372
+[ 2023-11-03 12:42:10,270 ] Evaluating time: 97.45s, Speed: 168.94 sequnces/(second*GPU)
+[ 2023-11-03 12:42:10,270 ] 
+[ 2023-11-03 12:53:18,467 ] Epoch: 6/25, Train accuracy: 11788/40080(29.40%), Train time: 668.04s, Mean loss:2.4191, lr:0.0625
+[ 2023-11-03 12:53:18,468 ] 
+[ 2023-11-03 13:04:26,742 ] Epoch: 7/25, Train accuracy: 11453/40080(28.60%), Train time: 668.05s, Mean loss:2.4474, lr:0.0700
+[ 2023-11-03 13:04:26,742 ] 
+[ 2023-11-03 13:15:35,766 ] Epoch: 8/25, Train accuracy: 11130/40080(27.80%), Train time: 668.81s, Mean loss:2.4979, lr:0.0775
+[ 2023-11-03 13:15:35,767 ] 
+[ 2023-11-03 13:26:43,912 ] Epoch: 9/25, Train accuracy: 10667/40080(26.60%), Train time: 667.93s, Mean loss:2.5386, lr:0.0850
+[ 2023-11-03 13:26:43,912 ] 
+[ 2023-11-03 13:37:52,161 ] Epoch: 10/25, Train accuracy: 10384/40080(25.90%), Train time: 668.01s, Mean loss:2.5687, lr:0.0925
+[ 2023-11-03 13:37:52,161 ] 
+[ 2023-11-03 13:37:52,242 ] Evaluating for epoch 10/25 ...
+[ 2023-11-03 13:39:29,222 ] Top-1 accuracy: 1313/16464(8.00%), Top-5 accuracy: 4749/16464(28.80%), Mean loss:4.2643
+[ 2023-11-03 13:39:29,222 ] Evaluating time: 96.98s, Speed: 169.77 sequnces/(second*GPU)
+[ 2023-11-03 13:39:29,222 ] 
+[ 2023-11-03 13:39:29,380 ] Student 18 EARLY STOP after 9 epochs
+[ 2023-11-03 13:39:29,450 ] Rollout random 19/20
+[ 2023-11-03 13:39:29,539 ] Student AP: {'init_lay': 156, 'act': 'hardswish', 'att_lay': 'pa', 'conv_lay': 'Basic', 'drop_prob': 0.25, 'blocks_in': 2, 'depth_in': 1, 'stride_in': 3, 'scale_in': 0.8, 'temp_win_in': 5, 'graph_dist_in': 4, 'reduct_ratio_in': 1.25, 'blocks_main': 3, 'depth_main': 3, 'graph_dist_main': 9, 'shrinkage_main': 2, 'residual_main': False, 'adaptive_main': True}
+[ 2023-11-03 13:39:29,540 ] Student HP: {'lr': 0.05, 'optimizers': 'RMSprop', 'weight_decay': 0.01, 'momentum': 0.9, 'batch_size': 8}
+[ 2023-11-03 13:39:29,838 ] Model profile: 16.79G FLOPs and 3.49M Parameters
+[ 2023-11-03 13:39:29,839 ] Updated Batch size from: old-24 -> new-8
+[ 2023-11-03 13:39:29,844 ] LR_Scheduler: MultiStepLR
+[ 2023-11-03 13:39:29,845 ] Training random student 19 for 25 epochs
+[ 2023-11-03 13:57:18,906 ] Epoch: 1/25, Train accuracy: 681/40088(1.70%), Train time: 1069.04s, Mean loss:5.1645, lr:0.0125
+[ 2023-11-03 13:57:18,907 ] 
+[ 2023-11-03 14:15:08,810 ] Epoch: 2/25, Train accuracy: 658/40088(1.60%), Train time: 1069.68s, Mean loss:5.7292, lr:0.0163
+[ 2023-11-03 14:15:08,810 ] 
+[ 2023-11-03 14:32:58,387 ] Epoch: 3/25, Train accuracy: 738/40088(1.80%), Train time: 1069.34s, Mean loss:6.0903, lr:0.0200
+[ 2023-11-03 14:32:58,387 ] 
+[ 2023-11-03 14:50:47,441 ] Epoch: 4/25, Train accuracy: 685/40088(1.70%), Train time: 1068.82s, Mean loss:6.2531, lr:0.0238
+[ 2023-11-03 14:50:47,441 ] 
+[ 2023-11-03 15:08:37,139 ] Epoch: 5/25, Train accuracy: 683/40088(1.70%), Train time: 1069.45s, Mean loss:6.3625, lr:0.0275
+[ 2023-11-03 15:08:37,139 ] 
+[ 2023-11-03 15:08:37,209 ] Evaluating for epoch 5/25 ...
+[ 2023-11-03 15:10:53,553 ] Top-1 accuracy: 273/16480(1.70%), Top-5 accuracy: 1416/16480(8.60%), Mean loss:26249.2982
+[ 2023-11-03 15:10:53,553 ] Evaluating time: 136.34s, Speed: 120.87 sequnces/(second*GPU)
+[ 2023-11-03 15:10:53,553 ] 
+[ 2023-11-03 15:28:42,617 ] Epoch: 6/25, Train accuracy: 726/40088(1.80%), Train time: 1068.84s, Mean loss:6.5193, lr:0.0312
+[ 2023-11-03 15:28:42,618 ] 
+[ 2023-11-03 15:46:31,292 ] Epoch: 7/25, Train accuracy: 692/40088(1.70%), Train time: 1068.43s, Mean loss:6.7310, lr:0.0350
+[ 2023-11-03 15:46:31,292 ] 
+[ 2023-11-03 16:04:20,809 ] Epoch: 8/25, Train accuracy: 695/40088(1.70%), Train time: 1069.27s, Mean loss:6.9142, lr:0.0387
+[ 2023-11-03 16:04:20,809 ] 
+[ 2023-11-03 16:22:09,326 ] Epoch: 9/25, Train accuracy: 679/40088(1.70%), Train time: 1068.24s, Mean loss:7.1694, lr:0.0425
+[ 2023-11-03 16:22:09,326 ] 
+[ 2023-11-03 16:39:59,132 ] Epoch: 10/25, Train accuracy: 694/40088(1.70%), Train time: 1069.56s, Mean loss:7.4130, lr:0.0462
+[ 2023-11-03 16:39:59,133 ] 
+[ 2023-11-03 16:39:59,223 ] Evaluating for epoch 10/25 ...
+[ 2023-11-03 16:42:23,211 ] Top-1 accuracy: 272/16480(1.70%), Top-5 accuracy: 1370/16480(8.30%), Mean loss:42.7103
+[ 2023-11-03 16:42:23,212 ] Evaluating time: 143.99s, Speed: 114.45 sequnces/(second*GPU)
+[ 2023-11-03 16:42:23,212 ] 
+[ 2023-11-03 16:42:23,407 ] Student 19 EARLY STOP after 9 epochs
+[ 2023-11-03 16:42:23,561 ] Student AP: {'init_lay': 156, 'act': 'hardswish', 'att_lay': 'pa', 'conv_lay': 'SG', 'drop_prob': 0.3, 'blocks_in': 2, 'depth_in': 2, 'stride_in': 1, 'scale_in': 0.8, 'temp_win_in': 7, 'graph_dist_in': 3, 'reduct_ratio_in': 1.25, 'blocks_main': 4, 'depth_main': 1, 'graph_dist_main': 9, 'shrinkage_main': 6, 'residual_main': True, 'adaptive_main': False}
+[ 2023-11-03 16:42:23,562 ] Student HP: {'lr': 0.01, 'optimizers': 'Adam', 'weight_decay': 0.0001, 'momentum': 0.5, 'batch_size': 8}
+[ 2023-11-03 16:42:23,950 ] Model profile: 46.97G FLOPs and 3.70M Parameters
+[ 2023-11-03 16:42:23,951 ] Updated Batch size from: old-8 -> new-8
+[ 2023-11-03 16:42:23,956 ] LR_Scheduler: MultiStepLR
+[ 2023-11-03 16:42:23,957 ] Random HALF-ARGMAX student had a Top-1 of: 0.79
+[ 2023-11-03 16:42:23,957 ] Training RANDOM ARGMAX student...
+[ 2023-11-03 16:42:23,957 ] Training RANDOM ARGMAX student 1000 for 75 epochs
+[ 2023-11-03 17:25:26,623 ] Epoch: 1/75, Train accuracy: 11983/40088(29.90%), Train time: 2582.65s, Mean loss:2.4115, lr:0.0025
+[ 2023-11-03 17:25:26,623 ] 
+[ 2023-11-03 18:08:15,518 ] Epoch: 2/75, Train accuracy: 22802/40088(56.90%), Train time: 2568.59s, Mean loss:1.4067, lr:0.0033
+[ 2023-11-03 18:08:15,519 ] 
+[ 2023-11-03 18:50:59,872 ] Epoch: 3/75, Train accuracy: 26349/40088(65.70%), Train time: 2563.97s, Mean loss:1.0958, lr:0.0040
+[ 2023-11-03 18:50:59,873 ] 
+[ 2023-11-03 19:33:44,956 ] Epoch: 4/75, Train accuracy: 28276/40088(70.50%), Train time: 2564.76s, Mean loss:0.9351, lr:0.0048
+[ 2023-11-03 19:33:44,957 ] 
+[ 2023-11-03 20:16:31,912 ] Epoch: 5/75, Train accuracy: 29371/40088(73.30%), Train time: 2566.63s, Mean loss:0.8460, lr:0.0055
+[ 2023-11-03 20:16:31,913 ] 
+[ 2023-11-03 20:16:32,004 ] Evaluating RANDOM ARGMAX student quality in epoch 5/75
+[ 2023-11-03 20:21:27,436 ] Top-1 accuracy: 12121/16480(73.50%), Top-5 accuracy: 15750/16480(95.60%), Mean loss:0.8624
+[ 2023-11-03 20:21:27,436 ] Evaluating time: 295.43s, Speed: 55.78 sequnces/(second*GPU)
+[ 2023-11-03 20:21:27,436 ] 
+[ 2023-11-03 21:04:10,514 ] Epoch: 6/75, Train accuracy: 29837/40088(74.40%), Train time: 2562.79s, Mean loss:0.8059, lr:0.0063
+[ 2023-11-03 21:04:10,515 ] 
+[ 2023-11-03 21:46:55,155 ] Epoch: 7/75, Train accuracy: 30345/40088(75.70%), Train time: 2564.31s, Mean loss:0.7786, lr:0.0070
+[ 2023-11-03 21:46:55,155 ] 
+[ 2023-11-03 22:29:40,420 ] Epoch: 8/75, Train accuracy: 30550/40088(76.20%), Train time: 2564.95s, Mean loss:0.7586, lr:0.0078
+[ 2023-11-03 22:29:40,421 ] 
+[ 2023-11-03 23:12:26,100 ] Epoch: 9/75, Train accuracy: 30627/40088(76.40%), Train time: 2565.36s, Mean loss:0.7562, lr:0.0085
+[ 2023-11-03 23:12:26,100 ] 
+[ 2023-11-03 23:55:10,459 ] Epoch: 10/75, Train accuracy: 30649/40088(76.50%), Train time: 2564.04s, Mean loss:0.7414, lr:0.0093
+[ 2023-11-03 23:55:10,460 ] 
+[ 2023-11-03 23:55:10,550 ] Evaluating RANDOM ARGMAX student quality in epoch 10/75
+[ 2023-11-04 00:00:06,149 ] Top-1 accuracy: 12242/16480(74.30%), Top-5 accuracy: 15722/16480(95.40%), Mean loss:0.8479
+[ 2023-11-04 00:00:06,149 ] Evaluating time: 295.60s, Speed: 55.75 sequnces/(second*GPU)
+[ 2023-11-04 00:00:06,149 ] 
+[ 2023-11-04 00:42:51,652 ] Epoch: 11/75, Train accuracy: 30752/40088(76.70%), Train time: 2565.17s, Mean loss:0.7428, lr:0.0100
+[ 2023-11-04 00:42:51,652 ] 
+[ 2023-11-04 01:25:36,942 ] Epoch: 12/75, Train accuracy: 30870/40088(77.00%), Train time: 2564.95s, Mean loss:0.7296, lr:0.0100
+[ 2023-11-04 01:25:36,942 ] 
+[ 2023-11-04 02:08:22,547 ] Epoch: 13/75, Train accuracy: 31058/40088(77.50%), Train time: 2565.29s, Mean loss:0.7111, lr:0.0100
+[ 2023-11-04 02:08:22,547 ] 
+[ 2023-11-04 02:51:08,666 ] Epoch: 14/75, Train accuracy: 31387/40088(78.30%), Train time: 2565.80s, Mean loss:0.6940, lr:0.0100
+[ 2023-11-04 02:51:08,666 ] 
+[ 2023-11-04 03:33:53,508 ] Epoch: 15/75, Train accuracy: 31303/40088(78.10%), Train time: 2564.52s, Mean loss:0.6968, lr:0.0100
+[ 2023-11-04 03:33:53,509 ] 
+[ 2023-11-04 03:33:53,604 ] Evaluating RANDOM ARGMAX student quality in epoch 15/75
+[ 2023-11-04 03:38:48,913 ] Top-1 accuracy: 12904/16480(78.30%), Top-5 accuracy: 15897/16480(96.50%), Mean loss:0.7096
+[ 2023-11-04 03:38:48,914 ] Evaluating time: 295.31s, Speed: 55.81 sequnces/(second*GPU)
+[ 2023-11-04 03:38:48,914 ] 
+[ 2023-11-04 04:21:34,069 ] Epoch: 16/75, Train accuracy: 31514/40088(78.60%), Train time: 2564.86s, Mean loss:0.6772, lr:0.0100
+[ 2023-11-04 04:21:34,070 ] 
+[ 2023-11-04 05:04:19,002 ] Epoch: 17/75, Train accuracy: 31577/40088(78.80%), Train time: 2564.60s, Mean loss:0.6686, lr:0.0100
+[ 2023-11-04 05:04:19,003 ] 
+[ 2023-11-04 05:47:02,510 ] Epoch: 18/75, Train accuracy: 31703/40088(79.10%), Train time: 2563.19s, Mean loss:0.6587, lr:0.0100
+[ 2023-11-04 05:47:02,511 ] 
+[ 2023-11-04 06:29:47,297 ] Epoch: 19/75, Train accuracy: 31745/40088(79.20%), Train time: 2564.47s, Mean loss:0.6564, lr:0.0100
+[ 2023-11-04 06:29:47,297 ] 
+[ 2023-11-04 07:12:31,963 ] Epoch: 20/75, Train accuracy: 31820/40088(79.40%), Train time: 2564.35s, Mean loss:0.6491, lr:0.0100
+[ 2023-11-04 07:12:31,964 ] 
+[ 2023-11-04 07:12:32,055 ] Evaluating RANDOM ARGMAX student quality in epoch 20/75
+[ 2023-11-04 07:17:27,474 ] Top-1 accuracy: 13092/16480(79.40%), Top-5 accuracy: 15968/16480(96.90%), Mean loss:0.6709
+[ 2023-11-04 07:17:27,474 ] Evaluating time: 295.42s, Speed: 55.79 sequnces/(second*GPU)
+[ 2023-11-04 07:17:27,474 ] 
+[ 2023-11-04 08:00:08,570 ] Epoch: 21/75, Train accuracy: 31826/40088(79.40%), Train time: 2560.77s, Mean loss:0.6475, lr:0.0100
+[ 2023-11-04 08:00:08,571 ] 
+[ 2023-11-04 08:42:52,426 ] Epoch: 22/75, Train accuracy: 31968/40088(79.70%), Train time: 2563.53s, Mean loss:0.6405, lr:0.0100
+[ 2023-11-04 08:42:52,427 ] 
+[ 2023-11-04 09:25:36,085 ] Epoch: 23/75, Train accuracy: 32017/40088(79.90%), Train time: 2563.33s, Mean loss:0.6289, lr:0.0100
+[ 2023-11-04 09:25:36,085 ] 
+[ 2023-11-04 10:08:19,972 ] Epoch: 24/75, Train accuracy: 32164/40088(80.20%), Train time: 2563.56s, Mean loss:0.6253, lr:0.0100
+[ 2023-11-04 10:08:19,972 ] 
+[ 2023-11-04 10:51:03,910 ] Epoch: 25/75, Train accuracy: 32163/40088(80.20%), Train time: 2563.60s, Mean loss:0.6288, lr:0.0100
+[ 2023-11-04 10:51:03,910 ] 
+[ 2023-11-04 10:51:04,000 ] Evaluating RANDOM ARGMAX student quality in epoch 25/75
+[ 2023-11-04 10:55:59,474 ] Top-1 accuracy: 12968/16480(78.70%), Top-5 accuracy: 15909/16480(96.50%), Mean loss:0.7100
+[ 2023-11-04 10:55:59,474 ] Evaluating time: 295.47s, Speed: 55.78 sequnces/(second*GPU)
+[ 2023-11-04 10:55:59,474 ] 
+[ 2023-11-04 11:38:43,953 ] Epoch: 26/75, Train accuracy: 32199/40088(80.30%), Train time: 2564.20s, Mean loss:0.6228, lr:0.0100
+[ 2023-11-04 11:38:43,953 ] 
+[ 2023-11-04 12:21:29,900 ] Epoch: 27/75, Train accuracy: 32246/40088(80.40%), Train time: 2565.60s, Mean loss:0.6189, lr:0.0100
+[ 2023-11-04 12:21:29,900 ] 
+[ 2023-11-04 13:04:14,123 ] Epoch: 28/75, Train accuracy: 32256/40088(80.50%), Train time: 2563.89s, Mean loss:0.6223, lr:0.0100
+[ 2023-11-04 13:04:14,124 ] 
+[ 2023-11-04 13:46:59,103 ] Epoch: 29/75, Train accuracy: 32288/40088(80.50%), Train time: 2564.64s, Mean loss:0.6114, lr:0.0100
+[ 2023-11-04 13:46:59,104 ] 
+[ 2023-11-04 14:29:43,802 ] Epoch: 30/75, Train accuracy: 32268/40088(80.50%), Train time: 2564.33s, Mean loss:0.6106, lr:0.0100
+[ 2023-11-04 14:29:43,803 ] 
+[ 2023-11-04 14:29:43,905 ] Evaluating RANDOM ARGMAX student quality in epoch 30/75
+[ 2023-11-04 14:34:39,339 ] Top-1 accuracy: 13178/16480(80.00%), Top-5 accuracy: 15928/16480(96.70%), Mean loss:0.6543
+[ 2023-11-04 14:34:39,339 ] Evaluating time: 295.43s, Speed: 55.78 sequnces/(second*GPU)
+[ 2023-11-04 14:34:39,339 ] 
+[ 2023-11-04 15:17:24,034 ] Epoch: 31/75, Train accuracy: 34283/40088(85.50%), Train time: 2564.36s, Mean loss:0.4538, lr:0.0050
+[ 2023-11-04 15:17:24,035 ] 
+[ 2023-11-04 16:00:07,050 ] Epoch: 32/75, Train accuracy: 34341/40088(85.70%), Train time: 2562.66s, Mean loss:0.4496, lr:0.0050
+[ 2023-11-04 16:00:07,051 ] 
+[ 2023-11-04 16:42:50,238 ] Epoch: 33/75, Train accuracy: 34359/40088(85.70%), Train time: 2562.86s, Mean loss:0.4504, lr:0.0050
+[ 2023-11-04 16:42:50,239 ] 
+[ 2023-11-04 17:25:34,505 ] Epoch: 34/75, Train accuracy: 34390/40088(85.80%), Train time: 2563.92s, Mean loss:0.4481, lr:0.0050
+[ 2023-11-04 17:25:34,505 ] 
+[ 2023-11-04 18:08:18,446 ] Epoch: 35/75, Train accuracy: 34523/40088(86.10%), Train time: 2563.59s, Mean loss:0.4429, lr:0.0050
+[ 2023-11-04 18:08:18,446 ] 
+[ 2023-11-04 18:08:18,544 ] Evaluating RANDOM ARGMAX student quality in epoch 35/75
+[ 2023-11-04 18:13:13,874 ] Top-1 accuracy: 13657/16480(82.90%), Top-5 accuracy: 16074/16480(97.50%), Mean loss:0.5597
+[ 2023-11-04 18:13:13,875 ] Evaluating time: 295.33s, Speed: 55.80 sequnces/(second*GPU)
+[ 2023-11-04 18:13:13,875 ] 
+[ 2023-11-04 18:55:57,703 ] Epoch: 36/75, Train accuracy: 34521/40088(86.10%), Train time: 2563.48s, Mean loss:0.4363, lr:0.0050
+[ 2023-11-04 18:55:57,703 ] 
+[ 2023-11-04 19:38:41,839 ] Epoch: 37/75, Train accuracy: 34446/40088(85.90%), Train time: 2563.78s, Mean loss:0.4400, lr:0.0050
+[ 2023-11-04 19:38:41,839 ] 
+[ 2023-11-04 20:21:31,926 ] Epoch: 38/75, Train accuracy: 34516/40088(86.10%), Train time: 2569.75s, Mean loss:0.4343, lr:0.0050
+[ 2023-11-04 20:21:31,926 ] 
+[ 2023-11-04 21:04:17,160 ] Epoch: 39/75, Train accuracy: 34502/40088(86.10%), Train time: 2564.90s, Mean loss:0.4338, lr:0.0050
+[ 2023-11-04 21:04:17,160 ] 
+[ 2023-11-04 21:47:02,801 ] Epoch: 40/75, Train accuracy: 34577/40088(86.30%), Train time: 2565.30s, Mean loss:0.4330, lr:0.0050
+[ 2023-11-04 21:47:02,801 ] 
+[ 2023-11-04 21:47:02,900 ] Evaluating RANDOM ARGMAX student quality in epoch 40/75
+[ 2023-11-04 21:51:58,410 ] Top-1 accuracy: 13655/16480(82.90%), Top-5 accuracy: 16057/16480(97.40%), Mean loss:0.5589
+[ 2023-11-04 21:51:58,410 ] Evaluating time: 295.51s, Speed: 55.77 sequnces/(second*GPU)
+[ 2023-11-04 21:51:58,410 ] 
+[ 2023-11-04 22:34:42,926 ] Epoch: 41/75, Train accuracy: 34616/40088(86.40%), Train time: 2564.25s, Mean loss:0.4290, lr:0.0050
+[ 2023-11-04 22:34:42,927 ] 
+[ 2023-11-04 23:17:26,813 ] Epoch: 42/75, Train accuracy: 34672/40088(86.50%), Train time: 2563.55s, Mean loss:0.4286, lr:0.0050
+[ 2023-11-04 23:17:26,813 ] 
+[ 2023-11-05 00:00:10,584 ] Epoch: 43/75, Train accuracy: 34721/40088(86.60%), Train time: 2563.44s, Mean loss:0.4233, lr:0.0050
+[ 2023-11-05 00:00:10,584 ] 
+[ 2023-11-05 00:42:55,893 ] Epoch: 44/75, Train accuracy: 34660/40088(86.50%), Train time: 2564.97s, Mean loss:0.4214, lr:0.0050
+[ 2023-11-05 00:42:55,894 ] 
+[ 2023-11-05 01:25:40,106 ] Epoch: 45/75, Train accuracy: 34804/40088(86.80%), Train time: 2563.86s, Mean loss:0.4156, lr:0.0050
+[ 2023-11-05 01:25:40,106 ] 
+[ 2023-11-05 01:25:40,205 ] Evaluating RANDOM ARGMAX student quality in epoch 45/75
+[ 2023-11-05 01:30:35,254 ] Top-1 accuracy: 13344/16480(81.00%), Top-5 accuracy: 16011/16480(97.20%), Mean loss:0.6212
+[ 2023-11-05 01:30:35,255 ] Evaluating time: 295.05s, Speed: 55.86 sequnces/(second*GPU)
+[ 2023-11-05 01:30:35,255 ] 
+[ 2023-11-05 02:13:18,691 ] Epoch: 46/75, Train accuracy: 34690/40088(86.50%), Train time: 2563.20s, Mean loss:0.4159, lr:0.0050
+[ 2023-11-05 02:13:18,691 ] 
+[ 2023-11-05 02:56:01,493 ] Epoch: 47/75, Train accuracy: 34902/40088(87.10%), Train time: 2562.45s, Mean loss:0.4102, lr:0.0050
+[ 2023-11-05 02:56:01,494 ] 
+[ 2023-11-05 03:38:44,025 ] Epoch: 48/75, Train accuracy: 34786/40088(86.80%), Train time: 2562.17s, Mean loss:0.4158, lr:0.0050
+[ 2023-11-05 03:38:44,025 ] 
+[ 2023-11-05 04:21:26,790 ] Epoch: 49/75, Train accuracy: 34931/40088(87.10%), Train time: 2562.43s, Mean loss:0.4023, lr:0.0050
+[ 2023-11-05 04:21:26,790 ] 
+[ 2023-11-05 05:04:08,214 ] Epoch: 50/75, Train accuracy: 34974/40088(87.20%), Train time: 2561.08s, Mean loss:0.4059, lr:0.0050
+[ 2023-11-05 05:04:08,214 ] 
+[ 2023-11-05 05:04:08,312 ] Evaluating RANDOM ARGMAX student quality in epoch 50/75
+[ 2023-11-05 05:09:03,183 ] Top-1 accuracy: 13620/16480(82.60%), Top-5 accuracy: 16067/16480(97.50%), Mean loss:0.5765
+[ 2023-11-05 05:09:03,184 ] Evaluating time: 294.87s, Speed: 55.89 sequnces/(second*GPU)
+[ 2023-11-05 05:09:03,184 ] 
+[ 2023-11-05 05:51:46,007 ] Epoch: 51/75, Train accuracy: 36245/40088(90.40%), Train time: 2562.59s, Mean loss:0.3015, lr:0.0025
+[ 2023-11-05 05:51:46,007 ] 
+[ 2023-11-05 06:34:29,870 ] Epoch: 52/75, Train accuracy: 36484/40088(91.00%), Train time: 2563.53s, Mean loss:0.2899, lr:0.0025
+[ 2023-11-05 06:34:29,871 ] 
+[ 2023-11-05 07:17:17,166 ] Epoch: 53/75, Train accuracy: 36357/40088(90.70%), Train time: 2566.96s, Mean loss:0.2892, lr:0.0025
+[ 2023-11-05 07:17:17,166 ] 
+[ 2023-11-05 08:00:00,008 ] Epoch: 54/75, Train accuracy: 36463/40088(91.00%), Train time: 2562.48s, Mean loss:0.2864, lr:0.0025
+[ 2023-11-05 08:00:00,008 ] 
+[ 2023-11-05 08:42:43,166 ] Epoch: 55/75, Train accuracy: 36404/40088(90.80%), Train time: 2562.81s, Mean loss:0.2866, lr:0.0025
+[ 2023-11-05 08:42:43,166 ] 
+[ 2023-11-05 08:42:43,265 ] Evaluating RANDOM ARGMAX student quality in epoch 55/75
+[ 2023-11-05 08:47:38,141 ] Top-1 accuracy: 13936/16480(84.60%), Top-5 accuracy: 16084/16480(97.60%), Mean loss:0.5018
+[ 2023-11-05 08:47:38,142 ] Evaluating time: 294.87s, Speed: 55.89 sequnces/(second*GPU)
+[ 2023-11-05 08:47:38,142 ] 
+[ 2023-11-05 09:30:21,903 ] Epoch: 56/75, Train accuracy: 36505/40088(91.10%), Train time: 2563.45s, Mean loss:0.2821, lr:0.0025
+[ 2023-11-05 09:30:21,903 ] 
+[ 2023-11-05 10:13:05,971 ] Epoch: 57/75, Train accuracy: 36456/40088(90.90%), Train time: 2563.73s, Mean loss:0.2861, lr:0.0025
+[ 2023-11-05 10:13:05,971 ] 
+[ 2023-11-05 10:55:50,207 ] Epoch: 58/75, Train accuracy: 36553/40088(91.20%), Train time: 2563.90s, Mean loss:0.2778, lr:0.0025
+[ 2023-11-05 10:55:50,207 ] 
+[ 2023-11-05 11:38:40,419 ] Epoch: 59/75, Train accuracy: 36649/40088(91.40%), Train time: 2569.88s, Mean loss:0.2716, lr:0.0025
+[ 2023-11-05 11:38:40,419 ] 
+[ 2023-11-05 12:21:23,840 ] Epoch: 60/75, Train accuracy: 36574/40088(91.20%), Train time: 2563.07s, Mean loss:0.2737, lr:0.0025
+[ 2023-11-05 12:21:23,840 ] 
+[ 2023-11-05 12:21:23,959 ] Evaluating RANDOM ARGMAX student quality in epoch 60/75
+[ 2023-11-05 12:26:19,634 ] Top-1 accuracy: 14079/16480(85.40%), Top-5 accuracy: 16133/16480(97.90%), Mean loss:0.4809
+[ 2023-11-05 12:26:19,634 ] Evaluating time: 295.67s, Speed: 55.74 sequnces/(second*GPU)
+[ 2023-11-05 12:26:19,634 ] 
+[ 2023-11-05 13:09:02,984 ] Epoch: 61/75, Train accuracy: 37617/40088(93.80%), Train time: 2563.01s, Mean loss:0.2035, lr:0.0013
+[ 2023-11-05 13:09:02,984 ] 
+[ 2023-11-05 13:51:47,786 ] Epoch: 62/75, Train accuracy: 37741/40088(94.10%), Train time: 2564.45s, Mean loss:0.1907, lr:0.0013
+[ 2023-11-05 13:51:47,787 ] 
+[ 2023-11-05 14:34:31,582 ] Epoch: 63/75, Train accuracy: 37773/40088(94.20%), Train time: 2563.44s, Mean loss:0.1858, lr:0.0013
+[ 2023-11-05 14:34:31,582 ] 
+[ 2023-11-05 15:17:14,986 ] Epoch: 64/75, Train accuracy: 37854/40088(94.40%), Train time: 2563.05s, Mean loss:0.1820, lr:0.0013
+[ 2023-11-05 15:17:14,986 ] 
+[ 2023-11-05 15:59:57,780 ] Epoch: 65/75, Train accuracy: 37807/40088(94.30%), Train time: 2562.46s, Mean loss:0.1807, lr:0.0013
+[ 2023-11-05 15:59:57,781 ] 
+[ 2023-11-05 15:59:57,884 ] Evaluating RANDOM ARGMAX student quality in epoch 65/75
+[ 2023-11-05 16:04:53,135 ] Top-1 accuracy: 14038/16480(85.20%), Top-5 accuracy: 16087/16480(97.60%), Mean loss:0.5280
+[ 2023-11-05 16:04:53,135 ] Evaluating time: 295.25s, Speed: 55.82 sequnces/(second*GPU)
+[ 2023-11-05 16:04:53,135 ] 
+[ 2023-11-05 16:47:37,927 ] Epoch: 66/75, Train accuracy: 38384/40088(95.70%), Train time: 2564.55s, Mean loss:0.1420, lr:0.0006
+[ 2023-11-05 16:47:37,927 ] 
+[ 2023-11-05 17:30:21,647 ] Epoch: 67/75, Train accuracy: 38541/40088(96.10%), Train time: 2563.39s, Mean loss:0.1290, lr:0.0006
+[ 2023-11-05 17:30:21,648 ] 
+[ 2023-11-05 18:13:05,392 ] Epoch: 68/75, Train accuracy: 38580/40088(96.20%), Train time: 2563.39s, Mean loss:0.1279, lr:0.0006
+[ 2023-11-05 18:13:05,392 ] 
+[ 2023-11-05 18:55:49,248 ] Epoch: 69/75, Train accuracy: 38671/40088(96.50%), Train time: 2563.52s, Mean loss:0.1213, lr:0.0006
+[ 2023-11-05 18:55:49,248 ] 
+[ 2023-11-05 19:38:32,379 ] Epoch: 70/75, Train accuracy: 38704/40088(96.50%), Train time: 2562.77s, Mean loss:0.1184, lr:0.0006
+[ 2023-11-05 19:38:32,380 ] 
+[ 2023-11-05 19:38:32,483 ] Evaluating RANDOM ARGMAX student quality in epoch 70/75
+[ 2023-11-05 19:43:27,951 ] Top-1 accuracy: 14272/16480(86.60%), Top-5 accuracy: 16139/16480(97.90%), Mean loss:0.4892
+[ 2023-11-05 19:43:27,951 ] Evaluating time: 295.47s, Speed: 55.78 sequnces/(second*GPU)
+[ 2023-11-05 19:43:27,951 ] 
+[ 2023-11-05 20:26:11,796 ] Epoch: 71/75, Train accuracy: 39021/40088(97.30%), Train time: 2563.51s, Mean loss:0.0960, lr:0.0003
+[ 2023-11-05 20:26:11,796 ] 
+[ 2023-11-05 20:26:11,898 ] Evaluating RANDOM ARGMAX student quality in epoch 71/75
+[ 2023-11-05 20:31:07,405 ] Top-1 accuracy: 14299/16480(86.80%), Top-5 accuracy: 16139/16480(97.90%), Mean loss:0.4852
+[ 2023-11-05 20:31:07,405 ] Evaluating time: 295.50s, Speed: 55.77 sequnces/(second*GPU)
+[ 2023-11-05 20:31:07,405 ] 
+[ 2023-11-05 21:13:52,154 ] Epoch: 72/75, Train accuracy: 39086/40088(97.50%), Train time: 2564.41s, Mean loss:0.0905, lr:0.0003
+[ 2023-11-05 21:13:52,154 ] 
+[ 2023-11-05 21:13:52,256 ] Evaluating RANDOM ARGMAX student quality in epoch 72/75
+[ 2023-11-05 21:18:47,658 ] Top-1 accuracy: 14295/16480(86.70%), Top-5 accuracy: 16135/16480(97.90%), Mean loss:0.4987
+[ 2023-11-05 21:18:47,659 ] Evaluating time: 295.40s, Speed: 55.79 sequnces/(second*GPU)
+[ 2023-11-05 21:18:47,659 ] 
+[ 2023-11-05 22:01:32,313 ] Epoch: 73/75, Train accuracy: 39108/40088(97.60%), Train time: 2564.39s, Mean loss:0.0867, lr:0.0003
+[ 2023-11-05 22:01:32,313 ] 
+[ 2023-11-05 22:01:32,418 ] Evaluating RANDOM ARGMAX student quality in epoch 73/75
+[ 2023-11-05 22:06:27,936 ] Top-1 accuracy: 14283/16480(86.70%), Top-5 accuracy: 16139/16480(97.90%), Mean loss:0.4966
+[ 2023-11-05 22:06:27,936 ] Evaluating time: 295.52s, Speed: 55.77 sequnces/(second*GPU)
+[ 2023-11-05 22:06:27,936 ] 
+[ 2023-11-05 22:49:18,093 ] Epoch: 74/75, Train accuracy: 39147/40088(97.70%), Train time: 2569.81s, Mean loss:0.0849, lr:0.0003
+[ 2023-11-05 22:49:18,094 ] 
+[ 2023-11-05 22:49:18,206 ] Evaluating RANDOM ARGMAX student quality in epoch 74/75
+[ 2023-11-05 22:54:13,512 ] Top-1 accuracy: 14303/16480(86.80%), Top-5 accuracy: 16134/16480(97.90%), Mean loss:0.5040
+[ 2023-11-05 22:54:13,512 ] Evaluating time: 295.30s, Speed: 55.81 sequnces/(second*GPU)
+[ 2023-11-05 22:54:13,512 ] 
+[ 2023-11-05 23:36:58,356 ] Epoch: 75/75, Train accuracy: 39231/40088(97.90%), Train time: 2564.60s, Mean loss:0.0811, lr:0.0003
+[ 2023-11-05 23:36:58,356 ] 
+[ 2023-11-05 23:36:58,459 ] Evaluating RANDOM ARGMAX student quality in epoch 75/75
+[ 2023-11-05 23:41:53,630 ] Top-1 accuracy: 14249/16480(86.50%), Top-5 accuracy: 16126/16480(97.90%), Mean loss:0.5152
+[ 2023-11-05 23:41:53,631 ] Evaluating time: 295.17s, Speed: 55.83 sequnces/(second*GPU)
+[ 2023-11-05 23:41:53,631 ] 
+[ 2023-11-05 23:41:53,861 ] RANDOM ARGMAX student 1000: Top1 0.868, Top5 0.979, Training time: 192331.84460377693
+[ 2023-11-05 23:41:53,865 ] Iteration random 1/50
+[ 2023-11-05 23:41:53,865 ] Rollout random 0/20
+[ 2023-11-05 23:41:53,917 ] Student AP: {'init_lay': 156, 'act': 'relu6', 'att_lay': 'ja', 'conv_lay': 'SG', 'drop_prob': 0.3, 'blocks_in': 2, 'depth_in': 1, 'stride_in': 2, 'scale_in': 0.4, 'temp_win_in': 5, 'graph_dist_in': 3, 'reduct_ratio_in': 1.35, 'blocks_main': 2, 'depth_main': 2, 'graph_dist_main': 9, 'shrinkage_main': 2, 'residual_main': True, 'adaptive_main': True}
+[ 2023-11-05 23:41:53,917 ] Student HP: {'lr': 0.05, 'optimizers': 'RMSprop', 'weight_decay': 0.01, 'momentum': 0.5, 'batch_size': 16}
+[ 2023-11-05 23:41:54,175 ] Model profile: 10.41G FLOPs and 1.10M Parameters
+[ 2023-11-05 23:41:54,176 ] Updated Batch size from: old-8 -> new-16
+[ 2023-11-05 23:41:54,181 ] LR_Scheduler: MultiStepLR
+[ 2023-11-05 23:41:54,182 ] Training random student 20 for 25 epochs
+[ 2023-11-05 23:54:41,364 ] Epoch: 1/25, Train accuracy: 693/40080(1.70%), Train time: 767.17s, Mean loss:4.1213, lr:0.0125
+[ 2023-11-05 23:54:41,364 ] 
+[ 2023-11-06 00:07:29,028 ] Epoch: 2/25, Train accuracy: 631/40080(1.60%), Train time: 767.47s, Mean loss:4.1172, lr:0.0163
+[ 2023-11-06 00:07:29,028 ] 
+[ 2023-11-06 00:20:15,285 ] Epoch: 3/25, Train accuracy: 660/40080(1.60%), Train time: 766.05s, Mean loss:4.1236, lr:0.0200
+[ 2023-11-06 00:20:15,285 ] 
+[ 2023-11-06 00:33:01,278 ] Epoch: 4/25, Train accuracy: 699/40080(1.70%), Train time: 765.79s, Mean loss:4.1277, lr:0.0238
+[ 2023-11-06 00:33:01,278 ] 
+[ 2023-11-06 00:45:58,325 ] Epoch: 5/25, Train accuracy: 709/40080(1.80%), Train time: 776.85s, Mean loss:4.1343, lr:0.0275
+[ 2023-11-06 00:45:58,325 ] 
+[ 2023-11-06 00:45:58,410 ] Evaluating for epoch 5/25 ...
+[ 2023-11-06 00:47:36,686 ] Top-1 accuracy: 275/16480(1.70%), Top-5 accuracy: 1371/16480(8.30%), Mean loss:8.6394
+[ 2023-11-06 00:47:36,687 ] Evaluating time: 98.27s, Speed: 167.69 sequnces/(second*GPU)
+[ 2023-11-06 00:47:36,687 ] 
+[ 2023-11-06 01:00:24,216 ] Epoch: 6/25, Train accuracy: 678/40080(1.70%), Train time: 767.40s, Mean loss:4.1405, lr:0.0312
+[ 2023-11-06 01:00:24,217 ] 
+[ 2023-11-06 01:13:10,228 ] Epoch: 7/25, Train accuracy: 700/40080(1.70%), Train time: 765.81s, Mean loss:4.1486, lr:0.0350
+[ 2023-11-06 01:13:10,229 ] 
+[ 2023-11-06 01:25:56,026 ] Epoch: 8/25, Train accuracy: 686/40080(1.70%), Train time: 765.59s, Mean loss:4.1561, lr:0.0387
+[ 2023-11-06 01:25:56,026 ] 
+[ 2023-11-06 01:38:45,565 ] Epoch: 9/25, Train accuracy: 684/40080(1.70%), Train time: 769.34s, Mean loss:4.1607, lr:0.0425
+[ 2023-11-06 01:38:45,565 ] 
+[ 2023-11-06 01:51:32,944 ] Epoch: 10/25, Train accuracy: 672/40080(1.70%), Train time: 767.18s, Mean loss:4.1676, lr:0.0462
+[ 2023-11-06 01:51:32,945 ] 
+[ 2023-11-06 01:51:33,028 ] Evaluating for epoch 10/25 ...
+[ 2023-11-06 01:53:07,946 ] Top-1 accuracy: 273/16480(1.70%), Top-5 accuracy: 1372/16480(8.30%), Mean loss:10.2196
+[ 2023-11-06 01:53:07,947 ] Evaluating time: 94.92s, Speed: 173.63 sequnces/(second*GPU)
+[ 2023-11-06 01:53:07,947 ] 
+[ 2023-11-06 01:53:08,069 ] Student 20 EARLY STOP after 9 epochs
+[ 2023-11-06 01:53:08,147 ] Rollout random 1/20
+[ 2023-11-06 01:53:08,202 ] Student AP: {'init_lay': 128, 'act': 'swish', 'att_lay': 'fa', 'conv_lay': 'Bottleneck', 'drop_prob': 0.15, 'blocks_in': 2, 'depth_in': 2, 'stride_in': 1, 'scale_in': 0.6, 'temp_win_in': 5, 'graph_dist_in': 2, 'reduct_ratio_in': 1.25, 'blocks_main': 2, 'depth_main': 2, 'graph_dist_main': 9, 'shrinkage_main': 1, 'residual_main': False, 'adaptive_main': True}
+[ 2023-11-06 01:53:08,202 ] Student HP: {'lr': 0.1, 'optimizers': 'SGD', 'weight_decay': 0.001, 'momentum': 0.5, 'batch_size': 16}
+[ 2023-11-06 01:53:08,475 ] Model profile: 18.52G FLOPs and 1.28M Parameters
+[ 2023-11-06 01:53:08,476 ] Updated Batch size from: old-16 -> new-16
+[ 2023-11-06 01:53:08,481 ] LR_Scheduler: MultiStepLR
+[ 2023-11-06 01:53:08,481 ] Training random student 21 for 25 epochs
+[ 2023-11-06 02:15:12,257 ] Epoch: 1/25, Train accuracy: 7901/40080(19.70%), Train time: 1323.76s, Mean loss:2.9569, lr:0.0250
+[ 2023-11-06 02:15:12,257 ] 
+[ 2023-11-06 02:37:15,743 ] Epoch: 2/25, Train accuracy: 18633/40080(46.50%), Train time: 1323.30s, Mean loss:1.7426, lr:0.0325
+[ 2023-11-06 02:37:15,743 ] 
+[ 2023-11-06 02:59:19,114 ] Epoch: 3/25, Train accuracy: 23443/40080(58.50%), Train time: 1323.20s, Mean loss:1.3347, lr:0.0400
+[ 2023-11-06 02:59:19,115 ] 
+[ 2023-11-06 03:21:22,301 ] Epoch: 4/25, Train accuracy: 25813/40080(64.40%), Train time: 1323.01s, Mean loss:1.1321, lr:0.0475
+[ 2023-11-06 03:21:22,302 ] 
+[ 2023-11-06 03:43:25,796 ] Epoch: 5/25, Train accuracy: 27317/40080(68.20%), Train time: 1323.29s, Mean loss:1.0242, lr:0.0550
+[ 2023-11-06 03:43:25,796 ] 
+[ 2023-11-06 03:43:25,905 ] Evaluating for epoch 5/25 ...
+[ 2023-11-06 03:46:24,237 ] Top-1 accuracy: 11547/16480(70.10%), Top-5 accuracy: 15430/16480(93.60%), Mean loss:1.0149
+[ 2023-11-06 03:46:24,238 ] Evaluating time: 178.33s, Speed: 92.41 sequnces/(second*GPU)
+[ 2023-11-06 03:46:24,238 ] 
+[ 2023-11-06 04:08:27,122 ] Epoch: 6/25, Train accuracy: 28073/40080(70.00%), Train time: 1322.79s, Mean loss:0.9716, lr:0.0625
+[ 2023-11-06 04:08:27,122 ] 
+[ 2023-11-06 04:30:30,285 ] Epoch: 7/25, Train accuracy: 28669/40080(71.50%), Train time: 1322.99s, Mean loss:0.9230, lr:0.0700
+[ 2023-11-06 04:30:30,285 ] 
+[ 2023-11-06 04:52:33,421 ] Epoch: 8/25, Train accuracy: 29012/40080(72.40%), Train time: 1322.96s, Mean loss:0.8993, lr:0.0775
+[ 2023-11-06 04:52:33,421 ] 
+[ 2023-11-06 05:14:36,401 ] Epoch: 9/25, Train accuracy: 29189/40080(72.80%), Train time: 1322.81s, Mean loss:0.8840, lr:0.0850
+[ 2023-11-06 05:14:36,401 ] 
+[ 2023-11-06 05:36:39,500 ] Epoch: 10/25, Train accuracy: 29556/40080(73.70%), Train time: 1322.93s, Mean loss:0.8535, lr:0.0925
+[ 2023-11-06 05:36:39,500 ] 
+[ 2023-11-06 05:36:39,603 ] Evaluating for epoch 10/25 ...
+[ 2023-11-06 05:39:37,895 ] Top-1 accuracy: 11745/16480(71.30%), Top-5 accuracy: 15690/16480(95.20%), Mean loss:0.9670
+[ 2023-11-06 05:39:37,896 ] Evaluating time: 178.29s, Speed: 92.43 sequnces/(second*GPU)
+[ 2023-11-06 05:39:37,896 ] 
+[ 2023-11-06 06:01:40,786 ] Epoch: 11/25, Train accuracy: 29705/40080(74.10%), Train time: 1322.80s, Mean loss:0.8496, lr:0.1000
+[ 2023-11-06 06:01:40,786 ] 
+[ 2023-11-06 06:23:43,936 ] Epoch: 12/25, Train accuracy: 30116/40080(75.10%), Train time: 1322.98s, Mean loss:0.8128, lr:0.1000
+[ 2023-11-06 06:23:43,936 ] 
+[ 2023-11-06 06:45:47,090 ] Epoch: 13/25, Train accuracy: 30251/40080(75.50%), Train time: 1322.98s, Mean loss:0.8020, lr:0.1000
+[ 2023-11-06 06:45:47,091 ] 
+[ 2023-11-06 07:07:50,693 ] Epoch: 14/25, Train accuracy: 30502/40080(76.10%), Train time: 1323.41s, Mean loss:0.7797, lr:0.1000
+[ 2023-11-06 07:07:50,694 ] 
+[ 2023-11-06 07:29:53,688 ] Epoch: 15/25, Train accuracy: 30684/40080(76.60%), Train time: 1322.81s, Mean loss:0.7657, lr:0.1000
+[ 2023-11-06 07:29:53,688 ] 
+[ 2023-11-06 07:29:53,791 ] Evaluating for epoch 15/25 ...
+[ 2023-11-06 07:32:52,347 ] Top-1 accuracy: 11486/16480(69.70%), Top-5 accuracy: 15530/16480(94.20%), Mean loss:1.0117
+[ 2023-11-06 07:32:52,347 ] Evaluating time: 178.55s, Speed: 92.30 sequnces/(second*GPU)
+[ 2023-11-06 07:32:52,347 ] 
+[ 2023-11-06 07:54:55,446 ] Epoch: 16/25, Train accuracy: 30883/40080(77.10%), Train time: 1322.99s, Mean loss:0.7529, lr:0.1000
+[ 2023-11-06 07:54:55,446 ] 
+[ 2023-11-06 08:16:58,611 ] Epoch: 17/25, Train accuracy: 30933/40080(77.20%), Train time: 1322.99s, Mean loss:0.7450, lr:0.1000
+[ 2023-11-06 08:16:58,611 ] 
+[ 2023-11-06 08:39:01,681 ] Epoch: 18/25, Train accuracy: 31103/40080(77.60%), Train time: 1322.90s, Mean loss:0.7376, lr:0.1000
+[ 2023-11-06 08:39:01,681 ] 
+[ 2023-11-06 09:01:04,803 ] Epoch: 19/25, Train accuracy: 31150/40080(77.70%), Train time: 1322.92s, Mean loss:0.7280, lr:0.1000
+[ 2023-11-06 09:01:04,803 ] 
+[ 2023-11-06 09:23:07,819 ] Epoch: 20/25, Train accuracy: 31175/40080(77.80%), Train time: 1322.84s, Mean loss:0.7287, lr:0.1000
+[ 2023-11-06 09:23:07,820 ] 
+[ 2023-11-06 09:23:07,943 ] Evaluating for epoch 20/25 ...
+[ 2023-11-06 09:26:06,262 ] Top-1 accuracy: 3716/16480(22.50%), Top-5 accuracy: 7976/16480(48.40%), Mean loss:4.3452
+[ 2023-11-06 09:26:06,262 ] Evaluating time: 178.32s, Speed: 92.42 sequnces/(second*GPU)
+[ 2023-11-06 09:26:06,262 ] 
+[ 2023-11-06 09:48:08,996 ] Epoch: 21/25, Train accuracy: 31141/40080(77.70%), Train time: 1322.66s, Mean loss:0.7245, lr:0.1000
+[ 2023-11-06 09:48:08,996 ] 
+[ 2023-11-06 10:10:11,968 ] Epoch: 22/25, Train accuracy: 31332/40080(78.20%), Train time: 1322.80s, Mean loss:0.7168, lr:0.1000
+[ 2023-11-06 10:10:11,969 ] 
+[ 2023-11-06 10:32:14,932 ] Epoch: 23/25, Train accuracy: 31298/40080(78.10%), Train time: 1322.74s, Mean loss:0.7157, lr:0.1000
+[ 2023-11-06 10:32:14,932 ] 
+[ 2023-11-06 10:54:17,861 ] Epoch: 24/25, Train accuracy: 31327/40080(78.20%), Train time: 1322.75s, Mean loss:0.7113, lr:0.1000
+[ 2023-11-06 10:54:17,861 ] 
+[ 2023-11-06 11:16:20,889 ] Epoch: 25/25, Train accuracy: 31530/40080(78.70%), Train time: 1322.84s, Mean loss:0.7024, lr:0.1000
+[ 2023-11-06 11:16:20,889 ] 
+[ 2023-11-06 11:16:20,997 ] Evaluating for epoch 25/25 ...
+[ 2023-11-06 11:19:19,600 ] Top-1 accuracy: 11557/16480(70.10%), Top-5 accuracy: 15439/16480(93.70%), Mean loss:1.0381
+[ 2023-11-06 11:19:19,600 ] Evaluating time: 178.60s, Speed: 92.27 sequnces/(second*GPU)
+[ 2023-11-06 11:19:19,600 ] 
+[ 2023-11-06 11:19:19,736 ] Rollout random 2/20
+[ 2023-11-06 11:19:19,793 ] Student AP: {'init_lay': 64, 'act': 'swish', 'att_lay': 'pa', 'conv_lay': 'Shuffle', 'drop_prob': 0.25, 'blocks_in': 1, 'depth_in': 1, 'stride_in': 2, 'scale_in': 0.8, 'temp_win_in': 7, 'graph_dist_in': 2, 'reduct_ratio_in': 1.325, 'blocks_main': 3, 'depth_main': 4, 'graph_dist_main': 9, 'shrinkage_main': 2, 'residual_main': False, 'adaptive_main': True}
+[ 2023-11-06 11:19:19,793 ] Student HP: {'lr': 0.01, 'optimizers': 'SGD', 'weight_decay': 0.01, 'momentum': 0.9, 'batch_size': 16}
+[ 2023-11-06 11:19:19,993 ] Model profile: 13.68G FLOPs and 1.85M Parameters
+[ 2023-11-06 11:19:19,994 ] Updated Batch size from: old-16 -> new-16
+[ 2023-11-06 11:19:19,997 ] LR_Scheduler: MultiStepLR
+[ 2023-11-06 11:19:19,998 ] Training random student 22 for 25 epochs
+[ 2023-11-06 11:32:46,799 ] Epoch: 1/25, Train accuracy: 4445/40080(11.10%), Train time: 806.79s, Mean loss:3.4230, lr:0.0025
+[ 2023-11-06 11:32:46,800 ] 
+[ 2023-11-06 11:46:10,350 ] Epoch: 2/25, Train accuracy: 12612/40080(31.50%), Train time: 803.41s, Mean loss:2.4478, lr:0.0033
+[ 2023-11-06 11:46:10,350 ] 
+[ 2023-11-06 11:59:34,221 ] Epoch: 3/25, Train accuracy: 18217/40080(45.50%), Train time: 803.73s, Mean loss:1.9240, lr:0.0040
+[ 2023-11-06 11:59:34,222 ] 
+[ 2023-11-06 12:12:57,517 ] Epoch: 4/25, Train accuracy: 20429/40080(51.00%), Train time: 803.15s, Mean loss:1.7206, lr:0.0048
+[ 2023-11-06 12:12:57,518 ] 
+[ 2023-11-06 12:26:20,490 ] Epoch: 5/25, Train accuracy: 21934/40080(54.70%), Train time: 802.82s, Mean loss:1.6059, lr:0.0055
+[ 2023-11-06 12:26:20,491 ] 
+[ 2023-11-06 12:26:20,581 ] Evaluating for epoch 5/25 ...
+[ 2023-11-06 12:28:05,241 ] Top-1 accuracy: 5156/16480(31.30%), Top-5 accuracy: 10928/16480(66.30%), Mean loss:2.6052
+[ 2023-11-06 12:28:05,241 ] Evaluating time: 104.66s, Speed: 157.46 sequnces/(second*GPU)
+[ 2023-11-06 12:28:05,241 ] 
+[ 2023-11-06 12:41:28,581 ] Epoch: 6/25, Train accuracy: 22406/40080(55.90%), Train time: 803.26s, Mean loss:1.5629, lr:0.0063
+[ 2023-11-06 12:41:28,581 ] 
+[ 2023-11-06 12:54:51,548 ] Epoch: 7/25, Train accuracy: 22594/40080(56.40%), Train time: 802.83s, Mean loss:1.5558, lr:0.0070
+[ 2023-11-06 12:54:51,548 ] 
+[ 2023-11-06 13:08:15,091 ] Epoch: 8/25, Train accuracy: 22252/40080(55.50%), Train time: 803.40s, Mean loss:1.5629, lr:0.0078
+[ 2023-11-06 13:08:15,091 ] 
+[ 2023-11-06 13:21:38,376 ] Epoch: 9/25, Train accuracy: 22188/40080(55.40%), Train time: 803.13s, Mean loss:1.5757, lr:0.0085
+[ 2023-11-06 13:21:38,376 ] 
+[ 2023-11-06 13:35:01,101 ] Epoch: 10/25, Train accuracy: 21952/40080(54.80%), Train time: 802.58s, Mean loss:1.5973, lr:0.0093
+[ 2023-11-06 13:35:01,101 ] 
+[ 2023-11-06 13:35:01,201 ] Evaluating for epoch 10/25 ...
+[ 2023-11-06 13:36:45,829 ] Top-1 accuracy: 5666/16480(34.40%), Top-5 accuracy: 11699/16480(71.00%), Mean loss:2.5644
+[ 2023-11-06 13:36:45,829 ] Evaluating time: 104.63s, Speed: 157.51 sequnces/(second*GPU)
+[ 2023-11-06 13:36:45,829 ] 
+[ 2023-11-06 13:36:45,915 ] Student 22 EARLY STOP after 9 epochs
+[ 2023-11-06 13:36:45,992 ] Rollout random 3/20
+[ 2023-11-06 13:36:46,046 ] Student AP: {'init_lay': 64, 'act': 'relu6', 'att_lay': 'ja', 'conv_lay': 'Sep', 'drop_prob': 0.2, 'blocks_in': 2, 'depth_in': 2, 'stride_in': 3, 'scale_in': 0.8, 'temp_win_in': 7, 'graph_dist_in': 2, 'reduct_ratio_in': 1.275, 'blocks_main': 3, 'depth_main': 1, 'graph_dist_main': 9, 'shrinkage_main': 6, 'residual_main': True, 'adaptive_main': True}
+[ 2023-11-06 13:36:46,046 ] Student HP: {'lr': 0.01, 'optimizers': 'RMSprop', 'weight_decay': 0.01, 'momentum': 0.9, 'batch_size': 8}
+[ 2023-11-06 13:36:46,232 ] Model profile: 4.02G FLOPs and 1.39M Parameters
+[ 2023-11-06 13:36:46,232 ] Updated Batch size from: old-16 -> new-8
+[ 2023-11-06 13:36:46,236 ] LR_Scheduler: MultiStepLR
+[ 2023-11-06 13:36:46,237 ] Training random student 23 for 25 epochs
+[ 2023-11-06 13:44:46,753 ] Epoch: 1/25, Train accuracy: 660/40088(1.60%), Train time: 480.50s, Mean loss:4.1283, lr:0.0025
+[ 2023-11-06 13:44:46,753 ] 
+[ 2023-11-06 13:52:53,832 ] Epoch: 2/25, Train accuracy: 667/40088(1.70%), Train time: 486.87s, Mean loss:4.1400, lr:0.0033
+[ 2023-11-06 13:52:53,833 ] 
+[ 2023-11-06 14:00:56,232 ] Epoch: 3/25, Train accuracy: 664/40088(1.70%), Train time: 482.17s, Mean loss:4.1409, lr:0.0040
+[ 2023-11-06 14:00:56,232 ] 
+[ 2023-11-06 14:09:10,673 ] Epoch: 4/25, Train accuracy: 674/40088(1.70%), Train time: 494.23s, Mean loss:4.1487, lr:0.0048
+[ 2023-11-06 14:09:10,674 ] 
+[ 2023-11-06 14:17:13,800 ] Epoch: 5/25, Train accuracy: 658/40088(1.60%), Train time: 482.91s, Mean loss:4.1561, lr:0.0055
+[ 2023-11-06 14:17:13,801 ] 
+[ 2023-11-06 14:17:13,878 ] Evaluating for epoch 5/25 ...
+[ 2023-11-06 14:18:51,747 ] Top-1 accuracy: 276/16480(1.70%), Top-5 accuracy: 1371/16480(8.30%), Mean loss:4.7721
+[ 2023-11-06 14:18:51,747 ] Evaluating time: 97.87s, Speed: 168.39 sequnces/(second*GPU)
+[ 2023-11-06 14:18:51,747 ] 
+[ 2023-11-06 14:26:56,847 ] Epoch: 6/25, Train accuracy: 654/40088(1.60%), Train time: 484.95s, Mean loss:4.1541, lr:0.0063
+[ 2023-11-06 14:26:56,848 ] 
+[ 2023-11-06 14:34:56,937 ] Epoch: 7/25, Train accuracy: 639/40088(1.60%), Train time: 479.84s, Mean loss:4.1652, lr:0.0070
+[ 2023-11-06 14:34:56,937 ] 
+[ 2023-11-06 14:43:03,034 ] Epoch: 8/25, Train accuracy: 658/40088(1.60%), Train time: 485.89s, Mean loss:4.1715, lr:0.0078
+[ 2023-11-06 14:43:03,035 ] 
+[ 2023-11-06 14:51:05,958 ] Epoch: 9/25, Train accuracy: 653/40088(1.60%), Train time: 482.68s, Mean loss:4.1737, lr:0.0085
+[ 2023-11-06 14:51:05,958 ] 
+[ 2023-11-06 14:59:10,688 ] Epoch: 10/25, Train accuracy: 682/40088(1.70%), Train time: 484.52s, Mean loss:4.1775, lr:0.0093
+[ 2023-11-06 14:59:10,689 ] 
+[ 2023-11-06 14:59:10,765 ] Evaluating for epoch 10/25 ...
+[ 2023-11-06 15:00:40,135 ] Top-1 accuracy: 276/16480(1.70%), Top-5 accuracy: 1371/16480(8.30%), Mean loss:4.1394
+[ 2023-11-06 15:00:40,135 ] Evaluating time: 89.37s, Speed: 184.41 sequnces/(second*GPU)
+[ 2023-11-06 15:00:40,135 ] 
+[ 2023-11-06 15:00:40,304 ] Student 23 EARLY STOP after 9 epochs
+[ 2023-11-06 15:00:40,379 ] Rollout random 4/20
+[ 2023-11-06 15:00:40,445 ] Student AP: {'init_lay': 64, 'act': 'hardswish', 'att_lay': 'stja', 'conv_lay': 'Basic', 'drop_prob': 0.3, 'blocks_in': 1, 'depth_in': 1, 'stride_in': 1, 'scale_in': 0.8, 'temp_win_in': 7, 'graph_dist_in': 4, 'reduct_ratio_in': 1.275, 'blocks_main': 5, 'depth_main': 1, 'graph_dist_main': 7, 'shrinkage_main': 6, 'residual_main': True, 'adaptive_main': False}
+[ 2023-11-06 15:00:40,445 ] Student HP: {'lr': 0.05, 'optimizers': 'RMSprop', 'weight_decay': 0.001, 'momentum': 0.99, 'batch_size': 8}
+[ 2023-11-06 15:00:40,724 ] Model profile: 39.66G FLOPs and 2.94M Parameters
+[ 2023-11-06 15:00:40,724 ] Updated Batch size from: old-8 -> new-8
+[ 2023-11-06 15:00:40,729 ] LR_Scheduler: MultiStepLR
+[ 2023-11-06 15:00:40,730 ] Training random student 24 for 25 epochs
+[ 2023-11-06 15:27:09,871 ] Epoch: 1/25, Train accuracy: 777/40088(1.90%), Train time: 1589.13s, Mean loss:46.0949, lr:0.0125
+[ 2023-11-06 15:27:09,872 ] 
+[ 2023-11-06 15:53:38,633 ] Epoch: 2/25, Train accuracy: 767/40088(1.90%), Train time: 1588.55s, Mean loss:67.9930, lr:0.0163
+[ 2023-11-06 15:53:38,633 ] 
+[ 2023-11-06 16:20:08,259 ] Epoch: 3/25, Train accuracy: 804/40088(2.00%), Train time: 1589.41s, Mean loss:149.1624, lr:0.0200
+[ 2023-11-06 16:20:08,259 ] 
+[ 2023-11-06 16:46:37,559 ] Epoch: 4/25, Train accuracy: 813/40088(2.00%), Train time: 1589.08s, Mean loss:128.0449, lr:0.0238
+[ 2023-11-06 16:46:37,559 ] 
+[ 2023-11-06 17:13:07,000 ] Epoch: 5/25, Train accuracy: 771/40088(1.90%), Train time: 1589.22s, Mean loss:218.0451, lr:0.0275
+[ 2023-11-06 17:13:07,001 ] 
+[ 2023-11-06 17:13:07,085 ] Evaluating for epoch 5/25 ...
+[ 2023-11-06 17:16:03,603 ] Top-1 accuracy: 276/16480(1.70%), Top-5 accuracy: 1380/16480(8.40%), Mean loss:4834.2546
+[ 2023-11-06 17:16:03,604 ] Evaluating time: 176.52s, Speed: 93.36 sequnces/(second*GPU)
+[ 2023-11-06 17:16:03,604 ] 
+[ 2023-11-06 17:42:32,977 ] Epoch: 6/25, Train accuracy: 749/40088(1.90%), Train time: 1589.19s, Mean loss:306.5266, lr:0.0312
+[ 2023-11-06 17:42:32,977 ] 
+[ 2023-11-06 18:09:02,789 ] Epoch: 7/25, Train accuracy: 763/40088(1.90%), Train time: 1589.58s, Mean loss:317.7719, lr:0.0350
+[ 2023-11-06 18:09:02,789 ] 
+[ 2023-11-06 18:35:32,683 ] Epoch: 8/25, Train accuracy: 718/40088(1.80%), Train time: 1589.67s, Mean loss:378.4931, lr:0.0387
+[ 2023-11-06 18:35:32,684 ] 
+[ 2023-11-06 19:02:01,127 ] Epoch: 9/25, Train accuracy: 765/40088(1.90%), Train time: 1588.22s, Mean loss:421.2624, lr:0.0425
+[ 2023-11-06 19:02:01,127 ] 
+[ 2023-11-06 19:28:30,451 ] Epoch: 10/25, Train accuracy: 762/40088(1.90%), Train time: 1589.10s, Mean loss:503.6157, lr:0.0462
+[ 2023-11-06 19:28:30,451 ] 
+[ 2023-11-06 19:28:30,531 ] Evaluating for epoch 10/25 ...
+[ 2023-11-06 19:31:27,601 ] Top-1 accuracy: 278/16480(1.70%), Top-5 accuracy: 1245/16480(7.60%), Mean loss:7255.4208
+[ 2023-11-06 19:31:27,602 ] Evaluating time: 177.07s, Speed: 93.07 sequnces/(second*GPU)
+[ 2023-11-06 19:31:27,602 ] 
+[ 2023-11-06 19:31:27,783 ] Student 24 EARLY STOP after 9 epochs
+[ 2023-11-06 19:31:27,856 ] Rollout random 5/20
+[ 2023-11-06 19:31:27,960 ] Student AP: {'init_lay': 128, 'act': 'hardswish', 'att_lay': 'ca', 'conv_lay': 'SG', 'drop_prob': 0.3, 'blocks_in': 2, 'depth_in': 2, 'stride_in': 1, 'scale_in': 0.6, 'temp_win_in': 5, 'graph_dist_in': 3, 'reduct_ratio_in': 1.325, 'blocks_main': 4, 'depth_main': 4, 'graph_dist_main': 7, 'shrinkage_main': 1, 'residual_main': True, 'adaptive_main': False}
+[ 2023-11-06 19:31:27,960 ] Student HP: {'lr': 0.01, 'optimizers': 'RMSprop', 'weight_decay': 0.001, 'momentum': 0.5, 'batch_size': 8}
+[ 2023-11-06 19:31:28,473 ] Model profile: 56.40G FLOPs and 3.98M Parameters
+[ 2023-11-06 19:31:28,474 ] Updated Batch size from: old-8 -> new-8
+[ 2023-11-06 19:31:28,479 ] LR_Scheduler: MultiStepLR
+[ 2023-11-06 19:31:28,480 ] Training random student 25 for 25 epochs
+[ 2023-11-06 20:26:57,044 ] Epoch: 1/25, Train accuracy: 5112/40088(12.80%), Train time: 3328.54s, Mean loss:3.1521, lr:0.0025
+[ 2023-11-06 20:26:57,045 ] 
+[ 2023-11-06 21:22:32,751 ] Epoch: 2/25, Train accuracy: 9578/40088(23.90%), Train time: 3335.40s, Mean loss:2.5947, lr:0.0033
+[ 2023-11-06 21:22:32,751 ] 
+[ 2023-11-06 22:18:03,810 ] Epoch: 3/25, Train accuracy: 10309/40088(25.70%), Train time: 3330.72s, Mean loss:2.5295, lr:0.0040
+[ 2023-11-06 22:18:03,811 ] 
+[ 2023-11-06 23:13:34,462 ] Epoch: 4/25, Train accuracy: 10356/40088(25.80%), Train time: 3330.32s, Mean loss:2.5272, lr:0.0048
+[ 2023-11-06 23:13:34,463 ] 
+[ 2023-11-07 00:09:00,382 ] Epoch: 5/25, Train accuracy: 10039/40088(25.00%), Train time: 3325.59s, Mean loss:2.5886, lr:0.0055
+[ 2023-11-07 00:09:00,383 ] 
+[ 2023-11-07 00:09:00,484 ] Evaluating for epoch 5/25 ...
+[ 2023-11-07 00:17:07,761 ] Top-1 accuracy: 3431/16480(20.80%), Top-5 accuracy: 9716/16480(59.00%), Mean loss:2.8135
+[ 2023-11-07 00:17:07,761 ] Evaluating time: 487.27s, Speed: 33.82 sequnces/(second*GPU)
+[ 2023-11-07 00:17:07,761 ] 
+[ 2023-11-07 01:12:30,329 ] Epoch: 6/25, Train accuracy: 9291/40088(23.20%), Train time: 3322.28s, Mean loss:2.6490, lr:0.0063
+[ 2023-11-07 01:12:30,330 ] 
+[ 2023-11-07 02:07:52,852 ] Epoch: 7/25, Train accuracy: 8818/40088(22.00%), Train time: 3322.20s, Mean loss:2.7111, lr:0.0070
+[ 2023-11-07 02:07:52,852 ] 
+[ 2023-11-07 03:03:15,116 ] Epoch: 8/25, Train accuracy: 7861/40088(19.60%), Train time: 3321.94s, Mean loss:2.8166, lr:0.0078
+[ 2023-11-07 03:03:15,116 ] 
+[ 2023-11-07 03:58:38,216 ] Epoch: 9/25, Train accuracy: 7350/40088(18.30%), Train time: 3322.76s, Mean loss:2.8833, lr:0.0085
+[ 2023-11-07 03:58:38,216 ] 
+[ 2023-11-07 04:54:00,778 ] Epoch: 10/25, Train accuracy: 6507/40088(16.20%), Train time: 3322.23s, Mean loss:2.9556, lr:0.0093
+[ 2023-11-07 04:54:00,778 ] 
+[ 2023-11-07 04:54:00,873 ] Evaluating for epoch 10/25 ...
+[ 2023-11-07 05:02:08,380 ] Top-1 accuracy: 1538/16480(9.30%), Top-5 accuracy: 6591/16480(40.00%), Mean loss:3.2815
+[ 2023-11-07 05:02:08,380 ] Evaluating time: 487.50s, Speed: 33.80 sequnces/(second*GPU)
+[ 2023-11-07 05:02:08,380 ] 
+[ 2023-11-07 05:02:08,611 ] Student 25 EARLY STOP after 9 epochs
+[ 2023-11-07 05:02:08,677 ] Rollout random 6/20
+[ 2023-11-07 05:02:08,737 ] Student AP: {'init_lay': 96, 'act': 'relu', 'att_lay': 'ca', 'conv_lay': 'Sep', 'drop_prob': 0.2, 'blocks_in': 1, 'depth_in': 2, 'stride_in': 2, 'scale_in': 0.8, 'temp_win_in': 7, 'graph_dist_in': 4, 'reduct_ratio_in': 1.25, 'blocks_main': 3, 'depth_main': 4, 'graph_dist_main': 11, 'shrinkage_main': 2, 'residual_main': False, 'adaptive_main': True}
+[ 2023-11-07 05:02:08,737 ] Student HP: {'lr': 0.1, 'optimizers': 'SGD', 'weight_decay': 0.0, 'momentum': 0.99, 'batch_size': 24}
+[ 2023-11-07 05:02:08,974 ] Model profile: 18.15G FLOPs and 2.21M Parameters
+[ 2023-11-07 05:02:08,975 ] Updated Batch size from: old-8 -> new-24
+[ 2023-11-07 05:02:08,981 ] LR_Scheduler: MultiStepLR
+[ 2023-11-07 05:02:08,982 ] Training random student 26 for 25 epochs
+[ 2023-11-07 05:18:06,855 ] Epoch: 1/25, Train accuracy: 12074/40080(30.10%), Train time: 957.86s, Mean loss:2.4201, lr:0.0250
+[ 2023-11-07 05:18:06,856 ] 
+[ 2023-11-07 05:34:03,447 ] Epoch: 2/25, Train accuracy: 22925/40080(57.20%), Train time: 956.46s, Mean loss:1.3721, lr:0.0325
+[ 2023-11-07 05:34:03,447 ] 
+[ 2023-11-07 05:49:59,861 ] Epoch: 3/25, Train accuracy: 27183/40080(67.80%), Train time: 956.27s, Mean loss:1.0121, lr:0.0400
+[ 2023-11-07 05:49:59,861 ] 
+[ 2023-11-07 06:05:56,007 ] Epoch: 4/25, Train accuracy: 29213/40080(72.90%), Train time: 956.01s, Mean loss:0.8435, lr:0.0475
+[ 2023-11-07 06:05:56,007 ] 
+[ 2023-11-07 06:21:51,917 ] Epoch: 5/25, Train accuracy: 30659/40080(76.50%), Train time: 955.77s, Mean loss:0.7319, lr:0.0550
+[ 2023-11-07 06:21:51,917 ] 
+[ 2023-11-07 06:21:51,983 ] Evaluating for epoch 5/25 ...
+[ 2023-11-07 06:24:00,115 ] Top-1 accuracy: 12567/16464(76.30%), Top-5 accuracy: 15705/16464(95.40%), Mean loss:0.8016
+[ 2023-11-07 06:24:00,115 ] Evaluating time: 128.13s, Speed: 128.49 sequnces/(second*GPU)
+[ 2023-11-07 06:24:00,115 ] 
+[ 2023-11-07 06:39:56,242 ] Epoch: 6/25, Train accuracy: 31393/40080(78.30%), Train time: 956.02s, Mean loss:0.6703, lr:0.0625
+[ 2023-11-07 06:39:56,242 ] 
+[ 2023-11-07 06:55:51,946 ] Epoch: 7/25, Train accuracy: 32276/40080(80.50%), Train time: 955.54s, Mean loss:0.6075, lr:0.0700
+[ 2023-11-07 06:55:51,947 ] 
+[ 2023-11-07 07:11:47,900 ] Epoch: 8/25, Train accuracy: 32477/40080(81.00%), Train time: 955.78s, Mean loss:0.5860, lr:0.0775
+[ 2023-11-07 07:11:47,900 ] 
+[ 2023-11-07 07:27:43,921 ] Epoch: 9/25, Train accuracy: 32930/40080(82.20%), Train time: 955.86s, Mean loss:0.5475, lr:0.0850
+[ 2023-11-07 07:27:43,921 ] 
+[ 2023-11-07 07:43:39,763 ] Epoch: 10/25, Train accuracy: 33353/40080(83.20%), Train time: 955.68s, Mean loss:0.5179, lr:0.0925
+[ 2023-11-07 07:43:39,763 ] 
+[ 2023-11-07 07:43:39,888 ] Evaluating for epoch 10/25 ...
+[ 2023-11-07 07:45:47,917 ] Top-1 accuracy: 13383/16464(81.30%), Top-5 accuracy: 15949/16464(96.90%), Mean loss:0.6698
+[ 2023-11-07 07:45:47,918 ] Evaluating time: 128.03s, Speed: 128.60 sequnces/(second*GPU)
+[ 2023-11-07 07:45:47,918 ] 
+[ 2023-11-07 08:01:43,666 ] Epoch: 11/25, Train accuracy: 33705/40080(84.10%), Train time: 955.63s, Mean loss:0.4930, lr:0.1000
+[ 2023-11-07 08:01:43,667 ] 
+[ 2023-11-07 08:17:39,425 ] Epoch: 12/25, Train accuracy: 34108/40080(85.10%), Train time: 955.60s, Mean loss:0.4590, lr:0.1000
+[ 2023-11-07 08:17:39,425 ] 
+[ 2023-11-07 08:33:35,139 ] Epoch: 13/25, Train accuracy: 34597/40080(86.30%), Train time: 955.56s, Mean loss:0.4196, lr:0.1000
+[ 2023-11-07 08:33:35,140 ] 
+[ 2023-11-07 08:49:31,153 ] Epoch: 14/25, Train accuracy: 34939/40080(87.20%), Train time: 955.82s, Mean loss:0.3934, lr:0.1000
+[ 2023-11-07 08:49:31,153 ] 
+[ 2023-11-07 09:05:27,334 ] Epoch: 15/25, Train accuracy: 35146/40080(87.70%), Train time: 956.02s, Mean loss:0.3797, lr:0.1000
+[ 2023-11-07 09:05:27,335 ] 
+[ 2023-11-07 09:05:27,427 ] Evaluating for epoch 15/25 ...
+[ 2023-11-07 09:07:35,607 ] Top-1 accuracy: 13649/16464(82.90%), Top-5 accuracy: 16088/16464(97.70%), Mean loss:0.5881
+[ 2023-11-07 09:07:35,607 ] Evaluating time: 128.18s, Speed: 128.45 sequnces/(second*GPU)
+[ 2023-11-07 09:07:35,607 ] 
+[ 2023-11-07 09:23:30,826 ] Epoch: 16/25, Train accuracy: 14360/40080(35.80%), Train time: 955.11s, Mean loss:2.3183, lr:0.1000
+[ 2023-11-07 09:23:30,826 ] 
+[ 2023-11-07 09:39:25,866 ] Epoch: 17/25, Train accuracy: 16708/40080(41.70%), Train time: 954.88s, Mean loss:1.9454, lr:0.1000
+[ 2023-11-07 09:39:25,866 ] 
+[ 2023-11-07 09:55:20,932 ] Epoch: 18/25, Train accuracy: 20870/40080(52.10%), Train time: 954.90s, Mean loss:1.5624, lr:0.1000
+[ 2023-11-07 09:55:20,933 ] 
+[ 2023-11-07 10:11:16,179 ] Epoch: 19/25, Train accuracy: 23425/40080(58.40%), Train time: 955.07s, Mean loss:1.3342, lr:0.1000
+[ 2023-11-07 10:11:16,180 ] 
+[ 2023-11-07 10:27:11,387 ] Epoch: 20/25, Train accuracy: 25035/40080(62.50%), Train time: 955.05s, Mean loss:1.2041, lr:0.1000
+[ 2023-11-07 10:27:11,387 ] 
+[ 2023-11-07 10:27:11,474 ] Evaluating for epoch 20/25 ...
+[ 2023-11-07 10:29:19,735 ] Top-1 accuracy: 11215/16464(68.10%), Top-5 accuracy: 15407/16464(93.60%), Mean loss:1.0554
+[ 2023-11-07 10:29:19,736 ] Evaluating time: 128.26s, Speed: 128.37 sequnces/(second*GPU)
+[ 2023-11-07 10:29:19,736 ] 
+[ 2023-11-07 10:45:14,771 ] Epoch: 21/25, Train accuracy: 25839/40080(64.50%), Train time: 954.95s, Mean loss:1.1329, lr:0.1000
+[ 2023-11-07 10:45:14,772 ] 
+[ 2023-11-07 11:01:30,045 ] Epoch: 22/25, Train accuracy: 26869/40080(67.00%), Train time: 975.10s, Mean loss:1.0414, lr:0.1000
+[ 2023-11-07 11:01:30,045 ] 
+[ 2023-11-07 11:17:26,375 ] Epoch: 23/25, Train accuracy: 27846/40080(69.50%), Train time: 956.17s, Mean loss:0.9626, lr:0.1000
+[ 2023-11-07 11:17:26,375 ] 
+[ 2023-11-07 11:33:21,739 ] Epoch: 24/25, Train accuracy: 28503/40080(71.10%), Train time: 955.20s, Mean loss:0.9063, lr:0.1000
+[ 2023-11-07 11:33:21,739 ] 
+[ 2023-11-07 11:49:16,916 ] Epoch: 25/25, Train accuracy: 29153/40080(72.70%), Train time: 955.02s, Mean loss:0.8617, lr:0.1000
+[ 2023-11-07 11:49:16,916 ] 
+[ 2023-11-07 11:49:16,998 ] Evaluating for epoch 25/25 ...
+[ 2023-11-07 11:51:25,240 ] Top-1 accuracy: 12198/16464(74.10%), Top-5 accuracy: 15549/16464(94.40%), Mean loss:0.9839
+[ 2023-11-07 11:51:25,240 ] Evaluating time: 128.24s, Speed: 128.38 sequnces/(second*GPU)
+[ 2023-11-07 11:51:25,240 ] 
+[ 2023-11-07 11:51:25,412 ] Rollout random 7/20
+[ 2023-11-07 11:51:25,482 ] Student AP: {'init_lay': 96, 'act': 'relu6', 'att_lay': 'pa', 'conv_lay': 'Sep', 'drop_prob': 0.15, 'blocks_in': 2, 'depth_in': 2, 'stride_in': 3, 'scale_in': 0.4, 'temp_win_in': 5, 'graph_dist_in': 4, 'reduct_ratio_in': 1.275, 'blocks_main': 4, 'depth_main': 1, 'graph_dist_main': 7, 'shrinkage_main': 6, 'residual_main': False, 'adaptive_main': False}
+[ 2023-11-07 11:51:25,482 ] Student HP: {'lr': 0.05, 'optimizers': 'RMSprop', 'weight_decay': 0.01, 'momentum': 0.5, 'batch_size': 16}
+[ 2023-11-07 11:51:25,733 ] Model profile: 6.25G FLOPs and 2.23M Parameters
+[ 2023-11-07 11:51:25,734 ] Updated Batch size from: old-24 -> new-16
+[ 2023-11-07 11:51:25,737 ] LR_Scheduler: MultiStepLR
+[ 2023-11-07 11:51:25,738 ] Training random student 27 for 25 epochs
+[ 2023-11-07 12:00:00,967 ] Epoch: 1/25, Train accuracy: 1380/40080(3.40%), Train time: 515.21s, Mean loss:3.9373, lr:0.0125
+[ 2023-11-07 12:00:00,967 ] 
+[ 2023-11-07 12:08:36,029 ] Epoch: 2/25, Train accuracy: 1038/40080(2.60%), Train time: 514.85s, Mean loss:4.0707, lr:0.0163
+[ 2023-11-07 12:08:36,029 ] 
+[ 2023-11-07 12:17:11,581 ] Epoch: 3/25, Train accuracy: 634/40080(1.60%), Train time: 515.33s, Mean loss:4.1297, lr:0.0200
+[ 2023-11-07 12:17:11,582 ] 
+[ 2023-11-07 12:25:47,014 ] Epoch: 4/25, Train accuracy: 701/40080(1.70%), Train time: 515.20s, Mean loss:4.1371, lr:0.0238
+[ 2023-11-07 12:25:47,015 ] 
+[ 2023-11-07 12:34:21,872 ] Epoch: 5/25, Train accuracy: 672/40080(1.70%), Train time: 514.63s, Mean loss:4.1435, lr:0.0275
+[ 2023-11-07 12:34:21,872 ] 
+[ 2023-11-07 12:34:21,946 ] Evaluating for epoch 5/25 ...
+[ 2023-11-07 12:35:49,048 ] Top-1 accuracy: 276/16480(1.70%), Top-5 accuracy: 1373/16480(8.30%), Mean loss:4.2983
+[ 2023-11-07 12:35:49,048 ] Evaluating time: 87.10s, Speed: 189.21 sequnces/(second*GPU)
+[ 2023-11-07 12:35:49,048 ] 
+[ 2023-11-07 12:44:24,017 ] Epoch: 6/25, Train accuracy: 659/40080(1.60%), Train time: 514.77s, Mean loss:4.1505, lr:0.0312
+[ 2023-11-07 12:44:24,017 ] 
+[ 2023-11-07 12:52:59,110 ] Epoch: 7/25, Train accuracy: 641/40080(1.60%), Train time: 514.85s, Mean loss:4.1646, lr:0.0350
+[ 2023-11-07 12:52:59,110 ] 
+[ 2023-11-07 13:01:38,266 ] Epoch: 8/25, Train accuracy: 667/40080(1.70%), Train time: 518.91s, Mean loss:4.1743, lr:0.0387
+[ 2023-11-07 13:01:38,267 ] 
+[ 2023-11-07 13:10:13,379 ] Epoch: 9/25, Train accuracy: 710/40080(1.80%), Train time: 514.88s, Mean loss:4.1757, lr:0.0425
+[ 2023-11-07 13:10:13,379 ] 
+[ 2023-11-07 13:18:48,778 ] Epoch: 10/25, Train accuracy: 699/40080(1.70%), Train time: 515.17s, Mean loss:4.1848, lr:0.0462
+[ 2023-11-07 13:18:48,778 ] 
+[ 2023-11-07 13:18:48,850 ] Evaluating for epoch 10/25 ...
+[ 2023-11-07 13:20:16,235 ] Top-1 accuracy: 276/16480(1.70%), Top-5 accuracy: 1372/16480(8.30%), Mean loss:5.1788
+[ 2023-11-07 13:20:16,236 ] Evaluating time: 87.38s, Speed: 188.59 sequnces/(second*GPU)
+[ 2023-11-07 13:20:16,236 ] 
+[ 2023-11-07 13:20:16,384 ] Student 27 EARLY STOP after 9 epochs
+[ 2023-11-07 13:20:16,456 ] Rollout random 8/20
+[ 2023-11-07 13:20:16,541 ] Student AP: {'init_lay': 128, 'act': 'relu', 'att_lay': 'ca', 'conv_lay': 'V3', 'drop_prob': 0.3, 'blocks_in': 2, 'depth_in': 2, 'stride_in': 2, 'scale_in': 0.8, 'temp_win_in': 5, 'graph_dist_in': 4, 'reduct_ratio_in': 1.225, 'blocks_main': 3, 'depth_main': 3, 'graph_dist_main': 7, 'shrinkage_main': 1, 'residual_main': True, 'adaptive_main': True}
+[ 2023-11-07 13:20:16,541 ] Student HP: {'lr': 0.05, 'optimizers': 'Adam', 'weight_decay': 0.001, 'momentum': 0.9, 'batch_size': 24}
+[ 2023-11-07 13:20:16,935 ] Model profile: 15.25G FLOPs and 2.73M Parameters
+[ 2023-11-07 13:20:16,936 ] Updated Batch size from: old-16 -> new-24
+[ 2023-11-07 13:20:16,941 ] LR_Scheduler: MultiStepLR
+[ 2023-11-07 13:20:16,942 ] Training random student 28 for 25 epochs
+[ 2023-11-07 13:35:57,785 ] Epoch: 1/25, Train accuracy: 6823/40080(17.00%), Train time: 940.82s, Mean loss:2.8913, lr:0.0125
+[ 2023-11-07 13:35:57,785 ] 

@@ -17,8 +17,8 @@ pip install .
 The NAS procedure and the experiments are done on the **NTU RGB+D 60 & 120** datasets, which can be downloaded 
 [here](http://rose1.ntu.edu.sg/datasets/actionrecognition.asp).
 
-Furthermore the Kinetics dataset is used which can be downloaded 
-[here](https://drive.google.com/open?id=1SPQ6FmFsjGg3f59uCWfdUWI-5HJM_YhZ)
+Furthermore, the Kinetics dataset is used which can be downloaded 
+[here](https://drive.google.com/open?id=1SPQ6FmFsjGg3f59uCWfdUWI-5HJM_YhZ).
 
 #### Preprocessing
 
@@ -37,21 +37,29 @@ dataset     -> choose the dataset and change the folders to the preprocessed npy
 ```
 
 The modes can either be activated or deactivated with setting the flags to True or False - refer to the different 
-config run files for further information.
+config run files in the ``logs`` folder for further information.
 
 Afterwards execute:
 ```
-python main.py -config ...
+python main.py -config /path/to/config.yaml
 ```
 
 ## Results
 
 The results reported in our study are stored in the `./logs` folder.
+
+| Config | Iterations | Top-1 X-View | Top-1 X-Sub |
+|--------|------------|--------------|-------------|
+| 1007   | 10         | 95.3         | 85.9        |
+| 1003   | 20         | 95.1         | 88.3        |
+| 1004   | 30         | 95.5         | 86.4        |
+
+
 There are also predefined configs stored in there, which can be used :).
 
 ## Citation and Contact
 
-If you have any question, feel free to send a mail to `felix.e.f.tempel@ntnu.no`.
+If you have any question, feel free to send a mail to `felix.e.f.tempel@ntnu.no` or open an issue on GitHub.
 
 Please cite our paper if you use this code in your research. :)
 ```

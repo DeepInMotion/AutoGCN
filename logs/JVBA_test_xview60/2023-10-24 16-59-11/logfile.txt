@@ -1,0 +1,315 @@
+[ 2023-10-24 16:59:11,020 ] Saving folder path: /home/espen/PycharmProjects/GNN_NAS/logs/bootstrap_xview60/2023-10-24 16-59-11
+[ 2023-10-24 16:59:11,020 ] 
+[ 2023-10-24 16:59:11,020 ] Starting preparing train_has
+[ 2023-10-24 16:59:11,021 ] Seed set to: 1234
+[ 2023-10-24 16:59:11,022 ] Saving model name: bootstrap_has_ntu_xview60
+[ 2023-10-24 16:59:11,057 ] Cuda: True
+[ 2023-10-24 16:59:11,067 ] Device count 1
+[ 2023-10-24 16:59:11,067 ] GPU-0 used: 371.3125MB
+[ 2023-10-24 16:59:11,120 ] Number of Threads: 16
+[ 2023-10-24 16:59:11,326 ] Generate Graph data in the [ntu] layout with [spatial]  strategy
+[ 2023-10-24 16:59:11,326 ] Loading processed data.
+[ 2023-10-24 16:59:11,327 ] Trying to load NTU data.
+[ 2023-10-24 16:59:11,330 ] Done with loading data.
+[ 2023-10-24 16:59:11,332 ] Generate Graph data in the [ntu] layout with [spatial]  strategy
+[ 2023-10-24 16:59:11,332 ] Loading processed data.
+[ 2023-10-24 16:59:11,332 ] Trying to load NTU data.
+[ 2023-10-24 16:59:11,334 ] Done with loading data.
+[ 2023-10-24 16:59:11,335 ] Dataset: xview60
+[ 2023-10-24 16:59:11,335 ] Batch size: train-16, eval-16
+[ 2023-10-24 16:59:11,335 ] Data shape (branch, channel, frame, joint, person): [3, 6, 300, 25, 2]
+[ 2023-10-24 16:59:11,335 ] Number of action classes: 60
+[ 2023-10-24 16:59:11,335 ] Optimizers: [<class 'torch.optim.sgd.SGD'>, <class 'torch.optim.adam.Adam'>, <class 'torch.optim.adamw.AdamW'>]
+[ 2023-10-24 16:59:11,335 ] Load Search Space...
+[ 2023-10-24 16:59:11,335 ] Loading whole and NEW Search Space
+[ 2023-10-24 16:59:11,336 ] Architecture Search Space is: OrderedDict([('init_lay', [128, 156, 195, 256]), ('act', ['relu', 'relu6', 'hardswish', 'swish']), ('att_lay', ['stja', 'ca', 'fa', 'ja', 'pa']), ('conv_lay', ['Basic', 'Bottleneck', 'Sep', 'SG', 'V3', 'Shuffle']), ('drop_prob', [0.15, 0.2, 0.25, 0.3]), ('blocks_in', [1, 2, 3]), ('depth_in', [1, 2, 3]), ('stride_in', [1, 2, 3]), ('scale_in', [0.4, 0.6, 0.8]), ('temp_win_in', [3, 5, 7]), ('graph_dist_in', [2, 3, 4]), ('reduct_ratio_in', [1.225, 1.25, 1.275, 1.3, 1.325, 1.35]), ('blocks_main', [3, 4, 5, 6]), ('depth_main', [1, 2, 3, 4]), ('graph_dist_main', [7, 9, 11]), ('shrinkage_main', [1, 2, 4, 6]), ('residual_main', [True, False]), ('adaptive_main', [True, False])])
+[ 2023-10-24 16:59:11,336 ] Hyperparameter Search Space is: OrderedDict([('lr', [0.1, 0.05, 0.01]), ('optimizers', ['SGD', 'Adam', 'AdamW']), ('weight_decay', [0.0, 0.01, 0.001, 0.0001]), ('momentum', [0.5, 0.9, 0.99]), ('batch_size', [8, 16, 24])])
+[ 2023-10-24 16:59:11,336 ] Search Space size: 82
+[ 2023-10-24 16:59:12,259 ] Controller optimizer is Adam with lr 0.001
+[ 2023-10-24 16:59:12,259 ] Loss function: CrossEntropyLoss
+[ 2023-10-24 16:59:12,259 ] Successful!
+[ 2023-10-24 16:59:12,259 ] 
+[ 2023-10-24 16:59:12,300 ] Student AP: {'init_lay': 156, 'act': 'relu', 'att_lay': 'stja', 'conv_lay': 'Bottleneck', 'drop_prob': 0.25, 'blocks_in': 2, 'depth_in': 2, 'stride_in': 2, 'scale_in': 0.4, 'temp_win_in': 5, 'graph_dist_in': 2, 'reduct_ratio_in': 1.225, 'blocks_main': 3, 'depth_main': 1, 'graph_dist_main': 11, 'shrinkage_main': 1, 'residual_main': True, 'adaptive_main': True}
+[ 2023-10-24 16:59:12,300 ] Student HP: {'lr': 0.01, 'optimizers': 'AdamW', 'weight_decay': 0.0, 'momentum': 0.5, 'batch_size': 8}
+[ 2023-10-24 16:59:12,958 ] Model profile: 13.39G FLOPs and 2.04M Parameters
+[ 2023-10-24 16:59:12,959 ] Updated Batch size from: old-16 -> new-8
+[ 2023-10-24 16:59:12,960 ] LR_Scheduler: MultiStepLR
+[ 2023-10-24 16:59:13,008 ] Retraining model!
+[ 2023-10-24 17:09:55,290 ] Epoch: 1/80, Train accuracy: 12977/37640(34.50%), Train time: 642.27s, Mean loss:2.2645, lr:0.0025
+[ 2023-10-24 17:09:55,290 ] 
+[ 2023-10-24 17:20:35,329 ] Epoch: 2/80, Train accuracy: 21734/37640(57.70%), Train time: 639.88s, Mean loss:1.3803, lr:0.0033
+[ 2023-10-24 17:20:35,329 ] 
+[ 2023-10-24 17:31:14,268 ] Epoch: 3/80, Train accuracy: 25570/37640(67.90%), Train time: 638.76s, Mean loss:1.0240, lr:0.0040
+[ 2023-10-24 17:31:14,268 ] 
+[ 2023-10-24 17:41:53,450 ] Epoch: 4/80, Train accuracy: 27261/37640(72.40%), Train time: 638.94s, Mean loss:0.8801, lr:0.0048
+[ 2023-10-24 17:41:53,450 ] 
+[ 2023-10-24 17:52:32,552 ] Epoch: 5/80, Train accuracy: 28264/37640(75.10%), Train time: 638.85s, Mean loss:0.7883, lr:0.0055
+[ 2023-10-24 17:52:32,553 ] 
+[ 2023-10-24 17:52:32,629 ] Evaluating ARGMAX student quality in epoch 5/80
+[ 2023-10-24 17:54:15,358 ] Top-1 accuracy: 15691/18928(82.90%), Top-5 accuracy: 18582/18928(98.20%), Mean loss:0.5260
+[ 2023-10-24 17:54:15,358 ] Evaluating time: 102.73s, Speed: 184.25 sequnces/(second*GPU)
+[ 2023-10-24 17:54:15,358 ] 
+[ 2023-10-24 18:04:54,701 ] Epoch: 6/80, Train accuracy: 29019/37640(77.10%), Train time: 639.20s, Mean loss:0.7178, lr:0.0063
+[ 2023-10-24 18:04:54,701 ] 
+[ 2023-10-24 18:15:34,033 ] Epoch: 7/80, Train accuracy: 29762/37640(79.10%), Train time: 639.07s, Mean loss:0.6563, lr:0.0070
+[ 2023-10-24 18:15:34,033 ] 
+[ 2023-10-24 18:26:13,560 ] Epoch: 8/80, Train accuracy: 30314/37640(80.50%), Train time: 639.27s, Mean loss:0.6129, lr:0.0078
+[ 2023-10-24 18:26:13,560 ] 
+[ 2023-10-24 18:36:52,988 ] Epoch: 9/80, Train accuracy: 27270/37640(72.40%), Train time: 639.16s, Mean loss:0.8893, lr:0.0085
+[ 2023-10-24 18:36:52,988 ] 
+[ 2023-10-24 18:47:32,124 ] Epoch: 10/80, Train accuracy: 29560/37640(78.50%), Train time: 638.87s, Mean loss:0.6750, lr:0.0093
+[ 2023-10-24 18:47:32,124 ] 
+[ 2023-10-24 18:47:32,228 ] Evaluating ARGMAX student quality in epoch 10/80
+[ 2023-10-24 18:49:14,932 ] Top-1 accuracy: 16371/18928(86.50%), Top-5 accuracy: 18679/18928(98.70%), Mean loss:0.4074
+[ 2023-10-24 18:49:14,932 ] Evaluating time: 102.70s, Speed: 184.30 sequnces/(second*GPU)
+[ 2023-10-24 18:49:14,932 ] 
+[ 2023-10-24 18:59:54,293 ] Epoch: 11/80, Train accuracy: 30585/37640(81.30%), Train time: 639.14s, Mean loss:0.5856, lr:0.0100
+[ 2023-10-24 18:59:54,293 ] 
+[ 2023-10-24 19:10:33,413 ] Epoch: 12/80, Train accuracy: 30691/37640(81.50%), Train time: 638.85s, Mean loss:0.5703, lr:0.0100
+[ 2023-10-24 19:10:33,413 ] 
+[ 2023-10-24 19:21:12,667 ] Epoch: 13/80, Train accuracy: 29574/37640(78.60%), Train time: 638.99s, Mean loss:0.6785, lr:0.0100
+[ 2023-10-24 19:21:12,667 ] 
+[ 2023-10-24 19:31:52,261 ] Epoch: 14/80, Train accuracy: 31460/37640(83.60%), Train time: 639.33s, Mean loss:0.5082, lr:0.0100
+[ 2023-10-24 19:31:52,261 ] 
+[ 2023-10-24 19:42:31,469 ] Epoch: 15/80, Train accuracy: 31721/37640(84.30%), Train time: 638.94s, Mean loss:0.4878, lr:0.0100
+[ 2023-10-24 19:42:31,469 ] 
+[ 2023-10-24 19:42:31,560 ] Evaluating ARGMAX student quality in epoch 15/80
+[ 2023-10-24 19:44:14,272 ] Top-1 accuracy: 16726/18928(88.40%), Top-5 accuracy: 18723/18928(98.90%), Mean loss:0.3505
+[ 2023-10-24 19:44:14,272 ] Evaluating time: 102.71s, Speed: 184.28 sequnces/(second*GPU)
+[ 2023-10-24 19:44:14,272 ] 
+[ 2023-10-24 19:54:53,746 ] Epoch: 16/80, Train accuracy: 31594/37640(83.90%), Train time: 639.24s, Mean loss:0.4932, lr:0.0100
+[ 2023-10-24 19:54:53,746 ] 
+[ 2023-10-24 20:05:32,882 ] Epoch: 17/80, Train accuracy: 30851/37640(82.00%), Train time: 638.70s, Mean loss:0.5707, lr:0.0100
+[ 2023-10-24 20:05:32,882 ] 
+[ 2023-10-24 20:16:12,349 ] Epoch: 18/80, Train accuracy: 30465/37640(80.90%), Train time: 639.21s, Mean loss:0.6038, lr:0.0100
+[ 2023-10-24 20:16:12,349 ] 
+[ 2023-10-24 20:26:51,057 ] Epoch: 19/80, Train accuracy: 31011/37640(82.40%), Train time: 638.46s, Mean loss:0.5423, lr:0.0100
+[ 2023-10-24 20:26:51,058 ] 
+[ 2023-10-24 20:37:30,363 ] Epoch: 20/80, Train accuracy: 32508/37640(86.40%), Train time: 639.05s, Mean loss:0.4191, lr:0.0100
+[ 2023-10-24 20:37:30,364 ] 
+[ 2023-10-24 20:37:30,453 ] Evaluating ARGMAX student quality in epoch 20/80
+[ 2023-10-24 20:39:13,158 ] Top-1 accuracy: 16844/18928(89.00%), Top-5 accuracy: 18759/18928(99.10%), Mean loss:0.3204
+[ 2023-10-24 20:39:13,158 ] Evaluating time: 102.70s, Speed: 184.30 sequnces/(second*GPU)
+[ 2023-10-24 20:39:13,158 ] 
+[ 2023-10-24 20:49:52,439 ] Epoch: 21/80, Train accuracy: 32510/37640(86.40%), Train time: 639.08s, Mean loss:0.4214, lr:0.0100
+[ 2023-10-24 20:49:52,439 ] 
+[ 2023-10-24 21:00:31,290 ] Epoch: 22/80, Train accuracy: 32876/37640(87.30%), Train time: 638.60s, Mean loss:0.3865, lr:0.0100
+[ 2023-10-24 21:00:31,291 ] 
+[ 2023-10-24 21:11:10,916 ] Epoch: 23/80, Train accuracy: 33253/37640(88.30%), Train time: 639.37s, Mean loss:0.3552, lr:0.0100
+[ 2023-10-24 21:11:10,916 ] 
+[ 2023-10-24 21:21:50,085 ] Epoch: 24/80, Train accuracy: 33434/37640(88.80%), Train time: 638.91s, Mean loss:0.3340, lr:0.0100
+[ 2023-10-24 21:21:50,085 ] 
+[ 2023-10-24 21:32:29,234 ] Epoch: 25/80, Train accuracy: 33710/37640(89.60%), Train time: 638.88s, Mean loss:0.3138, lr:0.0100
+[ 2023-10-24 21:32:29,234 ] 
+[ 2023-10-24 21:32:29,338 ] Evaluating ARGMAX student quality in epoch 25/80
+[ 2023-10-24 21:34:12,072 ] Top-1 accuracy: 17095/18928(90.30%), Top-5 accuracy: 18774/18928(99.20%), Mean loss:0.2865
+[ 2023-10-24 21:34:12,072 ] Evaluating time: 102.73s, Speed: 184.24 sequnces/(second*GPU)
+[ 2023-10-24 21:34:12,072 ] 
+[ 2023-10-24 21:44:51,402 ] Epoch: 26/80, Train accuracy: 33355/37640(88.60%), Train time: 638.96s, Mean loss:0.3419, lr:0.0100
+[ 2023-10-24 21:44:51,402 ] 
+[ 2023-10-24 21:55:30,297 ] Epoch: 27/80, Train accuracy: 33949/37640(90.20%), Train time: 638.64s, Mean loss:0.2871, lr:0.0100
+[ 2023-10-24 21:55:30,297 ] 
+[ 2023-10-24 22:06:09,457 ] Epoch: 28/80, Train accuracy: 34252/37640(91.00%), Train time: 638.90s, Mean loss:0.2643, lr:0.0100
+[ 2023-10-24 22:06:09,458 ] 
+[ 2023-10-24 22:16:48,856 ] Epoch: 29/80, Train accuracy: 34044/37640(90.40%), Train time: 639.14s, Mean loss:0.2845, lr:0.0100
+[ 2023-10-24 22:16:48,856 ] 
+[ 2023-10-24 22:27:28,151 ] Epoch: 30/80, Train accuracy: 34296/37640(91.10%), Train time: 639.04s, Mean loss:0.2622, lr:0.0100
+[ 2023-10-24 22:27:28,151 ] 
+[ 2023-10-24 22:27:28,240 ] Evaluating ARGMAX student quality in epoch 30/80
+[ 2023-10-24 22:29:10,964 ] Top-1 accuracy: 17289/18928(91.30%), Top-5 accuracy: 18814/18928(99.40%), Mean loss:0.2597
+[ 2023-10-24 22:29:10,964 ] Evaluating time: 102.72s, Speed: 184.26 sequnces/(second*GPU)
+[ 2023-10-24 22:29:10,964 ] 
+[ 2023-10-24 22:39:50,557 ] Epoch: 31/80, Train accuracy: 35071/37640(93.20%), Train time: 639.39s, Mean loss:0.2004, lr:0.0050
+[ 2023-10-24 22:39:50,557 ] 
+[ 2023-10-24 22:50:29,663 ] Epoch: 32/80, Train accuracy: 35331/37640(93.90%), Train time: 638.85s, Mean loss:0.1794, lr:0.0050
+[ 2023-10-24 22:50:29,664 ] 
+[ 2023-10-24 23:01:09,132 ] Epoch: 33/80, Train accuracy: 35452/37640(94.20%), Train time: 639.21s, Mean loss:0.1699, lr:0.0050
+[ 2023-10-24 23:01:09,132 ] 
+[ 2023-10-24 23:11:48,453 ] Epoch: 34/80, Train accuracy: 35462/37640(94.20%), Train time: 639.07s, Mean loss:0.1688, lr:0.0050
+[ 2023-10-24 23:11:48,453 ] 
+[ 2023-10-24 23:22:27,981 ] Epoch: 35/80, Train accuracy: 35564/37640(94.50%), Train time: 639.27s, Mean loss:0.1576, lr:0.0050
+[ 2023-10-24 23:22:27,981 ] 
+[ 2023-10-24 23:22:28,072 ] Evaluating ARGMAX student quality in epoch 35/80
+[ 2023-10-24 23:24:10,799 ] Top-1 accuracy: 17441/18928(92.10%), Top-5 accuracy: 18805/18928(99.40%), Mean loss:0.2413
+[ 2023-10-24 23:24:10,799 ] Evaluating time: 102.73s, Speed: 184.26 sequnces/(second*GPU)
+[ 2023-10-24 23:24:10,799 ] 
+[ 2023-10-24 23:34:49,797 ] Epoch: 36/80, Train accuracy: 35393/37640(94.00%), Train time: 638.84s, Mean loss:0.1770, lr:0.0050
+[ 2023-10-24 23:34:49,797 ] 
+[ 2023-10-24 23:45:28,938 ] Epoch: 37/80, Train accuracy: 34640/37640(92.00%), Train time: 638.89s, Mean loss:0.2341, lr:0.0050
+[ 2023-10-24 23:45:28,938 ] 
+[ 2023-10-24 23:56:08,220 ] Epoch: 38/80, Train accuracy: 35433/37640(94.10%), Train time: 639.03s, Mean loss:0.1693, lr:0.0050
+[ 2023-10-24 23:56:08,220 ] 
+[ 2023-10-25 00:06:47,926 ] Epoch: 39/80, Train accuracy: 35412/37640(94.10%), Train time: 639.45s, Mean loss:0.1731, lr:0.0050
+[ 2023-10-25 00:06:47,926 ] 
+[ 2023-10-25 00:17:27,047 ] Epoch: 40/80, Train accuracy: 35320/37640(93.80%), Train time: 638.86s, Mean loss:0.1827, lr:0.0050
+[ 2023-10-25 00:17:27,048 ] 
+[ 2023-10-25 00:17:27,139 ] Evaluating ARGMAX student quality in epoch 40/80
+[ 2023-10-25 00:19:09,880 ] Top-1 accuracy: 17525/18928(92.60%), Top-5 accuracy: 18812/18928(99.40%), Mean loss:0.2326
+[ 2023-10-25 00:19:09,880 ] Evaluating time: 102.74s, Speed: 184.23 sequnces/(second*GPU)
+[ 2023-10-25 00:19:09,880 ] 
+[ 2023-10-25 00:29:49,314 ] Epoch: 41/80, Train accuracy: 35533/37640(94.40%), Train time: 639.23s, Mean loss:0.1631, lr:0.0050
+[ 2023-10-25 00:29:49,314 ] 
+[ 2023-10-25 00:40:28,349 ] Epoch: 42/80, Train accuracy: 35524/37640(94.40%), Train time: 638.78s, Mean loss:0.1633, lr:0.0050
+[ 2023-10-25 00:40:28,350 ] 
+[ 2023-10-25 00:51:07,722 ] Epoch: 43/80, Train accuracy: 35532/37640(94.40%), Train time: 639.11s, Mean loss:0.1614, lr:0.0050
+[ 2023-10-25 00:51:07,722 ] 
+[ 2023-10-25 01:01:46,826 ] Epoch: 44/80, Train accuracy: 35620/37640(94.60%), Train time: 638.84s, Mean loss:0.1585, lr:0.0050
+[ 2023-10-25 01:01:46,826 ] 
+[ 2023-10-25 01:12:25,848 ] Epoch: 45/80, Train accuracy: 35759/37640(95.00%), Train time: 638.77s, Mean loss:0.1426, lr:0.0050
+[ 2023-10-25 01:12:25,848 ] 
+[ 2023-10-25 01:12:25,939 ] Evaluating ARGMAX student quality in epoch 45/80
+[ 2023-10-25 01:14:08,736 ] Top-1 accuracy: 17456/18928(92.20%), Top-5 accuracy: 18795/18928(99.30%), Mean loss:0.2519
+[ 2023-10-25 01:14:08,737 ] Evaluating time: 102.80s, Speed: 184.13 sequnces/(second*GPU)
+[ 2023-10-25 01:14:08,737 ] 
+[ 2023-10-25 01:24:47,911 ] Epoch: 46/80, Train accuracy: 35753/37640(95.00%), Train time: 638.99s, Mean loss:0.1440, lr:0.0050
+[ 2023-10-25 01:24:47,911 ] 
+[ 2023-10-25 01:35:27,303 ] Epoch: 47/80, Train accuracy: 35756/37640(95.00%), Train time: 639.13s, Mean loss:0.1479, lr:0.0050
+[ 2023-10-25 01:35:27,303 ] 
+[ 2023-10-25 01:46:06,753 ] Epoch: 48/80, Train accuracy: 36100/37640(95.90%), Train time: 639.19s, Mean loss:0.1189, lr:0.0050
+[ 2023-10-25 01:46:06,753 ] 
+[ 2023-10-25 01:56:46,053 ] Epoch: 49/80, Train accuracy: 36193/37640(96.20%), Train time: 639.05s, Mean loss:0.1134, lr:0.0050
+[ 2023-10-25 01:56:46,054 ] 
+[ 2023-10-25 02:07:25,381 ] Epoch: 50/80, Train accuracy: 36155/37640(96.10%), Train time: 639.07s, Mean loss:0.1143, lr:0.0050
+[ 2023-10-25 02:07:25,381 ] 
+[ 2023-10-25 02:07:25,472 ] Evaluating ARGMAX student quality in epoch 50/80
+[ 2023-10-25 02:09:08,239 ] Top-1 accuracy: 17601/18928(93.00%), Top-5 accuracy: 18807/18928(99.40%), Mean loss:0.2376
+[ 2023-10-25 02:09:08,240 ] Evaluating time: 102.77s, Speed: 184.18 sequnces/(second*GPU)
+[ 2023-10-25 02:09:08,240 ] 
+[ 2023-10-25 02:19:47,857 ] Epoch: 51/80, Train accuracy: 36139/37640(96.00%), Train time: 639.41s, Mean loss:0.1142, lr:0.0025
+[ 2023-10-25 02:19:47,857 ] 
+[ 2023-10-25 02:30:27,106 ] Epoch: 52/80, Train accuracy: 36330/37640(96.50%), Train time: 639.00s, Mean loss:0.1031, lr:0.0025
+[ 2023-10-25 02:30:27,106 ] 
+[ 2023-10-25 02:41:06,354 ] Epoch: 53/80, Train accuracy: 36473/37640(96.90%), Train time: 638.99s, Mean loss:0.0925, lr:0.0025
+[ 2023-10-25 02:41:06,354 ] 
+[ 2023-10-25 02:51:45,577 ] Epoch: 54/80, Train accuracy: 36631/37640(97.30%), Train time: 638.96s, Mean loss:0.0809, lr:0.0025
+[ 2023-10-25 02:51:45,577 ] 
+[ 2023-10-25 03:02:25,161 ] Epoch: 55/80, Train accuracy: 36686/37640(97.50%), Train time: 639.32s, Mean loss:0.0748, lr:0.0025
+[ 2023-10-25 03:02:25,161 ] 
+[ 2023-10-25 03:02:25,250 ] Evaluating ARGMAX student quality in epoch 55/80
+[ 2023-10-25 03:04:08,050 ] Top-1 accuracy: 17653/18928(93.30%), Top-5 accuracy: 18813/18928(99.40%), Mean loss:0.2371
+[ 2023-10-25 03:04:08,050 ] Evaluating time: 102.80s, Speed: 184.13 sequnces/(second*GPU)
+[ 2023-10-25 03:04:08,051 ] 
+[ 2023-10-25 03:14:47,765 ] Epoch: 56/80, Train accuracy: 36762/37640(97.70%), Train time: 639.36s, Mean loss:0.0724, lr:0.0025
+[ 2023-10-25 03:14:47,766 ] 
+[ 2023-10-25 03:25:26,722 ] Epoch: 57/80, Train accuracy: 36771/37640(97.70%), Train time: 638.70s, Mean loss:0.0689, lr:0.0025
+[ 2023-10-25 03:25:26,722 ] 
+[ 2023-10-25 03:36:05,837 ] Epoch: 58/80, Train accuracy: 36787/37640(97.70%), Train time: 638.91s, Mean loss:0.0662, lr:0.0025
+[ 2023-10-25 03:36:05,837 ] 
+[ 2023-10-25 03:46:44,905 ] Epoch: 59/80, Train accuracy: 36672/37640(97.40%), Train time: 638.82s, Mean loss:0.0757, lr:0.0025
+[ 2023-10-25 03:46:44,905 ] 
+[ 2023-10-25 03:57:24,127 ] Epoch: 60/80, Train accuracy: 36847/37640(97.90%), Train time: 638.96s, Mean loss:0.0639, lr:0.0025
+[ 2023-10-25 03:57:24,128 ] 
+[ 2023-10-25 03:57:24,221 ] Evaluating ARGMAX student quality in epoch 60/80
+[ 2023-10-25 03:59:06,915 ] Top-1 accuracy: 17666/18928(93.30%), Top-5 accuracy: 18811/18928(99.40%), Mean loss:0.2414
+[ 2023-10-25 03:59:06,915 ] Evaluating time: 102.69s, Speed: 184.32 sequnces/(second*GPU)
+[ 2023-10-25 03:59:06,915 ] 
+[ 2023-10-25 04:09:46,378 ] Epoch: 61/80, Train accuracy: 36977/37640(98.20%), Train time: 639.28s, Mean loss:0.0549, lr:0.0013
+[ 2023-10-25 04:09:46,378 ] 
+[ 2023-10-25 04:20:25,390 ] Epoch: 62/80, Train accuracy: 36979/37640(98.20%), Train time: 638.75s, Mean loss:0.0541, lr:0.0013
+[ 2023-10-25 04:20:25,390 ] 
+[ 2023-10-25 04:31:04,735 ] Epoch: 63/80, Train accuracy: 37025/37640(98.40%), Train time: 639.09s, Mean loss:0.0518, lr:0.0013
+[ 2023-10-25 04:31:04,735 ] 
+[ 2023-10-25 04:41:44,252 ] Epoch: 64/80, Train accuracy: 37009/37640(98.30%), Train time: 639.26s, Mean loss:0.0512, lr:0.0013
+[ 2023-10-25 04:41:44,252 ] 
+[ 2023-10-25 04:52:23,517 ] Epoch: 65/80, Train accuracy: 37084/37640(98.50%), Train time: 639.01s, Mean loss:0.0478, lr:0.0013
+[ 2023-10-25 04:52:23,517 ] 
+[ 2023-10-25 04:52:23,609 ] Evaluating ARGMAX student quality in epoch 65/80
+[ 2023-10-25 04:54:06,273 ] Top-1 accuracy: 17712/18928(93.60%), Top-5 accuracy: 18814/18928(99.40%), Mean loss:0.2448
+[ 2023-10-25 04:54:06,273 ] Evaluating time: 102.66s, Speed: 184.37 sequnces/(second*GPU)
+[ 2023-10-25 04:54:06,273 ] 
+[ 2023-10-25 05:04:45,605 ] Epoch: 66/80, Train accuracy: 37097/37640(98.60%), Train time: 638.97s, Mean loss:0.0454, lr:0.0006
+[ 2023-10-25 05:04:45,605 ] 
+[ 2023-10-25 05:04:45,708 ] Evaluating ARGMAX student quality in epoch 66/80
+[ 2023-10-25 05:06:28,508 ] Top-1 accuracy: 17684/18928(93.40%), Top-5 accuracy: 18809/18928(99.40%), Mean loss:0.2524
+[ 2023-10-25 05:06:28,508 ] Evaluating time: 102.80s, Speed: 184.13 sequnces/(second*GPU)
+[ 2023-10-25 05:06:28,508 ] 
+[ 2023-10-25 05:17:07,886 ] Epoch: 67/80, Train accuracy: 37102/37640(98.60%), Train time: 639.19s, Mean loss:0.0454, lr:0.0006
+[ 2023-10-25 05:17:07,886 ] 
+[ 2023-10-25 05:17:07,981 ] Evaluating ARGMAX student quality in epoch 67/80
+[ 2023-10-25 05:18:50,713 ] Top-1 accuracy: 17698/18928(93.50%), Top-5 accuracy: 18815/18928(99.40%), Mean loss:0.2514
+[ 2023-10-25 05:18:50,713 ] Evaluating time: 102.73s, Speed: 184.25 sequnces/(second*GPU)
+[ 2023-10-25 05:18:50,713 ] 
+[ 2023-10-25 05:29:29,859 ] Epoch: 68/80, Train accuracy: 37099/37640(98.60%), Train time: 638.97s, Mean loss:0.0451, lr:0.0006
+[ 2023-10-25 05:29:29,859 ] 
+[ 2023-10-25 05:29:29,951 ] Evaluating ARGMAX student quality in epoch 68/80
+[ 2023-10-25 05:31:12,676 ] Top-1 accuracy: 17710/18928(93.60%), Top-5 accuracy: 18822/18928(99.40%), Mean loss:0.2463
+[ 2023-10-25 05:31:12,676 ] Evaluating time: 102.72s, Speed: 184.26 sequnces/(second*GPU)
+[ 2023-10-25 05:31:12,676 ] 
+[ 2023-10-25 05:41:51,764 ] Epoch: 69/80, Train accuracy: 37114/37640(98.60%), Train time: 638.91s, Mean loss:0.0448, lr:0.0006
+[ 2023-10-25 05:41:51,764 ] 
+[ 2023-10-25 05:41:51,854 ] Evaluating ARGMAX student quality in epoch 69/80
+[ 2023-10-25 05:43:34,432 ] Top-1 accuracy: 17698/18928(93.50%), Top-5 accuracy: 18813/18928(99.40%), Mean loss:0.2487
+[ 2023-10-25 05:43:34,432 ] Evaluating time: 102.58s, Speed: 184.53 sequnces/(second*GPU)
+[ 2023-10-25 05:43:34,432 ] 
+[ 2023-10-25 05:54:13,637 ] Epoch: 70/80, Train accuracy: 37118/37640(98.60%), Train time: 639.02s, Mean loss:0.0427, lr:0.0006
+[ 2023-10-25 05:54:13,637 ] 
+[ 2023-10-25 05:54:13,727 ] Evaluating ARGMAX student quality in epoch 70/80
+[ 2023-10-25 05:55:56,513 ] Top-1 accuracy: 17707/18928(93.50%), Top-5 accuracy: 18817/18928(99.40%), Mean loss:0.2507
+[ 2023-10-25 05:55:56,513 ] Evaluating time: 102.78s, Speed: 184.15 sequnces/(second*GPU)
+[ 2023-10-25 05:55:56,513 ] 
+[ 2023-10-25 06:06:35,859 ] Epoch: 71/80, Train accuracy: 37162/37640(98.70%), Train time: 639.16s, Mean loss:0.0420, lr:0.0003
+[ 2023-10-25 06:06:35,860 ] 
+[ 2023-10-25 06:06:35,956 ] Evaluating ARGMAX student quality in epoch 71/80
+[ 2023-10-25 06:08:18,797 ] Top-1 accuracy: 17699/18928(93.50%), Top-5 accuracy: 18814/18928(99.40%), Mean loss:0.2460
+[ 2023-10-25 06:08:18,798 ] Evaluating time: 102.84s, Speed: 184.05 sequnces/(second*GPU)
+[ 2023-10-25 06:08:18,798 ] 
+[ 2023-10-25 06:18:58,072 ] Epoch: 72/80, Train accuracy: 37168/37640(98.70%), Train time: 639.10s, Mean loss:0.0407, lr:0.0003
+[ 2023-10-25 06:18:58,072 ] 
+[ 2023-10-25 06:18:58,162 ] Evaluating ARGMAX student quality in epoch 72/80
+[ 2023-10-25 06:20:40,956 ] Top-1 accuracy: 17726/18928(93.60%), Top-5 accuracy: 18822/18928(99.40%), Mean loss:0.2441
+[ 2023-10-25 06:20:40,956 ] Evaluating time: 102.79s, Speed: 184.14 sequnces/(second*GPU)
+[ 2023-10-25 06:20:40,956 ] 
+[ 2023-10-25 06:31:20,008 ] Epoch: 73/80, Train accuracy: 37158/37640(98.70%), Train time: 638.93s, Mean loss:0.0415, lr:0.0003
+[ 2023-10-25 06:31:20,008 ] 
+[ 2023-10-25 06:31:20,100 ] Evaluating ARGMAX student quality in epoch 73/80
+[ 2023-10-25 06:33:02,889 ] Top-1 accuracy: 17694/18928(93.50%), Top-5 accuracy: 18826/18928(99.50%), Mean loss:0.2490
+[ 2023-10-25 06:33:02,889 ] Evaluating time: 102.79s, Speed: 184.15 sequnces/(second*GPU)
+[ 2023-10-25 06:33:02,889 ] 
+[ 2023-10-25 06:43:42,226 ] Epoch: 74/80, Train accuracy: 37160/37640(98.70%), Train time: 639.16s, Mean loss:0.0413, lr:0.0003
+[ 2023-10-25 06:43:42,226 ] 
+[ 2023-10-25 06:43:42,323 ] Evaluating ARGMAX student quality in epoch 74/80
+[ 2023-10-25 06:45:25,041 ] Top-1 accuracy: 17694/18928(93.50%), Top-5 accuracy: 18816/18928(99.40%), Mean loss:0.2555
+[ 2023-10-25 06:45:25,041 ] Evaluating time: 102.72s, Speed: 184.27 sequnces/(second*GPU)
+[ 2023-10-25 06:45:25,041 ] 
+[ 2023-10-25 06:56:04,337 ] Epoch: 75/80, Train accuracy: 37191/37640(98.80%), Train time: 639.12s, Mean loss:0.0403, lr:0.0003
+[ 2023-10-25 06:56:04,338 ] 
+[ 2023-10-25 06:56:04,433 ] Evaluating ARGMAX student quality in epoch 75/80
+[ 2023-10-25 06:57:47,179 ] Top-1 accuracy: 17708/18928(93.60%), Top-5 accuracy: 18813/18928(99.40%), Mean loss:0.2476
+[ 2023-10-25 06:57:47,179 ] Evaluating time: 102.74s, Speed: 184.22 sequnces/(second*GPU)
+[ 2023-10-25 06:57:47,179 ] 
+[ 2023-10-25 07:08:26,486 ] Epoch: 76/80, Train accuracy: 37180/37640(98.80%), Train time: 639.12s, Mean loss:0.0400, lr:0.0003
+[ 2023-10-25 07:08:26,486 ] 
+[ 2023-10-25 07:08:26,580 ] Evaluating ARGMAX student quality in epoch 76/80
+[ 2023-10-25 07:10:09,294 ] Top-1 accuracy: 17728/18928(93.70%), Top-5 accuracy: 18821/18928(99.40%), Mean loss:0.2465
+[ 2023-10-25 07:10:09,295 ] Evaluating time: 102.71s, Speed: 184.28 sequnces/(second*GPU)
+[ 2023-10-25 07:10:09,295 ] 
+[ 2023-10-25 07:20:48,597 ] Epoch: 77/80, Train accuracy: 37159/37640(98.70%), Train time: 639.10s, Mean loss:0.0404, lr:0.0003
+[ 2023-10-25 07:20:48,597 ] 
+[ 2023-10-25 07:20:48,689 ] Evaluating ARGMAX student quality in epoch 77/80
+[ 2023-10-25 07:22:31,440 ] Top-1 accuracy: 17691/18928(93.50%), Top-5 accuracy: 18813/18928(99.40%), Mean loss:0.2530
+[ 2023-10-25 07:22:31,440 ] Evaluating time: 102.75s, Speed: 184.21 sequnces/(second*GPU)
+[ 2023-10-25 07:22:31,440 ] 
+[ 2023-10-25 07:33:11,066 ] Epoch: 78/80, Train accuracy: 37167/37640(98.70%), Train time: 639.44s, Mean loss:0.0405, lr:0.0003
+[ 2023-10-25 07:33:11,066 ] 
+[ 2023-10-25 07:33:11,157 ] Evaluating ARGMAX student quality in epoch 78/80
+[ 2023-10-25 07:34:53,884 ] Top-1 accuracy: 17728/18928(93.70%), Top-5 accuracy: 18824/18928(99.50%), Mean loss:0.2554
+[ 2023-10-25 07:34:53,884 ] Evaluating time: 102.73s, Speed: 184.26 sequnces/(second*GPU)
+[ 2023-10-25 07:34:53,884 ] 
+[ 2023-10-25 07:45:33,236 ] Epoch: 79/80, Train accuracy: 37183/37640(98.80%), Train time: 639.16s, Mean loss:0.0393, lr:0.0003
+[ 2023-10-25 07:45:33,236 ] 
+[ 2023-10-25 07:45:33,325 ] Evaluating ARGMAX student quality in epoch 79/80
+[ 2023-10-25 07:47:16,034 ] Top-1 accuracy: 17656/18928(93.30%), Top-5 accuracy: 18822/18928(99.40%), Mean loss:0.2595
+[ 2023-10-25 07:47:16,035 ] Evaluating time: 102.71s, Speed: 184.29 sequnces/(second*GPU)
+[ 2023-10-25 07:47:16,035 ] 
+[ 2023-10-25 07:57:54,987 ] Epoch: 80/80, Train accuracy: 37186/37640(98.80%), Train time: 638.77s, Mean loss:0.0387, lr:0.0003
+[ 2023-10-25 07:57:54,987 ] 
+[ 2023-10-25 07:57:55,078 ] Evaluating ARGMAX student quality in epoch 80/80
+[ 2023-10-25 07:59:37,811 ] Top-1 accuracy: 17682/18928(93.40%), Top-5 accuracy: 18819/18928(99.40%), Mean loss:0.2561
+[ 2023-10-25 07:59:37,812 ] Evaluating time: 102.73s, Speed: 184.25 sequnces/(second*GPU)
+[ 2023-10-25 07:59:37,812 ] 
+[ 2023-10-25 07:59:37,983 ] Done with training...
+[ 2023-10-25 08:00:19,101 ] Top-1 accuracy: 6986/7496(93.20%), Top-5 accuracy: 7454/7496(99.40%), Mean loss:0.2738
+[ 2023-10-25 08:00:19,102 ] Evaluating time: 41.11s, Speed: 460.44 sequnces/(second*GPU)
+[ 2023-10-25 08:00:19,102 ] 
+[ 2023-10-25 08:00:19,113 ] Confidence Interval (95.0%): [0.926, 0.949] with 7500 bootstraps.
+[ 2023-10-25 08:00:19,113 ] Done!

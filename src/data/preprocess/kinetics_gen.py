@@ -161,7 +161,7 @@ if __name__ == '__main__':
     data_path_ = ""
     out_folder_ = ""
 
-    part = ['val', 'train']
+    part = ['eval', 'train']
     for p in part:
         print('kinetics ', p)
         if not os.path.exists(out_folder_):

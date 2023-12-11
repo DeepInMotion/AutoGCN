@@ -1,0 +1,360 @@
+logs:
+  dir: logs/xview60_12_10_2023_10:17:12
+config: random_search
+cont_training: false
+cont_dir: logs/1001_xview60/debug
+mode: train_has
+model_type: has_ntu
+ddp: false
+gpus:
+- 0
+seed: 4567
+num_threads: 16
+report_freq: 5
+no_progress_bar: false
+work_dir: /lhome/fetempel/code/GNN_NAS/logs
+old_sp: false
+dataset: xview60
+dataset_args:
+  layout: ntu
+  num_frame: 300
+  inputs: JVBA
+  transform: true
+  normalize: false
+  root_folder: /work/fetempel/data/npy_files
+  ntu60_path: /work/fetempel/data/ntu/raw/ntu60
+  ntu120_path: /work/fetempel/data/ntu/raw/ntu120
+  filter: true
+  filter_order: 8
+batch_size: 16
+num_workers: 12
+pin_memory: true
+num_frame: 288
+use_baseline: false
+reward_map_fn: None
+train_epochs: 25
+warmup_rollouts: 20
+warmup_epochs: 0
+argmax_epochs: 75
+rollouts: 20
+eval_interval: 5
+policy_deletion: true
+policy_updates: 3
+policy_threshold: 0.2
+random_search: true
+random_epochs_half: 25
+random_iter: 50
+replay_mem: true
+replay_batch: 15
+replay_cap: 100
+early_stop: true
+early_stop_epoch: 10
+early_stop_acc: 0.5
+early_stop_no_impr: 6
+proxy_mode: false
+proxy_dir: /Users/felixtempel/Desktop/2023-04-30 15-21-34
+controller_lr: 0.001
+controller_dir: /controller_weights/
+optimizer_args:
+  SGD:
+    momentum: 0.9
+    nesterov: true
+  Adam:
+    betas:
+    - 0.9
+    - 0.99
+    amsgrad: true
+  RMSprop:
+    centered: true
+lr_scheduler: true
+sched_args:
+  warm_up: 10
+  start_factor: 0.25
+  step_lr:
+  - 30
+  - 50
+  - 60
+  - 65
+  - 70
+  gamma: 0.5
+arch:
+  blocks_in:
+  - 1
+  - 2
+  - 3
+  depth_in:
+  - 1
+  - 2
+  stride_in:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  blocks_main:
+  - 1
+  - 2
+  depth_main:
+  - 1
+  - 2
+  stride_main:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  temp_win:
+  - 3
+  - 5
+  - 7
+  graph_dist:
+  - 2
+  - 3
+  - 4
+  expand_ratio:
+  - 1.05
+  - 1.1
+  - 1.15
+  reduct_ratio:
+  - 1.225
+  - 1.25
+  - 1.275
+  - 1.3
+  - 1.325
+  - 1.35
+  scale_in:
+  - 0.4
+  - 0.6
+  - 0.8
+  scale_main:
+  - 1.2
+  - 1.4
+  - 2.0
+  - 2.5
+  - 3.0
+  act:
+  - relu
+  - relu6
+  - hardswish
+  - swish
+  att_lay:
+  - stja
+  - ca
+  - fa
+  - ja
+  - pa
+  conv_lay:
+  - Basic
+  - Bottleneck
+  - Sep
+  - SG
+  - V3
+  - Shuffle
+  init_lay:
+  - 64
+  - 96
+  - 128
+  - 156
+  drop_prob:
+  - 0.15
+  - 0.2
+  - 0.25
+  - 0.3
+arch_2:
+  init_lay:
+  - 64
+  - 96
+  - 128
+  - 156
+  act:
+  - relu
+  - relu6
+  - hardswish
+  - swish
+  att_lay:
+  - stja
+  - ca
+  - fa
+  - ja
+  - pa
+  conv_lay:
+  - Basic
+  - Bottleneck
+  - Sep
+  - SG
+  - V3
+  - Shuffle
+  drop_prob:
+  - 0.15
+  - 0.2
+  - 0.25
+  - 0.3
+  blocks_in:
+  - 1
+  - 2
+  depth_in:
+  - 1
+  - 2
+  stride_in:
+  - 1
+  - 2
+  - 3
+  scale_in:
+  - 0.4
+  - 0.6
+  - 0.8
+  temp_win_in:
+  - 3
+  - 5
+  - 7
+  graph_dist_in:
+  - 2
+  - 3
+  - 4
+  reduct_ratio_in:
+  - 1.225
+  - 1.25
+  - 1.275
+  - 1.3
+  - 1.325
+  - 1.35
+  blocks_main:
+  - 2
+  - 3
+  - 4
+  - 5
+  depth_main:
+  - 1
+  - 2
+  - 3
+  - 4
+  graph_dist_main:
+  - 7
+  - 9
+  - 11
+  shrinkage_main:
+  - 1
+  - 2
+  - 4
+  - 6
+  residual_main:
+  - true
+  - false
+  adaptive_main:
+  - true
+  - false
+hyper:
+  lr:
+  - 0.1
+  - 0.05
+  - 0.01
+  optimizers:
+  - SGD
+  - Adam
+  - RMSprop
+  weight_decay:
+  - 0.0
+  - 0.01
+  - 0.001
+  - 0.0001
+  momentum:
+  - 0.5
+  - 0.9
+  - 0.99
+  batch_size:
+  - 8
+  - 16
+  - 24
+debug: false
+debug_argmax_epoch: 1
+debug_train_epochs: 1
+debug_warmup_rollouts: 1
+debug_rollouts: 5
+debug_load_small_set: true
+dev:
+  blocks_in:
+  - 2
+  depth_in:
+  - 2
+  stride_in:
+  - 1
+  blocks_main:
+  - 2
+  depth_main:
+  - 3
+  stride_main:
+  - 2
+  temp_win:
+  - 5
+  graph_dist:
+  - 2
+  expand_ratio:
+  - 1.35
+  reduct_ratio:
+  - 1.2
+  scale_in:
+  - 0.8
+  scale_main:
+  - 2
+  act:
+  - swish
+  att_lay:
+  - stja
+  conv_lay:
+  - SG
+  init_lay:
+  - 64
+  drop_prob:
+  - 0.25
+dev_2:
+  init_lay:
+  - 96
+  act:
+  - swish
+  att_lay:
+  - stja
+  conv_lay:
+  - Sep
+  drop_prob:
+  - 0.3
+  blocks_in:
+  - 1
+  depth_in:
+  - 2
+  scale_in:
+  - 0.8
+  stride_in:
+  - 1
+  temp_win_in:
+  - 5
+  graph_dist_in:
+  - 3
+  reduct_ratio_in:
+  - 1.25
+  blocks_main:
+  - 3
+  depth_main:
+  - 3
+  graph_dist_main:
+  - 9
+  shrinkage_main:
+  - 4
+  residual_main:
+  - true
+  adaptive_main:
+  - true
+hyper_dev:
+  lr:
+  - 0.05
+  - 0.1
+  optimizers:
+  - Adam
+  - SGD
+  weight_decay:
+  - 0.0001
+  - 0.1
+  - 0.002
+  momentum:
+  - 0.9
+  batch_size:
+  - 16
