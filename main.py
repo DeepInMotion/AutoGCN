@@ -33,8 +33,6 @@ def main():
 
         from src.train_has import TrainerHASNTU
         trainer_has = TrainerHASNTU(args)
-        if args.proxy_mode:
-            trainer_has.proxy_student(args.proxy_dir)
         if args.random_search:
             trainer_has.random_search()
         else:
