@@ -16,6 +16,7 @@ setup(
         'thop==0.1.1.post2209072238',
         'pynvml==11.4.1',
         'scipy==1.9.1',
-        'tensorboard==2.15.2'
+        'tensorboard==2.15.2',
+        'tensorflow==2.15.0'
     ],
 )

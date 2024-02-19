@@ -8,3 +8,4 @@ omegaconf==2.2.3
 pynvml==11.4.1
 setuptools==60.2.0
 tensorboard==2.15.2
+tensorflow==2.15.0
