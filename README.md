@@ -5,7 +5,7 @@ Implementation of [AutoGCN - Towards Generic Human Activity Recognition with Neu
 
 ### Libraries
 
-The code is based on Python >= 3.10 and PyTorch (1.13.0). Run the following command to install all the required packages 
+The code is based on Python >= 3.10 and PyTorch (2.0.1). Run the following command to install all the required packages 
 from setup.py:
 ```
 pip install .
@@ -53,7 +53,7 @@ The results reported in our study are stored in the `./logs` folder.
 | 1003   | 20         | 95.1         | 88.3        |
 | 1004   | 30         | 95.5         | 86.4        |
 
-
+The policy values figures for the different experiments are also listed in the respective folders.
 There are also predefined configs stored in there, which can be used :).
 
 ## Citation and Contact
