@@ -11,7 +11,7 @@ setup(
         'tqdm==4.64.0',
         'numpy==1.23.2',
         'omegaconf==2.2.3',
-        'setuptools==60.2.0',
+        'setuptools==65.5.1',
         'matplotlib==3.5.3',
         'thop==0.1.1.post2209072238',
         'pynvml==11.4.1',
