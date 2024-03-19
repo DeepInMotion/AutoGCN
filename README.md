@@ -1,7 +1,7 @@
 AutoGCN
 ==============================
 
-Implementation of [AutoGCN - Towards Generic Human Activity Recognition with Neural Architecture Search](https://arxiv.org/abs/2402.01313).
+Implementation of [AutoGCN - Towards Generic Human Activity Recognition with Neural Architecture Search](https://ieeexplore.ieee.org/document/10472042).
 
 ### Libraries
 
@@ -62,10 +62,10 @@ If you have any questions, feel free to send an email to `felix.e.f.tempel@ntnu.
 
 Please cite our paper if you use this code in your research. :)
 ```
-@article{tempelAutoGCNGenericHuman2024,
-	title = {{AutoGCN} -- {Towards} {Generic} {Human} {Activity} {Recognition} with {Neural} {Architecture} {Search}},
-	author = {Tempel, Felix and Strümke, Inga and Ihlen, Espen Alexander F.},
-	year = {2024},
-	note = {arXiv:2402.01313 [cs]},
-}
+@ARTICLE{10472042,
+  author={Tempel, Felix and Ihlen, Espen Alexander F. and Strümke, Inga},
+  journal={IEEE Access}, 
+  title={AutoGCN - Towards Generic Human Activity Recognition with Neural Architecture Search}, 
+  year={2024},
+  doi={10.1109/ACCESS.2024.3377103}}
 ```
